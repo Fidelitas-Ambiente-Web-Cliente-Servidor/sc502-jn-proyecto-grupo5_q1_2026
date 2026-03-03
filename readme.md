@@ -37,7 +37,15 @@ En camelCase las variable se declaran con las palabras sin espacios, capitalizan
 | JavaScript | camelCase | Se debe de dejar la primera palabra en minuscula y los siguientes sin espacios y con la primera en mayuscula. <br> Ejemplo:<br>**miVariableEjemplo**<br>**miVariable**<br>**varible**
 | PHP | camelCase | Se debe de dejar la primera palabra en minuscula y los siguientes sin espacios y con la primera en mayuscula. <br> Ejemplo:<br>**miVariableEjemplo**<br>**miVariable**<br>**varible**
 
-**Nota: Para ambos lenguajes  (PHP-JavaScript) cuando se utilicen variables CONSTANTES, se deben de declarar en camelCase pero todas las palabras en mayusculas** <br>Ejemplo <br> MIVARIABLECONSTANTE
+**Nota: Para ambos lenguajes  (PHP-JavaScript) cuando se utilicen variables CONSTANTES, se deben de declarar en UPPER_SNAKE_CASE pero todas las palabras en mayusculas** 
+<br>Ejemplo <br> <br> MI_VARIABLE_CONSTANTE
++ En JavaScript se declara: <br>
+const MI_VARIABLE_CONSTANTE = VALOR;
+<br>
++ En PHP se declara: <br>
+define('MI_VARIABLE_CONSTANTE', VALOR);
+<br>
+
 
 **Nota 2: Todos los CSS deben de llevar el archivo **normalize.css** ya que este genera toda la armonía de nuestra pagina web, así como el uso de las variables de colores que se van a utilizar en este proyecto**
 
