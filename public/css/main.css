@@ -1,0 +1,15 @@
+/*Siempre en este orden de importación:
+Variables
+normalize
+Layout
+Componentes
+Media queries*/
+
+@import url("/public/css/base/variables.css");
+@import url("/public/css/base/normalize.css");
+/* layouts */
+@import url("/public/css/layout/grid.css");
+@import url("/public/css/layout/header.css");
+@import url("/public/css/layout/navbar.css");
+@import url("/public/css/pages/dashboard.css")
+
