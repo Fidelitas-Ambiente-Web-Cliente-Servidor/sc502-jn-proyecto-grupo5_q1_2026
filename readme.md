@@ -1,3 +1,10 @@
+### Vistas de FIGMA
+* Vista Cliente: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo
+* Vista Vendedor: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo?preview-route=%2Fvendedor%2Finventario
+* Vista Administrador: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo?p=f&preview-route=%2Fadmin%2Fdashboard
+
+
+
 ## Nomenclatura y Estandar para las convenciones a definir las clases y ID en el proyecto
 La información a continuación sirve para llevar un estandar en la creación de convenciones de clases en el ***HTML*** para el ***CSS*** aso como también la creación correcta en los ***id*** con el fin de poder hacer una correcta manipulación con el uso de ***JS***
 ***Es importante cumplir con este estandar y nomenclaturas para poder tener un entorno concruente y facil de mantener por los desarrolladores***
