@@ -11,49 +11,65 @@
         <h1 class="header__title">ONLY WAY</h1>
         <nav class="navbar">
             <ul class="navbar__items">
-                <li class="navbar__item navbar__item--active"><a class="navbar__link" href="#">Dashboard</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Gestión de Usuarios</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Gestión de Inventarios</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Gestión de Pedidos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Gestión de Categorías</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Gestión de Pagos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#">Salir</a></li>
+                <li class="navbar__item navbar__item--active"><a class="navbar__link" href="#"><i class="bi bi-columns-gap"></i>Dashboard</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-box-seam navbar__icon"></i>Gestión de Inventarios</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a></li>
             </ul>
         </nav>
     </header>
-    <main class="dashdoard">
-        <hgroup class="dashboard__header">
+    <main class="dashboard">
+        <header class="dashboard__header">
             <h2 class="dashboard__title">Dashboard</h2>
             <p class="dashboard__text">Bienvendio, Administrador</p>
-        </hgroup>
+        </header>
         <section class="cards">
             <article class="card">
-                <hgroup class="card__header">
+                <header class="card__header">
                     <h3 class="card__title">Total de Ventas</h3>
-                </hgroup>
-                <p class="card__text">¢2,450.000</p>
-                <span class="card__variation"><i></i>+12%</span>
+                    <i class="bi bi-currency-dollar"></i>
+                </header>
+                <div class="card__content">
+                    <p class="card__text">¢2,450.000</p>
+                <span class="card__variation"><i class="bi bi-graph-up-arrow"></i>
++12%</span>
+                </div>
             </article>
             <article class="card">
                 <hgroup class="card__header">
                     <h3 class="card__title">Total de Pedidos</h3>
+                    <i class="bi bi-box-seam"></i>
                 </hgroup>
-                <p class="card__text">156</p>
-                <span class="card__variation"><i></i>+8%</span>
+                <div class="card__content">
+                    <p class="card__text">156</p>
+                <span class="card__variation"><i class="bi bi-graph-up-arrow"></i>
++8%</span>
+                </div>
             </article>
             <article class="card">
                 <hgroup class="card__header">
                     <h3 class="card__title">Usuarios Registrados</h3>
+                    <i class="bi bi-people navbar__icon"></i>
                 </hgroup>
-                <p class="card__text">342</p>
-                <span class="card__variation"><i></i>+15%</span>
+                <div class="card__content">
+                    <p class="card__text">342</p>
+                <span class="card__variation"><i class="bi bi-graph-up-arrow"></i>
++15%</span>
+                </div>
             </article>
             <article class="card">
-                <hgroup class="card__header">
+                <header class="card__header">
                     <h3 class="card__title">Productos en Stock</h3>
-                </hgroup>
-                <p class="card__text">89</p>
-                <span class="card__variation"><i></i>+5%</span>
+                    <i class="bi bi-box-seam navbar__icon"></i>
+                </header>
+                <div class="card__content">
+                    <p class="card__text">89</p>
+                <span class="card__variation"><i class="bi bi-graph-up-arrow"></i>
++5%</span>
+                </div>
             </article>
         </section>
         <table>
