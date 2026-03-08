@@ -15,4 +15,5 @@ Media queries*/
 @import url("/public/css/pages/dashboard.css");
 /* Componentes */
 @import url("/public/css/components/cards.css");
+@import url("/public/css/components/table.css");
 

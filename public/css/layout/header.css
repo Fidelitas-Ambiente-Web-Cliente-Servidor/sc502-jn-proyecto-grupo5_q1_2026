@@ -1,5 +1,5 @@
 .header {
-    background-color: var(--color-secundario);
+    background-color:var(--color-secundario);
     padding: 20px var(--padding-laterales);
     height: 100vh;
 }

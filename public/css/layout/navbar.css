@@ -19,7 +19,7 @@
 
 .navbar__item--active {
     background-color: var(--color-primario);
-    color:var(--color-secundario);
+    color: var(--color-secundario);
     border-radius: 10px;
 }
 

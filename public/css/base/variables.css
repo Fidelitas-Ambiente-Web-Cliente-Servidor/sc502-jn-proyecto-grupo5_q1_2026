@@ -1,15 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     box-sizing: border-box;
-    --color-primario: #CC0000;
-    --color-secundario:#FFF;
-    --color-fondo:#F9FAFB;
-    --color-terciario:##0A0A0A;
-    --color-textos-secundarios:#586170;
-    --color-activo:#00cc22;
-    --color-pendiente:#ccbe00; 
+    /*Solo usarlos si se necesitan hacer transparencias*/
+    --color-primario-puro:204, 0, 0; /* rgb(204,0,0) */
+    --color-secundario-puro:255, 255, 255; /* rgb(255, 255, 255) */
+    --color-fondo-puro:249, 250, 251; /* rgb(249, 250, 251) */
+    --color-terciario-puro:10, 10, 10; /* rgb(10, 10, 10) */
+    --color-textos-secundarios-puro:88, 97, 112; /* rgb(88, 97, 112) */
+    --color-activo-puro:0, 204, 34; /* rgb(0, 204, 34) */
+    --color-pendiente-puro:204, 190, 0; /* rgb(204, 190, 0) */
+    --color-enproceso-puro:21, 93, 252; /* rgb(21, 93, 252) */
+    --color-morado-puro:152, 16, 250; /* rgb(152, 16, 250) */
+    --color-anaranjado-puro:245, 73, 0; /* rgb(245, 73, 0) */
+    
+    /*Estas son las variables que se usan en el sitio*/
+    --color-primario: rgb(var(--color-primario-puro));
+    --color-secundario:rgb(var(--color-secundario-puro));
+    --color-fondo:rgb(var(--color-fondo-puro));
+    --color-terciario:rgb(var(--color-terciario-puro));
+    --color-textos-secundarios:rgb(var(--color-textos-secundarios-puro));
+    --color-activo:rgb(var(--color-activo-puro));
+    --color-pendiente:rgb(var(--color-pendiente-puro));
+    --color-enproceso:rgb(var(--color-enproceso-puro));
+    --color-morado:rgb(var(--color-morado-puro));
+    --color-anaranjado:rgb(var(--color-anaranjado-puro));
 
-    /* Fuentes las estamos tomando de google font
+    /* Fuentes las estamos tomando de google fontZ
     De 100 a 900 */
     --fuente-titulos-botones:"Poppins", sans-serif;
     /* De 100 a 900 */
