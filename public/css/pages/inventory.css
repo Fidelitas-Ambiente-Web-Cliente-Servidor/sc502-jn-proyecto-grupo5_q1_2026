@@ -1,0 +1,39 @@
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header__title {
+    font-family: var(--fuente-titulos-botones);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-terciario);
+}
+
+.page-header__subtitle {
+    font-family: var(--fuente-textos);
+    font-size: 0.875rem;
+    color: var(--color-textos-secundarios);
+}
+
+.inventory-filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.inventory-filters__search {
+    padding: 8px 16px;
+    border: 1px solid var(--color-terciario);
+    border-radius: 6px;
+    font-family: var(--fuente-textos);
+    font-size: 0.875rem;
+    flex: 1;
+}
+
+.inventory-filters__dropdown {
+    padding: 8px 16px;
+    border: 1px solid var(--color-terciario);
+    border-radius: 6px;
+    font-family: var(--fuente-textos);
+    font-size: 0.875rem;
+}

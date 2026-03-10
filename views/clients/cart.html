@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONLY WAY - Carrito</title>
+    <link rel="stylesheet" href="/public/css/main.css" />
+</head>
+
+<body>
+    <!-- header -->
+    <!-- nav -->
+    <main class="cart-page">
+        <h1 class="cart-page__title">Carrito</h1>
+        <div class="cart-page__content">
+
+            <section class="cart-page__left">
+                <table class="cart-table">
+                    <thead class="cart-table__header">
+                        <tr>
+                            <th class="cart-table__header-cell">Producto</th>
+                            <th class="cart-table__header-cell">Precio Unitario</th>
+                            <th class="cart-table__header-cell">Cantidad</th>
+                            <th class="cart-table__header-cell">Total</th>
+                            <th class="cart-table__header-cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart-table__row">
+                            <td class="cart-table__cell">
+                                <div class="cart-product">
+                                    <img class="cart-product__image" src="leggings.jpg" alt="LegginsYoga" />
+                                    <div class="cart-product__info">
+                                        <span class="cart-product__name">Leggings Yoga Fit</span>
+                                        <span class="cart-product__detail">Talla: S | Color: Negro</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cart-table__cell cart-table__cell--price">₡14.000</td>
+                            <td class="cart-table__cell">
+                                <div class="cart-quantity">
+                                    <button class="cart-quantity__btn" id="btn-decrease-1">−</button>
+                                    <span class="cart-quantity__value">1</span>
+                                    <button class="cart-quantity__btn" id="btn-increase-1">+</button>
+                                </div>
+                            </td>
+                            <td class="cart-table__cell cart-table__cell--total">₡14.000</td>
+                            <td class="cart-table__cell">
+                                <button class="cart-table__remove-btn" id="btn-remove-1">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="cart-page-actions">
+                    <div class="cart-coupon">
+                        <input class="cart-coupon__input" id="input-coupon" type="text" placeholder="Código de cupón" />
+                        <button class="cart-coupon__btn" id="btn-apply-coupon">Aplicar Cupón</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="cart-page__right">
+                <div class="cart-summary">
+                    <h2 class="cart-summary__title">Resumen del carrito <i class="bi bi-bag"></i></h2>
+                    <div class="cart-summary__row">
+                        <span class="cart-summary__label">Subtotal:</span>
+                        <span class="cart-summary__value" id="summary-subtotal">₡14.000</span>
+                    </div>
+                    <div class="cart-summary__row">
+                        <span class="cart-summary__label">Envío:</span>
+                        <span class="cart-summary__value cart-summary__value--shipping">Calcular envío</span>
+                    </div>
+                    <div class="cart-summary__row cart-summary__row--total">
+                        <span class="cart-summary__label">Total:</span>
+                        <span class="cart-summary__value" id="summary-total">₡14.000</span>
+                    </div>
+                    <a class="cart-summary__checkout-btn" href="checkout.html">
+                        Finalizar Compra <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+    <!-- footer -->
+    <script src="/public/js/cart.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Only Way — Pedidos</title>
+  <link rel="stylesheet" href="/public/css/main.css" />
+</head>
+
+<body class="grid--dos-columnas">
+
+  <header class="header header--vertical">
+    <h1 class="header__title">ONLY WAY</h1>
+    <nav class="navbar">
+      <ul class="navbar__items">
+        <li class="navbar__item">
+          <a class="navbar__link" href="inventory.html"><i class="bi bi-box-seam navbar__icon"></i>Inventario</a>
+        </li>
+        <li class="navbar__item navbar__item--active">
+          <a class="navbar__link" href="orders.html"><i class="bi bi-cart navbar__icon"></i>Pedidos</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="login.html"><i class="bi bi-box-arrow-right navbar__icon"></i>Cerrar Sesión</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="panel-content">
+    <header class="page-header">
+      <h1 class="page-header__title">Pedidos</h1>
+      <p class="page-header__subtitle">Consulte el estado de los pedidos</p>
+    </header>
+
+    <div class="orders-filters">
+      <input class="orders-filters__search" id="input-search-orders" type="text" placeholder="Buscar pedido..." />
+      <select class="orders-filters__dropdown" id="input-filter-status">
+        <option value="all">Todos los estados</option>
+        <option value="Completado">Completado</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
+
+    <table class="table">
+      <hgroup class="table__titles">
+        <h3 class="table__title">Gestión de Pedidos</h3>
+      </hgroup>
+      <thead class="table__header">
+        <tr class="header__row">
+          <th class="table-header__title">ID</th>
+          <th class="table-header__title">Cliente</th>
+          <th class="table-header__title">Fecha</th>
+          <th class="table-header__title">Total</th>
+          <th class="table-header__title">Estado</th>
+          <th class="table-header__title">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="table__content" id="orders-table-body">
+        <tr class="content__row">
+          <td class="content__cell">#101</td>
+          <td class="content__cell">Manuel Quiroz</td>
+          <td class="content__cell">05-02-2025</td>
+          <td class="content__cell">₡45 000</td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#102</td>
+          <td class="content__cell">Lucia Cabrera</td>
+          <td class="content__cell">07-02-2025</td>
+          <td class="content__cell">₡72 000</td>
+          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#256</td>
+          <td class="content__cell">Miguel Herrera</td>
+          <td class="content__cell">12-02-2025</td>
+          <td class="content__cell">₡25 000</td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#232</td>
+          <td class="content__cell">Hector Gomez</td>
+          <td class="content__cell">15-02-2025</td>
+          <td class="content__cell">₡10 000</td>
+          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#365</td>
+          <td class="content__cell">Fabian Cubero</td>
+          <td class="content__cell">21-02-2025</td>
+          <td class="content__cell">₡23 700</td>
+          <td class="content__cell"><span class="table__estado table__estado--inactivo">Cancelado</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script src="/public/js/orders.js" defer></script>
+</body>
+
+</html>
