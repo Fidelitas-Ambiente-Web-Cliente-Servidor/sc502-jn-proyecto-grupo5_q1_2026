@@ -1,0 +1,59 @@
+.gestion-inventarios {
+    background-color: var(--color-fondo);
+    width: 100%;
+    padding: 40px 50px;
+}
+
+.gestion-inventarios__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.gestion-inventarios__header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.gestion-inventarios__title {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-terciario);
+}
+
+.gestion-inventarios__text {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-textos-secundarios);
+}
+
+/* Botón agregar producto */
+.btn-agregar-producto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-agregar-producto:hover {
+    opacity: 0.85;
+}
+
+.btn-agregar-producto__icon {
+    font-size: 18px;
+    font-weight: 400;
+}
