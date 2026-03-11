@@ -15,29 +15,34 @@
     <nav class="navbar">
       <ul class="navbar__items">
         <li class="navbar__item navbar__item--active">
-          <a class="navbar__link" href="inventory.html"><i class="bi bi-box-seam navbar__icon"></i>Inventario</a>
+          <a class="navbar__link" href="inventory.html">
+            <i class="bi bi-box-seam navbar__icon"></i>Inventario
+          </a>
         </li>
         <li class="navbar__item">
-          <a class="navbar__link" href="orders.html"><i class="bi bi-cart navbar__icon"></i>Pedidos</a>
+          <a class="navbar__link" href="orders.html">
+            <i class="bi bi-cart navbar__icon"></i>Pedidos
+          </a>
         </li>
         <li class="navbar__item">
-          <a class="navbar__link" href="login.html"><i class="bi bi-box-arrow-right navbar__icon"></i>Cerrar Sesión</a>
+          <a class="navbar__link" href="login.html">
+            <i class="bi bi-box-arrow-right navbar__icon"></i>Cerrar Sesión
+          </a>
         </li>
       </ul>
     </nav>
   </header>
 
-  <main class="panel-content">
-    <header class="page-header">
-      <h1 class="page-header__title">Inventario</h1>
-      <p class="page-header__subtitle">Consulte el estado del inventario</p>
+  <main class="dashboard">
+    <header class="dashboard__header">
+      <h1 class="dashboard__title">Inventario</h1>
+      <p class="dashboard__text">Consulta el estado del inventario</p>
     </header>
 
-    <div class="inventory-filters">
-      <input class="inventory-filters__search" id="input-search-inventory" type="text"
-        placeholder="Buscar producto..." />
-      <select class="inventory-filters__dropdown" id="input-filter-category">
-        <option value="all">Todas las categorias</option>
+    <div class="filters">
+      <input class="filters__search" id="input-search-inventory" type="text" placeholder="Buscar producto..." />
+      <select class="filters__dropdown" id="input-filter-category">
+        <option value="all">Todas las categorías</option>
         <option value="HOMBRE">Hombre</option>
         <option value="MUJER">Mujer</option>
         <option value="INFANTIL">Infantil</option>
@@ -53,84 +58,105 @@
         <tr class="header__row">
           <th class="table-header__title">ID</th>
           <th class="table-header__title">Nombre</th>
-          <th class="table-header__title">Categoria</th>
+          <th class="table-header__title">Categoría</th>
           <th class="table-header__title">Cantidad</th>
           <th class="table-header__title">Estado</th>
         </tr>
       </thead>
-      <tbody class="table__content" id="inventory-table-body">
+      <tbody class="table__content">
         <tr class="content__row">
           <td class="content__cell">I001</td>
           <td class="content__cell">Conjunto Infantil Deportivo</td>
           <td class="content__cell">INFANTIL</td>
           <td class="content__cell">3</td>
-          <td class="content__cell"><span class="table__estado table__estado--pendiente">Bajo Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">I002</td>
           <td class="content__cell">Camisa Infantil Deportiva</td>
           <td class="content__cell">INFANTIL</td>
           <td class="content__cell">0</td>
-          <td class="content__cell"><span class="table__estado table__estado--inactivo">Sin Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--inactivo">Sin Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">H001</td>
           <td class="content__cell">Zapatillas Running Pro Max</td>
           <td class="content__cell">HOMBRE</td>
           <td class="content__cell">0</td>
-          <td class="content__cell"><span class="table__estado table__estado--inactivo">Sin Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--inactivo">Sin Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">H002</td>
           <td class="content__cell">Camisa Deportiva Premium Hombre</td>
           <td class="content__cell">HOMBRE</td>
           <td class="content__cell">71</td>
-          <td class="content__cell"><span class="table__estado table__estado--completado">En Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--completado">En Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">H003</td>
           <td class="content__cell">Chaqueta Deportiva Hombre</td>
           <td class="content__cell">HOMBRE</td>
           <td class="content__cell">53</td>
-          <td class="content__cell"><span class="table__estado table__estado--completado">En Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--completado">En Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">M001</td>
           <td class="content__cell">Leggings Fit</td>
           <td class="content__cell">MUJER</td>
           <td class="content__cell">33</td>
-          <td class="content__cell"><span class="table__estado table__estado--completado">En Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--completado">En Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">M003</td>
           <td class="content__cell">Blusa Deportiva</td>
           <td class="content__cell">MUJER</td>
           <td class="content__cell">66</td>
-          <td class="content__cell"><span class="table__estado table__estado--completado">En Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--completado">En Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">M029</td>
           <td class="content__cell">Brasier Deportivo</td>
           <td class="content__cell">MUJER</td>
           <td class="content__cell">7</td>
-          <td class="content__cell"><span class="table__estado table__estado--pendiente">Bajo Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">A065</td>
           <td class="content__cell">Gorra Deportiva</td>
           <td class="content__cell">ACCESORIOS</td>
           <td class="content__cell">12</td>
-          <td class="content__cell"><span class="table__estado table__estado--pendiente">Bajo Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+          </td>
         </tr>
         <tr class="content__row">
           <td class="content__cell">M063</td>
           <td class="content__cell">Leggings Pro Fit</td>
           <td class="content__cell">MUJER</td>
           <td class="content__cell">2</td>
-          <td class="content__cell"><span class="table__estado table__estado--pendiente">Bajo Stock</span></td>
+          <td class="content__cell">
+            <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+          </td>
         </tr>
       </tbody>
     </table>
+
   </main>
 
   <script src="/public/js/inventory.js" defer></script>

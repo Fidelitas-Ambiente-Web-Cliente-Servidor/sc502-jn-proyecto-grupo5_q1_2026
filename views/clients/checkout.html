@@ -13,18 +13,21 @@
     <!-- nav -->
     <main class="checkout-page">
         <h1 class="checkout-page__title">Finalizar Pago</h1>
+
         <div class="checkout-banner">
             <p class="checkout-banner__text">
-                Ya sos cliente?
+                ¿Ya sos cliente?
                 <a class="checkout-banner__link" href="#">Hacé click aquí para cargar tus datos</a>
             </p>
         </div>
+
         <div class="checkout-page__content">
-            <section class="checkout-page__left checkout-billing-form">
+
+            <section class="checkout-page__form checkout-billing-form">
                 <h2 class="checkout-billing-form__title">Detalles de Facturación</h2>
 
                 <div class="checkout-billing-form__field">
-                    <span class="checkout-billing-form__label">Requiere Factura Electrónica?</span>
+                    <span class="checkout-billing-form__label">¿Requiere Factura Electrónica?</span>
                     <div class="checkout-billing-form__radio-group">
                         <label class="checkout-billing-form__radio-label">
                             <input type="radio" name="invoiceRequired" value="si" /> Sí
@@ -34,19 +37,22 @@
                         </label>
                     </div>
                 </div>
+
                 <div class="checkout-billing-form__field">
-                    <label class="checkout-billing-form__label" for="input-id-type">Tipo Identificación</label>
+                    <label class="checkout-billing-form__label" for="input-id-type">Tipo de Identificación</label>
                     <select class="checkout-billing-form__select" id="input-id-type" name="idType">
                         <option value="fisica">Cédula Física</option>
                         <option value="juridica">Cédula Jurídica</option>
                         <option value="dimex">DIMEX</option>
                     </select>
                 </div>
+
                 <div class="checkout-billing-form__field">
                     <label class="checkout-billing-form__label" for="input-identification">Identificación*</label>
                     <input class="checkout-billing-form__input" type="text" id="input-identification"
                         name="identification" />
                 </div>
+
                 <div class="checkout-billing-form__row">
                     <div class="checkout-billing-form__field">
                         <label class="checkout-billing-form__label" for="input-name">Nombre*</label>
@@ -57,6 +63,7 @@
                         <input class="checkout-billing-form__input" type="text" id="input-lastname" name="lastname" />
                     </div>
                 </div>
+
                 <div class="checkout-billing-form__row">
                     <div class="checkout-billing-form__field">
                         <label class="checkout-billing-form__label" for="input-phone">Teléfono*</label>
@@ -68,6 +75,7 @@
                         <input class="checkout-billing-form__input" type="email" id="input-email" name="email" />
                     </div>
                 </div>
+
                 <div class="checkout-billing-form__row">
                     <div class="checkout-billing-form__field">
                         <label class="checkout-billing-form__label" for="input-province">Provincia*</label>
@@ -83,32 +91,32 @@
                         </select>
                     </div>
                     <div class="checkout-billing-form__field">
-                        <label class="checkout-billing-form__label" for="input-canton">Cantón-Distrito*</label>
+                        <label class="checkout-billing-form__label" for="input-canton">Cantón - Distrito*</label>
                         <input class="checkout-billing-form__input" type="text" id="input-canton" name="canton" />
                     </div>
                 </div>
+
                 <div class="checkout-billing-form__field">
                     <label class="checkout-billing-form__label" for="input-address">Dirección de la calle*</label>
                     <textarea class="checkout-billing-form__textarea" id="input-address" name="address"
                         rows="4"></textarea>
                 </div>
             </section>
+            <aside class="checkout-page__summary">
+                <div class="summary">
+                    <h2 class="summary__title">Tu pedido</h2>
 
-            <aside class="checkout-page__right">
-                <div class="checkout-summary">
-                    <h2 class="checkout-summary__title">Tu pedido</h2>
-
-                    <div class="checkout-summary__row">
-                        <span class="checkout-summary__product">Leggings Yoga Fit x 1</span>
-                        <span class="checkout-summary__value">₡14.000</span>
+                    <div class="summary__row">
+                        <span class="summary__product">Leggings Yoga Fit x 1</span>
+                        <span class="summary__value">₡14.000</span>
                     </div>
 
-                    <div class="checkout-summary__row checkout-summary__row--total">
-                        <span class="checkout-summary__label">TOTAL:</span>
-                        <span class="checkout-summary__value checkout-summary__value--total">₡14.000</span>
+                    <div class="summary__row summary__row--total">
+                        <span class="summary__label">TOTAL:</span>
+                        <span class="summary__value summary__value--total">₡14.000</span>
                     </div>
 
-                    <button class="checkout-summary__btn" id="btn-place-order">
+                    <button class="summary__btn" id="btn-place-order">
                         Confirmar Pedido <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
