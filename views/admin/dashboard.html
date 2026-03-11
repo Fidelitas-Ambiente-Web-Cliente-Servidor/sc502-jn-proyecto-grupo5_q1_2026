@@ -12,7 +12,7 @@
         <nav class="navbar">
             <ul class="navbar__items">
                 <li class="navbar__item navbar__item--active"><a class="navbar__link" href="#"><i class="bi bi-columns-gap"></i>Dashboard</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/views/admin/gestion-usuarios.html"><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-box-seam navbar__icon"></i>Gestión de Inventarios</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías</a></li>
@@ -73,10 +73,11 @@
             </article>
         </section>
             <table class="table">
-                <hgroup class="table__titles">
-                    <h3 class="table__title">Pedidos Recientes</h3>
-                </hgroup>
                 <thead class="table__header">
+                    <tr class="table__titles" >
+                        <th class="table__title" colspan="2"><span class="table__title-text">Pedidos Recientes</span></th>
+                    </tr>
+
                     <tr class="header__row">
                         <th class="table-header__title">ID</th>
                         <th class="table-header__title">CLIENTE</th>

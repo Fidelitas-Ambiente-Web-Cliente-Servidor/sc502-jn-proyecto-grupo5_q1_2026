@@ -2,12 +2,14 @@
     background-color:var(--color-secundario);
     padding: 20px var(--padding-laterales);
     height: 100vh;
+    
 }
 
 .header--vertical { 
     display: flex;
     flex-direction: column;
     width: 15%;
+    border-right: 2px solid rgb(var(--color-terciario-puro),0.1);
 }
 
 .header__title {

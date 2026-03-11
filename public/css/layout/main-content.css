@@ -1,22 +1,22 @@
-.dashboard {
+.dashboard, .gestion-usuarios {
     background-color: var(--color-fondo);
     width: 100%;
     padding: 40px 50px;
 }
 
-.dashboard__header {
+.dashboard__header,.gestion-usuarios__header {
     display: flex;
     flex-direction: column;
     gap:5px;
     margin-bottom: 40px;
 }
 
-.dashboard__title {
+.dashboard__title, .gestion-usuarios__title {
     font-family: var(--fuente-titulos-botones);
     font-weight: 700;
 }
 
-.dashboard__text {
+.dashboard__text , .gestion-usuarios__text {
     font-family: var(--fuente-textos);
     color:var(--color-textos-secundarios)
 }

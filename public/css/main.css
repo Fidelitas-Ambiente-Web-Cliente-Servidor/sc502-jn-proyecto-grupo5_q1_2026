@@ -12,7 +12,7 @@ Media queries*/
 @import url("/public/css/layout/grid.css");
 @import url("/public/css/layout/header.css");
 @import url("/public/css/layout/navbar.css");
-@import url("/public/css/pages/dashboard.css");
+@import url("/public/css/layout/main-content.css");
 /* Componentes */
 @import url("/public/css/components/cards.css");
 @import url("/public/css/components/table.css");
