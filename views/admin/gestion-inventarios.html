@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <title>Gestión de Inventarios</title>
+  </head>
+  <body class="grid--dos-columnas">
+   <header class="header header--vertical">
+      <h1 class="header__title">ONLY WAY</h1>
+      <nav class="navbar">
+        <ul class="navbar__items">
+          <li class="navbar__item">
+            <a class="navbar__link" href="/views/admin/dashboard.html">
+              <i class="bi bi-columns-gap"></i>Dashboard
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="/views/admin/gestion-usuarios.html">
+              <i class="bi bi-people navbar__icon"></i>Gestión de Usuarios
+            </a>
+          </li>
+          <li class="navbar__item navbar__item--active">
+            <a class="navbar__link" href="/views/admin/gestion-inventarios.html">
+              <i class="bi bi-box-seam navbar__icon"></i>Gestión de Inventarios
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">
+              <i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">
+              <i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">
+              <i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">
+              <i class="bi bi-box-arrow-right navbar__icon"></i>Salir
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="gestion-inventarios">
+      <header class="gestion-inventarios__header">
+        <div class="gestion-inventarios__header-info">
+          <h2 class="gestion-inventarios__title">Gestión de Inventarios</h2>
+          <p class="gestion-inventarios__text">Administra el inventario de productos</p>
+        </div>
+        <button class="btn-agregar-producto" id="btn-agregar-producto">
+          <span class="btn-agregar-producto__icon">+</span> AGREGAR PRODUCTO
+        </button>
+      </header>
+
+      <table class="table">
+        <div class="table__search">
+          <div class="table__search-wrapper">
+            <i class="bi bi-search table__search-icon"></i>
+            <input
+              class="table__search-input"
+              type="text"
+              id="input-buscar-producto"
+              placeholder="Buscar productos..."
+            />
+          </div>
+        </div>
+
+        <thead class="table__header">
+          <tr class="header__row">
+            <th class="table-header__title">ID</th>
+            <th class="table-header__title">NOMBRE</th>
+            <th class="table-header__title">CATEGORÍA</th>
+            <th class="table-header__title">CANTIDAD</th>
+            <th class="table-header__title">ESTADO</th>
+            <th class="table-header__title">ACCIONES</th>
+          </tr>
+        </thead>
+
+        <tbody class="table__content">
+          <tr class="content__row">
+            <td class="content__cell">P001</td>
+            <td class="content__cell">Zapatillas Running Pro Max</td>
+            <td class="content__cell content__cell--fecha">HOMBRE</td>
+            <td class="content__cell">45</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P002</td>
+            <td class="content__cell">Camiseta Deportiva Premium</td>
+            <td class="content__cell content__cell--fecha">MUJER</td>
+            <td class="content__cell">78</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P003</td>
+            <td class="content__cell">Leggings Yoga Fit</td>
+            <td class="content__cell content__cell--fecha">MUJER</td>
+            <td class="content__cell">34</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P004</td>
+            <td class="content__cell">Conjunto Infantil Deportivo</td>
+            <td class="content__cell content__cell--fecha">INFANTIL</td>
+            <td class="content__cell">56</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P005</td>
+            <td class="content__cell">Mochila Deportiva Pro</td>
+            <td class="content__cell content__cell--fecha">ACCESORIOS</td>
+            <td class="content__cell">23</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P006</td>
+            <td class="content__cell">Short Running Performance</td>
+            <td class="content__cell content__cell--fecha">HOMBRE</td>
+            <td class="content__cell">67</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P007</td>
+            <td class="content__cell">Top Deportivo Mujer</td>
+            <td class="content__cell content__cell--fecha">MUJER</td>
+            <td class="content__cell">89</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P008</td>
+            <td class="content__cell">Gorra Deportiva UV</td>
+            <td class="content__cell content__cell--fecha">ACCESORIOS</td>
+            <td class="content__cell">120</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P009</td>
+            <td class="content__cell">Pantalón Jogger Kids</td>
+            <td class="content__cell content__cell--fecha">INFANTIL</td>
+            <td class="content__cell">45</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">En Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="content__row">
+            <td class="content__cell">P010</td>
+            <td class="content__cell">Chaqueta Deportiva Hombre</td>
+            <td class="content__cell content__cell--fecha">HOMBRE</td>
+            <td class="content__cell">28</td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--pendiente">Bajo Stock</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

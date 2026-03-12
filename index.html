@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLY WAY</title>
+
+    <link rel="stylesheet" href="/public/css/main.css">
+
+   
+</head>
+
+<body>
+    <header class="header header__horizontal">
+        <h1 class="header__title">ONLY WAY</h1> 
+        <input type="text" id="input-buscar" class="input-buscar" placeholder="¿Qué buscás?">        
+                <nav class="navbar__vertical">
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-person"></i>Mi cuenta</span> </a>
+                    
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-heart"></i>Favoritos</span> </a>
+                    
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-cart"></i> Carrito</span></a>
+                    
+                    <a href="/views/admin/dashboard.html" class="navbar__link"><span class="navbar__text"><i class="bi bi-shield-lock"></i>Admin</span> </a>
+                    
+                    <a href="/views/vendedor/" class="navbar__link"><span class="navbar__text"><i class="bi bi-person-badge"></i> Vendedor</span></a>
+                </nav>
+    </header>
+
+    <div class="user-bar">
+        <div class="user-bar__contenedor">
+            <div class="user-bar__categorias">
+                <a href="#" class="user-bar__categoria-link">HOMBRE</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">MUJER</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">INFANTIL</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">ACCESORIOS</a>
+            </div>
+        </div>
+    </div>
+
+    <main> 
+        <section class="banner">
+            <h2 class="banner__titulo">TU TIENDA DE ROPA DEPORTIVA FAVORITA</h2>
+            <button class="banner__boton">VER PRODUCTOS</button>
+        </section>
+
+<section class="productos-destacados">
+    <h2 class="productos-destacados__titulo">Productos Destacados</h2>
+
+    <div class="productos-destacados__grid">
+        <article class="product-card">
+            <div class="product-card__imagen-wrapper">
+                <img class="product-card__imagen" src="/public/static/img/productos/zapatillas-running.jpg" alt="Zapatillas Running Pro Max">
+                <span class="product-card__descuento">-15%</span>
+            </div>
+            <div class="product-card__info">
+                <h3 class="product-card__nombre">Zapatillas Running Pro Max</h3>
+                <div class="product-card__precios">
+                    <span class="product-card__precio-actual">₡38 250</span>
+                    <span class="product-card__precio-original">₡45 000</span>
+                </div>
+                <button class="product-card__btn" id="btn-agregar-p001">
+                    <i class="bi bi-cart product-card__btn-icon"></i> AGREGAR AL CARRITO
+                </button>
+            </div>
+        </article>
+        <article class="product-card">
+            <div class="product-card__imagen-wrapper">
+                <img class="product-card__imagen" src="/public/static/img/productos/camiseta-deportiva.jpg" alt="Camiseta Deportiva Premium">
+            </div>
+            <div class="product-card__info">
+                <h3 class="product-card__nombre">Camiseta Deportiva Premium</h3>
+                <div class="product-card__precios">
+                    <span class="product-card__precio-actual">₡12 000</span>
+                </div>
+                <button class="product-card__btn" id="btn-agregar-p002">
+                    <i class="bi bi-cart product-card__btn-icon"></i> AGREGAR AL CARRITO
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-card__imagen-wrapper">
+                <img class="product-card__imagen" src="/public/static/img/productos/leggings-yoga.jpg" alt="Leggings Yoga Fit">
+                <span class="product-card__descuento">-20%</span>
+            </div>
+            <div class="product-card__info">
+                <h3 class="product-card__nombre">Leggings Yoga Fit</h3>
+                <div class="product-card__precios">
+                    <span class="product-card__precio-actual">₡14 400</span>
+                    <span class="product-card__precio-original">₡18 000</span>
+                </div>
+                <button class="product-card__btn" id="btn-agregar-p003">
+                    <i class="bi bi-cart product-card__btn-icon"></i> AGREGAR AL CARRITO
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-card__imagen-wrapper">
+                <img class="product-card__imagen" src="/public/static/img/productos/conjunto-infantil.jpg" alt="Conjunto Infantil Deportivo">
+                <span class="product-card__descuento">-25%</span>
+            </div>
+            <div class="product-card__info">
+                <h3 class="product-card__nombre">Conjunto Infantil Deportivo</h3>
+                <div class="product-card__precios">
+                    <span class="product-card__precio-actual">₡12 000</span>
+                    <span class="product-card__precio-original">₡16 000</span>
+                </div>
+                <button class="product-card__btn" id="btn-agregar-p004">
+                    <i class="bi bi-cart product-card__btn-icon"></i> AGREGAR AL CARRITO
+                </button>
+            </div>
+        </article>
+
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <h2 class="footer__title">ONLY WAY</h2>
+        <p class="footer__texto">
+            Somos tu mejor opcion en ropa deportiva,
+            Nos comprometemos a ofrecer productos de calidad que te ayuden
+            a alcanzar tus metas deportivas y mantener un estilo de vida
+            activo y saludable.
+        </p>
+        <div class="footer__redes">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <div class="footer__copyright">
+            © 2026 ONLY WAY LA MEJOR TIENDA DE ROPA DEPORTIVA.
+        </div>
+    </footer>
+
+</body>
+</html>

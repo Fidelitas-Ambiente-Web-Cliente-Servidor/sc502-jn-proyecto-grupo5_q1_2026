@@ -1,0 +1,42 @@
+.banner {
+    background-image: url("/public/static/img/fondo.jpg");
+    background-size:cover;
+    background-position:left;   
+    background-repeat: no-repeat;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-secundario);
+    position: relative;
+}
+
+.banner__titulo,
+.banner__boton {
+    position: relative;
+    z-index: 2;
+}
+
+.banner__titulo {
+    font-family: var(--fuente-titulos-botones);
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(var(--color-terceario-puro),0.7);
+    max-width: 800px;
+}
+
+.banner__boton {
+    margin-top: 20px;
+    padding: 14px 35px;
+    border-radius: 50px;
+    background: var(--color-primario);
+    color: var(--rojo);
+    font-weight: bold;
+    border: none;
+    font-family: var(--fuente-titulos-botones);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(var(--color-terceario-puro), 0.3);
+}

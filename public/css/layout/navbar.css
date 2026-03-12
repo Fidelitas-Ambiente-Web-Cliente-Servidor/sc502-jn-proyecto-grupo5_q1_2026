@@ -1,0 +1,82 @@
+.navbar__vertical {
+    display: flex;
+    justify-content: space-evenly;
+}
+    .navbar__items {
+        display: flex;
+        flex-direction: column;
+        color:var(--color-textos-secundarios);
+    }
+
+    .navbar__item {
+        padding: 10px;
+    }
+    
+.navbar__item--active {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    border-radius: 10px;
+}
+
+
+.navbar__link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: var(--fuente-textos);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.navbar__icon {
+    font-size: 30px;
+}
+/*Parte leicel*/
+
+.navbar {
+    background-color: var(--color-secundario);
+}
+
+.navbar__lista {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__link {
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    color: var(--color-terceario);
+    font-weight: 600;
+    font-family: var(--fuente-titulos-botones);
+    font-size: 16px;
+    
+}
+
+.navbar__link:hover {
+    color: var(--rojo);
+}
+
+
+.navbar__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    font-family: var(--fuente-textos);
+    font-weight: 400;
+}
+
+.navbar__text i {
+    font-size: 28px;
+}
+
+.navbar__separador {
+    color: var(--color-textos-secundarios);
+    font-weight: 300;
+}

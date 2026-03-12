@@ -1,0 +1,135 @@
+/* =========================================
+   COMPONENTE - PRODUCTOS DESTACADOS
+   Archivo: components/productos-destacados.css
+   ========================================= */
+
+.productos-destacados {
+    padding: 60px var(--padding-laterales);
+    background-color: var(--color-secundario);
+}
+
+.productos-destacados__titulo {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-terciario);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Grid de cards */
+.productos-destacados__grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* =========================================
+   PRODUCT CARD
+   ========================================= */
+
+.product-card {
+    background-color: var(--color-secundario);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    flex: 1;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor imagen */
+.product-card__imagen-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.product-card__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badge de descuento */
+.product-card__descuento {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* Info de la card */
+.product-card__info {
+    padding: 16px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.product-card__nombre {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-terciario);
+}
+
+/* Precios */
+.product-card__precios {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-card__precio-actual {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-primario);
+}
+
+.product-card__precio-original {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-textos-secundarios);
+    text-decoration: line-through;
+}
+
+/* Botón agregar al carrito */
+.product-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s ease;
+    margin-top: auto;
+}
+
+.product-card__btn:hover {
+    opacity: 0.85;
+}
+
+.product-card__btn-icon {
+    font-size: 16px;
+}

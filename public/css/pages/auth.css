@@ -1,0 +1,250 @@
+/* ========================================================================
+   Estilos para formularios de login/registro
+   ======================================================================== */
+
+body.auth-page {
+    font-family: var(--fuente-titulos-botones);
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.page-login,
+.page-register {
+    background-color: var(--color-secundario);
+    padding: 40px;
+    border-radius: 2pc solid rgb(var(--color-terciario-puro),0.50);
+    box-shadow: var(--shadow-sm);
+    width: 90%;
+    max-width: 400px;
+}
+
+.page-login h1,
+.page-register h1 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--color-terciario);
+    font-size: var(--fuente-titulos-botones);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group__label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-terciario);
+    font-weight: 500;
+}
+
+.form-group__input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgb(var(--color-terciario-puro),0.15);
+    border-radius: 5px;
+    font-family: var(--fuente-titulos-botones);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group__input:focus {
+    outline: none;
+    border-color: rgb(var(--color-primario-puro),0.50);
+    box-shadow: 0 0 0 2px rgba(var(--color-terciario-puro),0.1);
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--fuente-titulos-botones);
+    font-size: 20px;
+    padding: 20px 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn--primary {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+.btn--primary:hover {
+    background-color: rgb(var(--color-primario-puro),0.50);
+}
+
+.btn--primary:active {
+    opacity: 0.9;
+}
+
+.page-login p,
+.page-register p {
+    text-align: center;
+    color: var(--color-textos-secundarios);
+    margin-top: 50px;
+}
+
+.page-login a,
+.page-register a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.page-login a:hover,
+.page-register a:hover {
+    color: var(--color-terciario);
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--color-error);
+    font-size: var(--font-size-small);
+    margin-top: var(--spacing-sm);
+}
+
+.form-group__input--error {
+    border-color: var(--color-error);
+}
+
+.success-message {
+    color: var(--color-success);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ========================================================================
+   Estilos para dashboard de admin
+   ======================================================================== */
+
+   /* ESTOY ES MIO NO SE DEBE DE MODIFCAR YO TENGO ARCHIVOS ESPECIFICOS ATT:ERICK*/
+
+/* body.dashboard-page {
+    font-family: var(--font-family-primary);
+    background-color: var(--color-neutral-gray);
+    margin: 0;
+    padding: 0;
+    color: var(--color-secondary);
+}
+
+body.dashboard-page header {
+    background-color: var(--color-neutral-white);
+    border-bottom: 1px solid var(--color-neutral-gray-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+body.dashboard-page nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.header__title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.header__listas {
+    margin: var(--spacing-sm) 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.listas__elemento a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.listas__elemento a:hover {
+    color: var(--color-primary);
+}
+
+.dashboard,
+.dashdoard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.dashboard__header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.dashboard__title {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.dashboard__text {
+    margin-top: var(--spacing-xs);
+    color: var(--color-secondary-light);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.card {
+    background: var(--color-neutral-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+}
+
+.card__title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card__text {
+    margin: var(--spacing-sm) 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.card__variation {
+    color: var(--color-success);
+    font-size: var(--font-size-small);
+}
+
+body.dashboard-page table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-neutral-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table__title {
+    margin: var(--spacing-md) 0;
+}
+
+.table__header {
+    background-color: #f8f8f8;
+}
+
+.table-header__title,
+.content__cell {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid #efefef;
+} */
