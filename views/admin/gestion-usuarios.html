@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <title>Gestión de Usuarios</title>
+  </head>
+  <body class="grid--dos-columnas">
+    <header class="header header--vertical">
+      <h1 class="header__title">ONLY WAY</h1>
+      <nav class="navbar">
+        <ul class="navbar__items">
+          <li class="navbar__item ">
+            <a class="navbar__link" href="/views/admin/dashboard.html"
+              ><i class="bi bi-columns-gap"></i>Dashboard</a
+            >
+          </li>
+          <li class="navbar__item navbar__item--active">
+            <a class="navbar__link" href="/views/admin/gestion-usuarios.html"
+              ><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a
+            >
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="/views/admin/gestion-inventarios.html"
+              ><i class="bi bi-box-seam navbar__icon"></i>Gestión de
+              Inventarios</a
+            >
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#"
+              ><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a
+            >
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#"
+              ><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de
+              Categorías</a
+            >
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#"
+              ><i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos</a
+            >
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#"
+              ><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="gestion-usuarios">
+      <header class="gestion-usuarios__header">
+        <h2 class="gestion-usuarios__title">Gestión de Usuarios</h2>
+        <p class="gestion-usuarios__text">
+          Administración de usuarios del Sistema
+        </p>
+      </header>
+      <table class="table">
+        <div class="table__search">
+          <div class="table__search-wrapper">
+            <i class="bi bi-search table__search-icon"></i>
+            <input
+              class="table__search-input"
+              type="text"
+              placeholder="Buscar usuarios..."
+            />
+          </div>
+        </div>
+        <thead class="table__header">
+          <tr class="header__row">
+            <th class="table-header__title">NOMBRE</th>
+            <th class="table-header__title">EMAIL</th>
+            <th class="table-header__title">ROL</th>
+            <th class="table-header__title">ESTADO</th>
+            <th class="table-header__title">ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody class="table__content">
+          <tr class="content__row">
+            <td class="content__cell">Juan Pérez González</td>
+            <td class="content__cell">carlos.gomez@email.com</td>
+            <td class="content__cell">
+              <span class="table__rol table__rol--cliente">Cliente</span>
+            </td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">Activo</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="content__row">
+            <td class="content__cell">María Rodríguez Castro</td>
+            <td class="content__cell">maria.rodriguez@email.com</td>
+            <td class="content__cell">
+              <span class="table__rol table__rol--administrador"
+                >Administrador</span
+              >
+            </td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">Activo</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="content__row">
+            <td class="content__cell">Carlos Gómez Vargas</td>
+            <td class="content__cell">carlos.gomez@email.com</td>
+            <td class="content__cell">
+              <span class="table__rol table__rol--vendedor">Vendedor</span>
+            </td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">Activo</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="content__row">
+            <td class="content__cell">Ana Martínez López</td>
+            <td class="content__cell">ana.martinez@email.com</td>
+            <td class="content__cell">
+              <span class="table__rol table__rol--cliente">Cliente</span>
+            </td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--completado">Activo</span>
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="content__row">
+            <td class="content__cell">Luis Hernández Mora</td>
+            <td class="content__cell">luis.hernandez@email.com</td>
+            <td class="content__cell">
+              <span class="table__rol table__rol--cliente">Cliente</span>
+            </td>
+            <td class="content__cell">
+              <span class="table__estado table__estado--inactivo"
+                >Inactivo</span
+              >
+            </td>
+            <td class="content__cell">
+              <div class="table__actions">
+                <button class="table__action-btn table__action-btn--editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="table__action-btn table__action-btn--eliminar">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

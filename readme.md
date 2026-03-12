@@ -1,8 +1,5 @@
-### Vistas de FIGMA
-* Vista Cliente: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo
-* Vista Vendedor: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo?preview-route=%2Fvendedor%2Finventario
-* Vista Administrador: https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo?p=f&preview-route=%2Fadmin%2Fdashboard
-
+##Link del figma:
+https://www.figma.com/make/iFH3VKbbMzWUiClpsMWvBC/OnlyWay---Prototipo?p=f&t=9aTAbi0zCRUaYBcx-0&preview-route=%2Fadmin%2Fdashboard
 
 
 ## Nomenclatura y Estandar para las convenciones a definir las clases y ID en el proyecto
@@ -58,6 +55,17 @@ define('MI_VARIABLE_CONSTANTE', VALOR);
 
 <br>
 
+## CSS
+Para este proyecto vamos a optar por generar un CSS modular para tener un mejor mantenimiento a futuro del codigo y un mayor orden a la hora de tener que modificar algun elemento de nuestra pagina web.
+Por lo que la estructura será de la siguiente manera:
++ Carpeta CSS
+**-- base:** Acá vamos a tener el ***normalize.css** y el de **variables.css**
+**-- components:** Aca vamos a tener todos los archivos .css de los componentes reutilizables de nuestro sitio, a como lo son **los card, tables, etc**.
+**-- Layout:** Acá se almacenarán los CSS de los layouts que conformaran nuestra página, es decir los **grids.css** para estructurar la pagina, **headers, mains con la información base, footers, navbar etc.**
+**-- Pages:** Acaá vamos a tener el CSS de las diferentes paginas de nuestro proyecto por lo que solamente es estilizado general de la pagina.
+**-- Main.css:** Este archivo es el encapsulador de todos los css creados anteriormente, cuando se cree un css nuevo se debe de importar en este **main.css** para que contenga la información del nuevo css creado.
+>Nota: El link de css que se va a poner en los diferentes HTML solamente debe de ser el **main.css**, ya que es el único que contendrá toda la información de los css de las carpetas
+
 #### COLORES CSS
 
 |Color | Tipo | Descripción|
@@ -70,6 +78,8 @@ define('MI_VARIABLE_CONSTANTE', VALOR);
 | 🔴`#CC0000`  | Badgest de estado | Inactivo / Agotado|
 | 🟡 `#ccbe00`  | Badgest de estado | Pendiente / Bajo de stock|
 
+> Nota: Estas variables se encuentran en el archivo variables.css
+
 #### Fuente a utilizar
 Se van a utilizar fuentes sans-serif distrubidas de la siguiente manera.
 | Familia | Uso |
@@ -77,4 +87,22 @@ Se van a utilizar fuentes sans-serif distrubidas de la siguiente manera.
 | Poppins | Titulos, Subtitulos,Botones |
 | Roboto | Parrafos, textos largos, etc|
 
-Esta familias estan instaladas en el archivo normalize por lo que se consumen desde ahí.
+>Nota: Estas variables se encuentran en el archivo variables.css
+
+# Estructura de Carpetas JavaScript.
+## Regla usada en el proyecto
+Separación de responsabilidades
+
+| Tipo de JS       | Ubicación     | Uso                        |
+| ---------------- | ------------- | -------------------------- |
+| Global           | `js/app.js`   | Inicialización general     |
+| Utilidades       | `js/utils.js` | Funciones reutilizables    |
+| Componentes      | `js/modules/` | Navbar, modals, tabs       |
+| Lógica de página | `js/pages/`   | Login, registro, dashboard |
+
+Objetivo: evitar scripts gigantes
++ aislar comportamiento por componente
++ mantener scripts reutilizables
++ facilitar mantenimiento del sistema.
+
+
