@@ -1,0 +1,111 @@
+.checkout-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.checkout-page__title {
+    font-family: var(--fuente-titulos-botones);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.checkout-banner {
+    padding: 16px;
+    border: 1px solid rgba(var(--color-textos-secundarios-puro), 0.2);
+    border-radius: 6px;
+    margin-bottom: 32px;
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+}
+
+.checkout-banner__link {
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+.checkout-banner__link:hover {
+    opacity: 0.8;
+}
+
+.checkout-page__content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.checkout-page__form {
+    flex: 1;
+    min-width: 0;
+}
+
+.checkout-page__summary {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+
+.checkout-billing-form__title {
+    font-family: var(--fuente-titulos-botones);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-terciario);
+}
+
+.checkout-billing-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.checkout-billing-form__row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.checkout-billing-form__row .checkout-billing-form__field {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.checkout-billing-form__label {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-terciario);
+}
+
+.checkout-billing-form__input, .checkout-billing-form__select,.checkout-billing-form__textarea {
+    padding: 8px 16px;
+    border: 1px solid rgba(var(--color-textos-secundarios-puro), 0.3);
+    border-radius: 6px;
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    width: 100%;
+    color: var(--color-terciario);
+}
+
+.checkout-billing-form__input:focus, .checkout-billing-form__select:focus, .checkout-billing-form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+.checkout-billing-form__textarea {
+    resize: vertical;
+}
+
+.checkout-billing-form__radio-group {
+    display: flex;
+    gap: 16px;
+}
+
+.checkout-billing-form__radio-label {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-textos-secundarios);
+    cursor: pointer;
+}
