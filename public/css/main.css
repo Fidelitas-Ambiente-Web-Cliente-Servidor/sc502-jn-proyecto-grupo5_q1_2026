@@ -19,6 +19,7 @@ Media queries*/
 /* Componentes */
 @import url("/public/css/components/cards.css");
 @import url("/public/css/components/table.css");
+@import url("/public/css/components/productos-destacados.css");
 
 /* Pages */
 @import url("/public/css/pages/gestion-inventario.css");

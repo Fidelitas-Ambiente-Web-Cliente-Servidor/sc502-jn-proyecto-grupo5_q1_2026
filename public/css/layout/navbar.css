@@ -2,13 +2,10 @@
     .navbar__items {
         display: flex;
         flex-direction: column;
-        justify-content: start;
         color:var(--color-textos-secundarios);
     }
 
     .navbar__item {
-        display: flex;
-        align-items: center;
         padding: 10px;
     }
     
@@ -35,8 +32,7 @@
 
 .navbar {
     padding: 15px 40px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #eee;
+    background-color: var(--color-secundario);
 }
 
 .navbar__lista {
@@ -51,9 +47,9 @@
 
 .navbar__link {
     text-decoration: none;
-    color: var(--negro);
+    color: var(--color-terceario);
     font-weight: 600;
-    font-family: var(--titulos);
+    font-family: var(--fuente-titulos-botones);
     font-size: 16px;
 }
 
@@ -62,6 +58,6 @@
 }
 
 .navbar__separador {
-    color: #ccc;
+    color: var(--color-textos-secundarios);
     font-weight: 300;
 }

@@ -1,6 +1,6 @@
 .header {
     background-color:var(--color-secundario);
-    padding: 20px var(--padding-laterales);
+    max-width: 1440px;
     
 }
 
@@ -8,6 +8,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 40px var(--padding-laterales) ;
     width: 15%;
     border-right: 2px solid rgb(var(--color-terciario-puro),0.1);
 }
@@ -22,19 +23,12 @@
     font-weight: 900;
 }
 
-/*Parte Leicel*/
-.header {
-    padding: 15px 40px;
-    background-color: var(--blanco);
-    border-bottom: 1px solid #eee;
-}
-
 .header--horizontal {
     display: flex;
-    justify-content: space-between;
+    width: 100% ;
+    justify-content: space-around;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
     gap: 60px;  
 }
 
@@ -51,7 +45,7 @@
     display: flex;
     align-items: center;
     gap: 30px; 
-    flex: 1;  
+    flex: 2;  
     justify-content: flex-end;  
 }
 
