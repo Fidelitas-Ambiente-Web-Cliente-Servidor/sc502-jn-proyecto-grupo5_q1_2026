@@ -13,6 +13,10 @@ Media queries*/
 @import url("/public/css/layout/header.css");
 @import url("/public/css/layout/navbar.css");
 @import url("/public/css/pages/dashboard.css");
+@import url("./layout/footer.css"); 
+
 /* Componentes */
 @import url("/public/css/components/cards.css");
 
+/**/
+@import url("./pages/index.css");    

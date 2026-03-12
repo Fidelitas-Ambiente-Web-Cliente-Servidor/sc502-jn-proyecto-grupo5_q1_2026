@@ -1,0 +1,53 @@
+.banner {
+    background-image: url("/public/static/Fondo.jpeg");
+    background-size: cover;
+    background-position: center 9%;  
+    background-repeat: no-repeat;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.banner__titulo,
+.banner__boton {
+    position: relative;
+    z-index: 2;
+}
+
+.banner__titulo {
+    font-family: var(--titulos);
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    max-width: 800px;
+}
+
+.banner__boton {
+    margin-top: 20px;
+    padding: 14px 35px;
+    border-radius: 50px;
+    background: white;
+    color: var(--rojo);
+    font-weight: bold;
+    border: none;
+    font-family: var(--titulos);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}

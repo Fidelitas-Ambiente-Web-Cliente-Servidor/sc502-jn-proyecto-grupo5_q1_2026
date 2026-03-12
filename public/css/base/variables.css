@@ -17,3 +17,9 @@
 
     --padding-laterales:20px;
     }
+    /*Parte Leicel*/
+:root {
+    --rojo: #CC0000;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
