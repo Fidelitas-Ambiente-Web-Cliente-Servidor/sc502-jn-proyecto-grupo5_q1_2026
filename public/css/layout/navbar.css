@@ -1,4 +1,7 @@
-
+.navbar__vertical {
+    display: flex;
+    justify-content: space-evenly;
+}
     .navbar__items {
         display: flex;
         flex-direction: column;
@@ -31,7 +34,6 @@
 /*Parte leicel*/
 
 .navbar {
-    padding: 15px 40px;
     background-color: var(--color-secundario);
 }
 
@@ -46,15 +48,32 @@
 }
 
 .navbar__link {
+    display: flex;
+    gap: 20px;
     text-decoration: none;
     color: var(--color-terceario);
     font-weight: 600;
     font-family: var(--fuente-titulos-botones);
     font-size: 16px;
+    
 }
 
 .navbar__link:hover {
     color: var(--rojo);
+}
+
+
+.navbar__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    font-family: var(--fuente-textos);
+    font-weight: 400;
+}
+
+.navbar__text i {
+    font-size: 28px;
 }
 
 .navbar__separador {

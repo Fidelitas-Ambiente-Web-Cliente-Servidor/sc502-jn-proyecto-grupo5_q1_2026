@@ -12,25 +12,20 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header--horizontal">
-            <h1 class="header__title">ONLY WAY</h1>
-            <div class="header__buscador">
-                <input type="text" id="input-buscar" placeholder="¿Qué buscás?">
-            
-                <div class="header__opciones">
-                    <a href="#" class="header__opcion"><i class="bi bi-person"></i> Mi cuenta</a>
-                    <span class="header__opcion-separador">|</span>
-                    <a href="#" class="header__opcion"><i class="bi bi-heart"></i> Favoritos</a>
-                    <span class="header__opcion-separador">|</span>
-                    <a href="#" class="header__opcion"><i class="bi bi-cart"></i> Carrito</a>
-                    <span class="header__opcion-separador">|</span>
-                    <a href="/views/admin/dashboard.html" class="header__opcion"><i class="bi bi-shield-lock"></i> Admin</a>
-                    <span class="header__opcion-separador">|</span>
-                    <a href="/views/vendedor/" class="header__opcion"><i class="bi bi-person-badge"></i> Vendedor</a>
-                </div>
-            </div>
-        </div>
+    <header class="header header__horizontal">
+        <h1 class="header__title">ONLY WAY</h1> 
+        <input type="text" id="input-buscar" class="input-buscar" placeholder="¿Qué buscás?">        
+                <nav class="navbar__vertical">
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-person"></i>Mi cuenta</span> </a>
+                    
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-heart"></i>Favoritos</span> </a>
+                    
+                    <a href="#" class="navbar__link"><span class="navbar__text"><i class="bi bi-cart"></i> Carrito</span></a>
+                    
+                    <a href="/views/admin/dashboard.html" class="navbar__link"><span class="navbar__text"><i class="bi bi-shield-lock"></i>Admin</span> </a>
+                    
+                    <a href="/views/vendedor/" class="navbar__link"><span class="navbar__text"><i class="bi bi-person-badge"></i> Vendedor</span></a>
+                </nav>
     </header>
 
     <div class="user-bar">
