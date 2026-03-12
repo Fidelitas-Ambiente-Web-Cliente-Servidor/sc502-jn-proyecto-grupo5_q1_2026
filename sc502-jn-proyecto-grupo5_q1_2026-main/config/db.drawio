@@ -1,0 +1,268 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram id="erd-limpio" name="ERD Claro">
+    <mxGraphModel dx="1895" dy="958" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="roles_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="160" width="240" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="roles_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="ROLES" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="roles_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="80" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="roles_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="id (PK)&#xa;name VARCHAR(50) UNIQUE&#xa;description VARCHAR(255)" vertex="1">
+          <mxGeometry height="110" width="220" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="users_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="160" width="280" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="USERS" vertex="1">
+          <mxGeometry height="30" width="280" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="280" x="400" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="users_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;role_id (FK) → roles.id&#xa;name VARCHAR(255)&#xa;email VARCHAR(255) UNIQUE&#xa;password VARCHAR(255)&#xa;phone VARCHAR(30)&#xa;is_active TINYINT(1)" vertex="1">
+          <mxGeometry height="110" width="260" x="410" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="addresses_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="160" width="280" x="750" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="addresses_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="ADDRESSES" vertex="1">
+          <mxGeometry height="30" width="280" x="750" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="addresses_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="280" x="750" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="addresses_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;user_id (FK) → users.id&#xa;line1 VARCHAR(255)&#xa;city VARCHAR(100)&#xa;postal_code VARCHAR(20)&#xa;country VARCHAR(100)&#xa;is_default TINYINT(1)" vertex="1">
+          <mxGeometry height="110" width="260" x="760" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="categories_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="240" x="80" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="categories_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="CATEGORIES" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="categories_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="80" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="categories_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;parent_id (FK) → categories.id&#xa;name VARCHAR(150) UNIQUE&#xa;description VARCHAR(255)&#xa;is_active TINYINT(1)" vertex="1">
+          <mxGeometry height="90" width="220" x="90" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="products_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="280" x="400" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="products_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="PRODUCTS" vertex="1">
+          <mxGeometry height="30" width="280" x="400" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="products_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="280" x="400" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="products_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;vendor_id (FK) → users.id&#xa;sku VARCHAR(80) UNIQUE&#xa;name VARCHAR(255)&#xa;description TEXT&#xa;price DECIMAL(10,2)&#xa;is_active TINYINT(1)" vertex="1">
+          <mxGeometry height="90" width="260" x="410" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="product_categories_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="110" width="280" x="750" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="product_categories_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="PRODUCT_CATEGORIES" vertex="1">
+          <mxGeometry height="30" width="280" x="750" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="product_categories_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="280" x="750" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="product_categories_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="product_id (PK/FK) → products.id&#xa;category_id (PK/FK) → categories.id" vertex="1">
+          <mxGeometry height="60" width="260" x="760" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="260" x="1100" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="INVENTORY" vertex="1">
+          <mxGeometry height="30" width="260" x="1100" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="260" x="1100" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="product_id (PK/FK) → products.id&#xa;stock INT&#xa;reorder_level INT&#xa;updated_at TIMESTAMP" vertex="1">
+          <mxGeometry height="90" width="240" x="1110" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="order_statuses_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="110" width="240" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="order_statuses_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="ORDER_STATUSES" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="order_statuses_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="80" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="order_statuses_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="id (PK)&#xa;name VARCHAR(50) UNIQUE&#xa;description VARCHAR(255)" vertex="1">
+          <mxGeometry height="60" width="220" x="90" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="orders_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="160" width="300" x="400" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="orders_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="ORDERS" vertex="1">
+          <mxGeometry height="30" width="300" x="400" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="orders_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="300" x="400" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="orders_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;client_id (FK) → users.id&#xa;status_id (FK) → order_statuses.id&#xa;shipping_address_id (FK) → addresses.id&#xa;order_date TIMESTAMP&#xa;total DECIMAL(10,2)" vertex="1">
+          <mxGeometry height="110" width="280" x="410" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="280" x="800" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="ORDER_ITEMS" vertex="1">
+          <mxGeometry height="30" width="280" x="800" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="280" x="800" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;order_id (FK) → orders.id&#xa;product_id (FK) → products.id&#xa;quantity INT&#xa;unit_price DECIMAL(10,2)&#xa;line_total DECIMAL(10,2)" vertex="1">
+          <mxGeometry height="90" width="260" x="810" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_methods_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="110" width="240" x="1150" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_methods_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="PAYMENT_METHODS" vertex="1">
+          <mxGeometry height="30" width="240" x="1150" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_methods_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="1150" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_methods_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="id (PK)&#xa;name VARCHAR(50) UNIQUE&#xa;description VARCHAR(255)" vertex="1">
+          <mxGeometry height="60" width="220" x="1160" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="payments_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="300" x="80" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="payments_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="PAYMENTS" vertex="1">
+          <mxGeometry height="30" width="300" x="80" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="payments_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="300" x="80" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="payments_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;order_id (FK) → orders.id&#xa;payment_method_id (FK) → payment_methods.id&#xa;amount DECIMAL(10,2)&#xa;payment_date TIMESTAMP&#xa;status ENUM(pending,paid,failed)" vertex="1">
+          <mxGeometry height="90" width="280" x="90" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="shipment_statuses_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="110" width="240" x="480" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="shipment_statuses_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="SHIPMENT_STATUSES" vertex="1">
+          <mxGeometry height="30" width="240" x="480" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="shipment_statuses_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="480" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="shipment_statuses_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="id (PK)&#xa;name VARCHAR(50) UNIQUE&#xa;description VARCHAR(255)" vertex="1">
+          <mxGeometry height="60" width="220" x="490" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="shipments_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor:#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="300" x="800" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="shipments_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="SHIPMENTS" vertex="1">
+          <mxGeometry height="30" width="300" x="800" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="shipments_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="300" x="800" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="shipments_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;order_id (FK) → orders.id&#xa;status_id (FK) → shipment_statuses.id&#xa;carrier VARCHAR(80)&#xa;tracking_number VARCHAR(120)&#xa;shipped_at TIMESTAMP NULL&#xa;delivered_at TIMESTAMP NULL" vertex="1">
+          <mxGeometry height="90" width="280" x="810" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="carts_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="110" width="240" x="1180" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="carts_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="CARTS" vertex="1">
+          <mxGeometry height="30" width="240" x="1180" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="carts_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="240" x="1180" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="carts_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=5;" value="id (PK)&#xa;client_id (FK) → users.id&#xa;created_at TIMESTAMP&#xa;updated_at TIMESTAMP" vertex="1">
+          <mxGeometry height="60" width="220" x="1190" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_items_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="120" width="300" x="80" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_items_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="CART_ITEMS" vertex="1">
+          <mxGeometry height="30" width="300" x="80" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_items_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="300" x="80" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_items_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;cart_id (FK) → carts.id&#xa;product_id (FK) → products.id&#xa;quantity INT&#xa;unit_price DECIMAL(10,2)" vertex="1">
+          <mxGeometry height="70" width="280" x="90" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="140" width="300" x="460" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=14;" value="REVIEWS" vertex="1">
+          <mxGeometry height="30" width="300" x="460" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews_sep" parent="1" style="line;strokeWidth=2;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="1" width="300" x="460" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews_fields" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacing=3;" value="id (PK)&#xa;product_id (FK) → products.id&#xa;client_id (FK) → users.id&#xa;rating TINYINT(1..5)&#xa;comment TEXT&#xa;created_at TIMESTAMP" vertex="1">
+          <mxGeometry height="90" width="280" x="470" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_roles_users" edge="1" parent="1" source="roles_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="users_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_addresses" edge="1" parent="1" source="users_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="addresses_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_categories_product_categories" edge="1" parent="1" source="categories_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="product_categories_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_products_product_categories" edge="1" parent="1" source="products_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="product_categories_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_products_inventory" edge="1" parent="1" source="products_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="inventory_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_order_statuses_orders" edge="1" parent="1" source="order_statuses_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="orders_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_orders" edge="1" parent="1" source="users_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="orders_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_orders_order_items" edge="1" parent="1" source="orders_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="order_items_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_products_order_items" edge="1" parent="1" source="products_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="order_items_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_payment_methods_payments" edge="1" parent="1" source="payment_methods_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="payments_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_orders_payments" edge="1" parent="1" source="orders_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="payments_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_shipment_statuses_shipments" edge="1" parent="1" source="shipment_statuses_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="shipments_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_orders_shipments" edge="1" parent="1" source="orders_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="shipments_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_carts" edge="1" parent="1" source="users_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="carts_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_carts_cart_items" edge="1" parent="1" source="carts_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="cart_items_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_products_cart_items" edge="1" parent="1" source="products_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="cart_items_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_products_reviews" edge="1" parent="1" source="products_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor:#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="reviews_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_reviews" edge="1" parent="1" source="users_table" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor:#000000;strokeWidth=2;endArrow=block;endFill=1;startArrow=none;" target="reviews_table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
