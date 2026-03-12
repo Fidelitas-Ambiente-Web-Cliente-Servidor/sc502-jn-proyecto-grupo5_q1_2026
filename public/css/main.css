@@ -26,3 +26,4 @@ Media queries*/
 /* Pages */
 @import url("/public/css/pages/gestion-inventario.css");
 @import url("/public/css/pages/index.css");
+@import url("/public/css/pages/auth.css");
