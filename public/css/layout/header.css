@@ -1,0 +1,17 @@
+.header {
+    background-color:var(--color-secundario);
+    padding: 20px var(--padding-laterales);
+    height: 100vh;
+}
+
+.header--vertical { 
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.header__title {
+    color:var(--color-primario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 900;
+}
