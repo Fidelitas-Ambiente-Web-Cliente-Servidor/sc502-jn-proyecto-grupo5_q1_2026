@@ -1,0 +1,31 @@
+.gestion-inventarios {
+    background-color: var(--color-fondo);
+    padding: 40px 50px;
+}
+
+.gestion-inventarios__header {
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 30px;
+}
+
+
+
+.btn-agregar-producto {
+    background-color: var(--color-primario);
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-agregar-producto:hover {
+    background-color: rgb(var(--color-primario-puro),0.80);
+}
+

@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--color-secundario);
     position: relative;
 }
 
@@ -20,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(var(--color-terceario-puro), 0.15);
     z-index: 1;
 }
 
@@ -34,7 +34,7 @@
     font-family: var(--titulos);
     font-size: 42px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 4px rgba(var(--color-terceario-puro),0.7);
     max-width: 800px;
 }
 
@@ -42,12 +42,12 @@
     margin-top: 20px;
     padding: 14px 35px;
     border-radius: 50px;
-    background: white;
+    background: var(--color-secundario);
     color: var(--rojo);
     font-weight: bold;
     border: none;
     font-family: var(--titulos);
     font-size: 18px;
     cursor: pointer;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 4px rgba(var(--color-terceario-puro), 0.3);
 }

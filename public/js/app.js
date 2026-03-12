@@ -1,0 +1,1 @@
+/* Este lo vamos a usar para cargar los modulos globales e iniciar los objetos comunes que vamos a usar en el sitio */

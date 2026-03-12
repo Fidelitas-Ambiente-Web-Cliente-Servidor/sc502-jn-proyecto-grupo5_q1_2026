@@ -11,15 +11,10 @@
         align-items: center;
         padding: 10px;
     }
-
-    .navbar__item:hover {
-        border: 2px solid var(--color-primario);
-        border-radius: 10px;
-    }
-
+    
 .navbar__item--active {
     background-color: var(--color-primario);
-    color:var(--color-secundario);
+    color: var(--color-secundario);
     border-radius: 10px;
 }
 
