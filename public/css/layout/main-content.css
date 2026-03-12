@@ -4,7 +4,7 @@
     padding: 40px 50px;
 }
 
-.dashboard__header,.gestion-usuarios__header,.gestion-inventarios__header {
+.dashboard__header,.gestion-usuarios__header {
     display: flex;
     flex-direction: column;
     gap:5px;
@@ -14,9 +14,11 @@
 .dashboard__title, .gestion-usuarios__title,.gestion-inventarios__title {
     font-family: var(--fuente-titulos-botones);
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .dashboard__text , .gestion-usuarios__text,.gestion-inventarios__text {
     font-family: var(--fuente-textos);
-    color:var(--color-textos-secundarios)
+    color:var(--color-textos-secundarios);
+    text-align: lef;
 }
