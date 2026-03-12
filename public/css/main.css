@@ -20,3 +20,6 @@ Media queries*/
 @import url("/public/css/components/cards.css");
 @import url("/public/css/components/table.css");
 
+/* Pages */
+@import url("/public/css/pages/gestion-inventario.css");
+@import url("/public/css/pages/index.css");

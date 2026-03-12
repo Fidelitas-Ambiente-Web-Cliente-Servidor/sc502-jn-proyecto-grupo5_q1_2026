@@ -31,7 +31,7 @@
 }
 
 .banner__titulo {
-    font-family: var(--titulos);
+    font-family: var(--fuente-titulos-botones);
     font-size: 42px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(var(--color-terceario-puro),0.7);
@@ -42,11 +42,11 @@
     margin-top: 20px;
     padding: 14px 35px;
     border-radius: 50px;
-    background: var(--color-secundario);
+    background: var(--color-primario);
     color: var(--rojo);
     font-weight: bold;
     border: none;
-    font-family: var(--titulos);
+    font-family: var(--fuente-titulos-botones);
     font-size: 18px;
     cursor: pointer;
     box-shadow: 2px 2px 4px rgba(var(--color-terceario-puro), 0.3);
