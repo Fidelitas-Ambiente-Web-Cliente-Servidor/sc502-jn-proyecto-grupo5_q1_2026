@@ -5,25 +5,25 @@ Layout
 Componentes
 Media queries*/
 
-@import url("/public/css/base/variables.css");
-@import url("/public/css/base/normalize.css");
+@import url("base/variables.css");
+@import url("base/normalize.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 /* layouts */
-@import url("/public/css/layout/grid.css");
-@import url("/public/css/layout/header.css");
-@import url("/public/css/layout/navbar.css");
-@import url("/public/css/layout/main-content.css");
-@import url("/public/css/layout/footer.css"); 
+@import url("layout/grid.css");
+@import url("layout/header.css");
+@import url("layout/navbar.css");
+@import url("layout/main-content.css");
+@import url("layout/footer.css"); 
 
 /* Componentes */
-@import url("/public/css/components/cards.css");
-@import url("/public/css/components/table.css");
-@import url("/public/css/components/productos-destacados.css");
-@import url("/public/css/components/summary.css");
-@import url("/public/css/components/filters.css");
+@import url("components/cards.css");
+@import url("components/table.css");
+@import url("components/productos-destacados.css");
+@import url("components/summary.css");
+@import url("components/filters.css");
 
 /* Pages */
-@import url("/public/css/pages/gestion-inventario.css");
-@import url("/public/css/pages/index.css");
-@import url("/public/css/pages/auth.css");
+@import url("pages/gestion-inventario.css");
+@import url("pages/index.css");
+@import url("pages/auth.css");
