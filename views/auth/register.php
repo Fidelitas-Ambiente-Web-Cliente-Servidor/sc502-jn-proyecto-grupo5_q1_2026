@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
@@ -7,12 +8,17 @@
     <link rel="stylesheet" href="../public/css/variables.css">
     <link rel="stylesheet" href="../public/css/styles.css">
 </head>
+
 <body class="auth-page">
     <main class="page-register">
         <h1>Crear una cuenta</h1>
         <form id="form-register" action="" method="post" autocomplete="off">
             <div class="form-group">
-                <label for="input-name" class="form-group__label">Nombre completo</label>
+                <label for="input-name" class="form-group__label">Nombre</label>
+                <input type="text" id="input-name" name="name" class="form-group__input" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="input-name" class="form-group__label">Apellidos</label>
                 <input type="text" id="input-name" name="name" class="form-group__input" required autocomplete="off">
             </div>
             <div class="form-group">
@@ -29,7 +35,8 @@
             </div>
             <button type="submit" id="btn-register" class="btn btn--primary">Registrarse</button>
         </form>
-        <p>¿Ya tienes cuenta? <a href="/views/auth/login.html">Ingresar</a></p>
+        <p>¿Ya tienes cuenta? <a href="?page=login">Ingresar</a></p>
     </main>
 </body>
+
 </html>

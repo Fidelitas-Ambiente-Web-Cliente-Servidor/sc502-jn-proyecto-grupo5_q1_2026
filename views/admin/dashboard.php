@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/css/main.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
     <title>Admin - Dashboard</title>
 </head>
+
 <body class="grid--dos-columnas">
     <header class="header header--vertical">
         <h1 class="header__title">ONLY WAY</h1>
@@ -18,7 +21,7 @@
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="<?php echo BASE_URL; ?>/controllers/AuthController.php?action=logou"><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a></li>
             </ul>
         </nav>
     </header>
@@ -35,8 +38,8 @@
                 </header>
                 <div class="card__content">
                     <p class="card__text">¢2,450.000</p>
-                <span class="card__variation card__variation--activo"><i class="bi bi-graph-up-arrow"></i>
-+12%</span>
+                    <span class="card__variation card__variation--activo"><i class="bi bi-graph-up-arrow"></i>
+                        +12%</span>
                 </div>
             </article>
             <article class="card">
@@ -46,8 +49,8 @@
                 </header>
                 <div class="card__content">
                     <p class="card__text">156</p>
-                <span class="card__variation card__variation--enproceso"><i class="bi bi-graph-up-arrow"></i>
-+8%</span>
+                    <span class="card__variation card__variation--enproceso"><i class="bi bi-graph-up-arrow"></i>
+                        +8%</span>
                 </div>
             </article>
             <article class="card">
@@ -57,8 +60,8 @@
                 </header>
                 <div class="card__content">
                     <p class="card__text">342</p>
-                <span class="card__variation card__variation--morado"><i class="bi bi-graph-up-arrow"></i>
-+15%</span>
+                    <span class="card__variation card__variation--morado"><i class="bi bi-graph-up-arrow"></i>
+                        +15%</span>
                 </div>
             </article>
             <article class="card">
@@ -68,57 +71,58 @@
                 </header>
                 <div class="card__content">
                     <p class="card__text">89</p>
-                <span class="card__variation card__variation--anaranjado"><i class="bi bi-graph-up-arrow"></i>
-+5%</span>
+                    <span class="card__variation card__variation--anaranjado"><i class="bi bi-graph-up-arrow"></i>
+                        +5%</span>
                 </div>
             </article>
         </section>
-            <table class="table">
-                <thead class="table__header">
-                    <tr class="table__titles" >
-                        <th class="table__title" colspan="2"><span class="table__title-text">Pedidos Recientes</span></th>
-                    </tr>
+        <table class="table">
+            <thead class="table__header">
+                <tr class="table__titles">
+                    <th class="table__title" colspan="2"><span class="table__title-text">Pedidos Recientes</span></th>
+                </tr>
 
-                    <tr class="header__row">
-                        <th class="table-header__title">ID</th>
-                        <th class="table-header__title">CLIENTE</th>
-                        <th class="table-header__title">FECHA</th>
-                        <th class="table-header__title">TOTAL</th>
-                        <th class="table-header__title">ESTADO</th>
-                    </tr>
-                </thead>
-                <tbody class="table__content">
-                    <tr class="content__row">
-                        <td class="content__cell">#1234</td>
-                        <td class="content__cell">Juan Perez</td>
-                        <td class="content__cell content__cell--fecha">202-02-20</td>
-                        <td class="content__cell">¢45.0000</td>
-                        <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
-                    </tr>
-                    <tr class="content__row">
-                        <td class="content__cell">#1235</td>
-                        <td class="content__cell">Maria Garcia</td>
-                        <td class="content__cell content__cell--fecha">202-02-21</td>
-                        <td class="content__cell">¢60.0000</td>
-                        <td class="content__cell"> <span class="table__estado table__estado--enproceso">En Progreso</span></td>
-                    </tr>
-                    <tr class="content__row">
-                        <td class="content__cell">#1236</td>
-                        <td class="content__cell">Carlos Rodriguez</td>
-                        <td class="content__cell content__cell--fecha">202-02-22</td>
-                        <td class="content__cell">¢75.0000</td>
-                        <td class="content__cell"><span class="table__estado table__estado--pendiente">Pendiente</span></td>
-                    </tr>
-                    <tr class="content__row">
-                        <td class="content__cell">#1237</td>
-                        <td class="content__cell">Ana Martinez</td>
-                        <td class="content__cell content__cell--fecha">202-02-23</td>
-                        <td class="content__cell">¢90.0000</td>
-                        <td class="content__cell"><span class="table__estado table__estado--enproceso">En Progreso</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                <tr class="header__row">
+                    <th class="table-header__title">ID</th>
+                    <th class="table-header__title">CLIENTE</th>
+                    <th class="table-header__title">FECHA</th>
+                    <th class="table-header__title">TOTAL</th>
+                    <th class="table-header__title">ESTADO</th>
+                </tr>
+            </thead>
+            <tbody class="table__content">
+                <tr class="content__row">
+                    <td class="content__cell">#1234</td>
+                    <td class="content__cell">Juan Perez</td>
+                    <td class="content__cell content__cell--fecha">202-02-20</td>
+                    <td class="content__cell">¢45.0000</td>
+                    <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
+                </tr>
+                <tr class="content__row">
+                    <td class="content__cell">#1235</td>
+                    <td class="content__cell">Maria Garcia</td>
+                    <td class="content__cell content__cell--fecha">202-02-21</td>
+                    <td class="content__cell">¢60.0000</td>
+                    <td class="content__cell"> <span class="table__estado table__estado--enproceso">En Progreso</span></td>
+                </tr>
+                <tr class="content__row">
+                    <td class="content__cell">#1236</td>
+                    <td class="content__cell">Carlos Rodriguez</td>
+                    <td class="content__cell content__cell--fecha">202-02-22</td>
+                    <td class="content__cell">¢75.0000</td>
+                    <td class="content__cell"><span class="table__estado table__estado--pendiente">Pendiente</span></td>
+                </tr>
+                <tr class="content__row">
+                    <td class="content__cell">#1237</td>
+                    <td class="content__cell">Ana Martinez</td>
+                    <td class="content__cell content__cell--fecha">202-02-23</td>
+                    <td class="content__cell">¢90.0000</td>
+                    <td class="content__cell"><span class="table__estado table__estado--enproceso">En Progreso</span></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
-    
+
 </body>
+
 </html>

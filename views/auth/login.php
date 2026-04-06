@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="../../public/css/main.css">
+    <link rel="stylesheet" href="public/css/main.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-    <script src="../../public/js/auth/auth.js"></script>
+    <script type="module"  src="public/js/auth/auth.js"></script>
 </head>
 
 <body class="auth-page">
     <main class="page-login">
         <h1>Iniciar sesión</h1>
-        <form id="form-login" action="../../index.php" method="post">
+        <form id="form-login" action="index.php" method="post">
             <div class="form-group">
                 <label for="input-email" class="form-group__label">Correo electrónico</label>
                 <input type="email" id="input-email" name="email" class="form-group__input" required autocomplete="off">
@@ -24,7 +24,7 @@
             </div>
             <button type="submit" id="btn-login" class="btn btn--primary">Ingresar</button>
         </form>
-        <p>¿No tienes cuenta? <a href="/views/auth/register.html">Regístrate</a></p>
+        <p>¿No tienes cuenta? <a href="<?php echo BASE_URL ?>/?page=register">Regístrate</a></p>
     </main>
 
 </body>

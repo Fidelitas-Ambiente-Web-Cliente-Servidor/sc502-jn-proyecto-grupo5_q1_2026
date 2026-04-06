@@ -1,83 +1,93 @@
 <?php
-
-require_once __DIR__ . '/../../repository/AuthRepository.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../../config/config.php';
+require_once  BASE_PATH . '/repository/AuthRepository.php';
+require_once BASE_PATH . '/controllers/api.php';
+require_once BASE_PATH . '/utils/funciones.php';
 
 class AuthController {
-    private $AuthRepository;
-    private $action;
-    private $response = [
-        'status' => null,
-        'code' => null,
-        'message' => null,
-        'redirect' => null
-    ];
+    private $authRepository;
+    private $api;
+    private $datosEnviados;
+    private $response;
 
     public function __construct() {
-        $this->AuthRepository = new AuthRepository();
-        $this->action = $_POST['action'] ?? null;
+        $this->authRepository = new AuthRepository();
+        $this->api = new Api();
+        $this->datosEnviados = obtenerJsonDeJs();
+        $this->response = [
+            "status" => "error",
+            "code" => 400,
+            "message" => "solicitud incompleta",
+            "data" => []
+        ];
     }
 
-    public function handleRequest() {
-        switch ($this->action) {
+    public function llamarMetodosControlador() {
+        $accion = $_GET['action'] ?? $this->datosEnviados['action'] ?? null;
+        switch($accion) {
             case 'login':
-                $this->login($_POST['email'], $_POST['password']);
+                $this->login();
                 break;
-            case 'register':
-                echo 'encontramos la acción register';
-                break;
-            default:
-                echo 'acción no reconocida';
-                break;
-        }
-    }
-
-    public function login($emailRecibido,$passwordRecibido) {
-        $user = $this->AuthRepository->shareUserForEmail($emailRecibido);
-        if($user && password_verify($passwordRecibido, $user['password'])) {
-            session_start();
-            $_SESSION['user_id'] = $user['id_usuario'];
-            $_SESSION['user_email'] = $user['email'];
-            $_SESSION['role'] = $user['rol'];
-
-            $this->response = [
-                'status' => 'success',
-                'code' => 200,
-                'message' => 'Inicio de sesión exitoso',
-                'redirect' => $this->redirection($user['rol'])
-            ];
-        } else {
-            $this->response = [
-                'status' => 'error',
-                'code' => 401,
-                'message' => 'Correo electrónico o contraseña incorrectos',
-                'redirect' => null
-            ];
-        }
-
-        header('Content-Type: application/json');
-        echo json_encode($this->response);
-        exit;
-    }
-
-    public function redirection($rol) {
-        $redirectUrl = null;
-        switch($rol) {
-            case 'ADMINISTRADOR':
-                $redirectUrl =  'views/admin/dashboard.html';
-                break;
-            case 'CLIENTE':
-                $redirectUrl = 'views/clients/home.html';
-                break;
-            case 'VENDEDOR':
-                $redirectUrl = 'views/vendedor/inventory.html';
+            case 'logout':
+                $this->logout();
                 break;
             default:
-                $redirectUrl = 'views/auth/login.php';
-                break;
+            $this->datosEnviados['message'] = 'Accion no encontrada';
+            break;
         }
-        return $redirectUrl;
     }
+
+    public function login() {
+        $usuarioEnviado = $this->datosEnviados['user'] ?? '';
+        $passwordEnviada = $this->datosEnviados['password'] ?? '';
+        $userBD = $this->authRepository->shareUserForEmail($usuarioEnviado);
+        if($userBD && password_verify($passwordEnviada,$userBD['password'])) {
+            $_SESSION['id_usuario'] = $userBD['id_usuario'];
+            $_SESSION['nombre'] = $userBD['nombre'];
+            $_SESSION['email'] = $userBD['email'];
+            $_SESSION['rol'] = $userBD['rol'];
+            $this->response = [
+                "status" => "success",
+                "code" => 200,
+                "message" => "Bienvenido al sistema " . $_SESSION['nombre'],
+                "data" => [
+                    "id_usuario" => $userBD['id_usuario'],
+                    "nombre" => $userBD['nombre'],
+                    "apellido" => $userBD['apellido'],
+                    "email" => $userBD['email'],
+                    "rol" => $userBD['rol']
+                ]
+            ];
+        }  else {
+            $this->response = [
+                "status" => "error",
+                "code" => 401,
+                "message" => "Correo o contraseña incorrecta",
+                "data" => []
+            ];
+            
+        }
+        enviarRespuestJson($this->response);
+    }
+
+    public function logout() {
+        session_destroy();
+        $this->response = [
+            "status" => "success",
+            "code" => 200,
+            "message" => "Sesión Cerrada con exito",
+            "data" => []
+        ];
+
+        enviarRespuestJson($this->response);
+    }
+
+
 }
 
 $authController = new AuthController();
-$authController->handleRequest();
+$authController->llamarMetodosControlador();
+
