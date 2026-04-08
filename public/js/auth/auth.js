@@ -1,12 +1,16 @@
 import { crearCuerpoApi } from '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026/public/js/api.js';
 const URLBASE = '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026'
 const APICONTROLLER = URLBASE + '/controllers/auth/AuthController.php'
+const DISPLAY_INLINE_BLOCK = "inline-block";
+const DISPLAY_NONE = "none";
 
 
 
 $(function () {
+    
     logout();
     login();
+    register();
 })
 
 
@@ -21,15 +25,7 @@ function login() {
             user: email.val(),
             password: password.val()
         };
-
-        fetch(APICONTROLLER,
-            {
-                method: 'POST',
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(datos)
-            }
+        fetch(APICONTROLLER,crearCuerpoApi("POST",datos)
         ).then(response => response.json())
             .then(data => {
                 validarRespuestaLogin(data);
@@ -52,11 +48,45 @@ function logout() {
 } 
 
 function validarRespuestaLogin(data) {
-    if (data.status === "success") {
-        window.location.href = "index.php"
-    } else {
-        alert(data.message);
-    }
+    if (data.status !== "success") return generarMensajeError(DISPLAY_INLINE_BLOCK, data.message);
+    window.location.href = "index.php";
 }
 
-/* function logout() */
+function register() {
+    let formRegister = $('#form-register');
+    formRegister.on('submit', function (e) {
+        e.preventDefault();
+        let inputName = $('#input-name');
+        let inputLastName = $('#input-last_name');
+        let inputEmail = $('#input-email');
+        let inputPassword = $('#input-password');
+        let inputConfirmPassword = $('#input-confirm-password');
+        if ((inputPassword.val() !== inputConfirmPassword.val())) return generarMensajeError(DISPLAY_INLINE_BLOCK, "Las contaseñas no coinciden");
+        generarMensajeError(DISPLAY_NONE, "");    
+
+        const datos = {
+            action: "register",
+            nombre: inputName.val(),
+            apellidos: inputLastName.val(),
+            email: inputEmail.val(),
+            password: inputConfirmPassword.val()
+        }
+
+        fetch(APICONTROLLER, crearCuerpoApi("POST", datos))
+            .then(response => response.json())
+            .then(data =>  {
+                console.log(data);
+                if (data.status === "error") return generarMensajeError(DISPLAY_INLINE_BLOCK, data.message);
+                console.log("segi ejecutandome")
+                window.location.href = "index.php?page=login"
+        } )
+        
+    })
+}
+
+function generarMensajeError(display, $menssajeError) {
+    let spanError = $('#login-message-error');
+    spanError.text("");
+    spanError.css('display', display)
+    spanError.text($menssajeError);
+}

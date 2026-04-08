@@ -7,7 +7,7 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="public/css/main.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-    <script type="module"  src="public/js/auth/auth.js"></script>
+    <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 
 <body class="auth-page">
@@ -22,6 +22,7 @@
                 <label for="input-password" class="form-group__label">Contraseña</label>
                 <input type="password" id="input-password" name="password" class="form-group__input" required autocomplete="new-password">
             </div>
+            <span id="login-message-error" class="login-message-error"></span>
             <button type="submit" id="btn-login" class="btn btn--primary">Ingresar</button>
         </form>
         <p>¿No tienes cuenta? <a href="<?php echo BASE_URL ?>/?page=register">Regístrate</a></p>

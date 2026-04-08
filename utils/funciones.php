@@ -11,3 +11,13 @@ function enviarRespuestJson($datosResponse) {
     echo json_encode($datosResponse);
     exit;
 }
+
+function cuerpoResponse($status,$code,$message,$data) {
+    $response = [
+        "status" => $status,
+        "code" => $code,
+        "message" => $message,
+        "data" => [$data]
+    ];
+    return $response;
+}

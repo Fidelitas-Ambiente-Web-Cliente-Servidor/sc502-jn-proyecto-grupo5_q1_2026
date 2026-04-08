@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <?php include BASE_PATH . '/views/includes/header.php' ?>
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
     <script type="module" src="public/js/auth/auth.js"></script>
     <title>ONLY WAY</title>
 
@@ -22,6 +22,8 @@
     <div class="user-bar">
         <div class="user-bar__contenedor">
             <div class="user-bar__categorias">
+                <a href="#" class="user-bar__categoria-link">TODOS</a>
+                <span class="user-bar__categoria-separador">|</span>
                 <a href="#" class="user-bar__categoria-link">HOMBRE</a>
                 <span class="user-bar__categoria-separador">|</span>
                 <a href="#" class="user-bar__categoria-link">MUJER</a>

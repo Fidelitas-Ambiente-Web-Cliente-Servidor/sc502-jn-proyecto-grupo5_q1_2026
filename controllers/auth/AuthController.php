@@ -34,6 +34,9 @@ class AuthController {
             case 'logout':
                 $this->logout();
                 break;
+            case 'register':
+                $this->register();
+                break;
             default:
             $this->datosEnviados['message'] = 'Accion no encontrada';
             break;
@@ -56,7 +59,7 @@ class AuthController {
                 "data" => [
                     "id_usuario" => $userBD['id_usuario'],
                     "nombre" => $userBD['nombre'],
-                    "apellido" => $userBD['apellido'],
+                    "apellido" => $userBD['apellidos'],
                     "email" => $userBD['email'],
                     "rol" => $userBD['rol']
                 ]
@@ -81,6 +84,24 @@ class AuthController {
             "message" => "Sesión Cerrada con exito",
             "data" => []
         ];
+
+        enviarRespuestJson($this->response);
+    }
+
+    public function register() {
+        $nombre = $this->datosEnviados['nombre'];
+        $apellidos = $this->datosEnviados['apellidos'];
+        $email = $this->datosEnviados['email'];
+        $password = $this->datosEnviados['password'];
+        $rol = $this->datosEnviados['rol'] ?? null;
+        $respuestDB = $this->authRepository->saveUser($nombre, $apellidos, $email, password_hash($password, PASSWORD_DEFAULT), $rol);
+        $isOk = $respuestDB == 1;
+        $this->response = cuerpoResponse(
+            $isOk ? 'success' : 'error',
+            $isOk ? 200 : (($respuestDB == -2) ? 409 : 500),
+            $isOk ? 'Usuario creado y guardado satisfactoriamente' : (($respuestDB == -2) ? 'El correo ya existe' : 'INTERNAL SERVER ERROR'),
+            null
+        );
 
         enviarRespuestJson($this->response);
     }

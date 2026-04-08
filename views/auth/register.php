@@ -2,11 +2,9 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
     <title>Registro</title>
-    <link rel="stylesheet" href="../public/css/normalize.css">
-    <link rel="stylesheet" href="../public/css/variables.css">
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 
 <body class="auth-page">
@@ -18,8 +16,8 @@
                 <input type="text" id="input-name" name="name" class="form-group__input" required autocomplete="off">
             </div>
             <div class="form-group">
-                <label for="input-name" class="form-group__label">Apellidos</label>
-                <input type="text" id="input-name" name="name" class="form-group__input" required autocomplete="off">
+                <label for="input-apellidos" class="form-group__label">Apellidos</label>
+                <input type="text" id="input-last_name" name="lastname" class="form-group__input" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="input-email" class="form-group__label">Correo electrónico</label>
@@ -33,6 +31,7 @@
                 <label for="input-confirm-password" class="form-group__label">Confirmar contraseña</label>
                 <input type="password" id="input-confirm-password" name="confirm_password" class="form-group__input" required autocomplete="new-password">
             </div>
+            <span id="login-message-error" class="login-message-error"></span>
             <button type="submit" id="btn-register" class="btn btn--primary">Registrarse</button>
         </form>
         <p>¿Ya tienes cuenta? <a href="?page=login">Ingresar</a></p>
