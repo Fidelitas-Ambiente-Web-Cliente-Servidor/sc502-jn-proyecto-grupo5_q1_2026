@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-<link rel="stylesheet" href="../../public/css/main.css">
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
     <script type="module" src="public/js/auth/auth.js"></script>
     <title>Gestión de Categorías</title>
 </head> 
 
 <body class="grid--dos-columnas">
-    <header class="header header--vertical">
-    <h1 class="header__title">ONLY WAY</h1>
-    <nav class="navbar">
-        <ul class="navbar__items">
-            <li class="navbar__item navbar__item--active"><a class="navbar__link" href="#"><i class="bi bi-columns-gap"></i>Dashboard</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/admin?page=gestion/usuarios"><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/admin?page=gestion/inventario"><i class="bi bi-box-seam navbar__icon"></i>Gestión de Inventarios</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/admin?page=gestion/pedidos"><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/admin?page=gestion/categorias"><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/admin?page=gestion/pagos"><i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="<?php echo BASE_URL; ?>/?page=logout"><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a></li>
-        </ul>
-    </nav>
-</header>
+<?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
     <main class="main-content">
         <header class="section-header">
             <div class="section-header__info">
