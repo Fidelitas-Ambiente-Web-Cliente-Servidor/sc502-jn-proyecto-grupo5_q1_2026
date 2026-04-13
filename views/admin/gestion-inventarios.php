@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
     <script type="module" src="public/js/auth/auth.js"></script>
     <title>Gestión de Inventarios</title>
-</head> 
+</head>
 
 <body class="grid--dos-columnas">
-<?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
-    <main class="main-content">
+  <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
+  <main class="main-content">
     <header class="section-header">
       <div class="section-header__info">
         <h2 class="section-header__title">Gestión de Inventarios</h2>
         <p class="section-header__text">Administra el inventario de productos</p>
       </div>
       <div class="section-header__actions">
-        <button class="btn-submit btn-submit--admin-add" id="btn-agregar-categoria">
+        <button class="btn-submit btn-submit--admin-add" 
+        id="btn-agregar-producto">
           + AGREGAR PRODUCTO
         </button>
       </div>

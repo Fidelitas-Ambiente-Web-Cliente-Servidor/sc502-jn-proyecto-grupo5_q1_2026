@@ -15,7 +15,8 @@
                 <p class="section-header__text">Administra las categorias de productos</p>
             </div>
             <div class="section-header__actions">
-                <button class="btn-submit btn-submit--admin-add" id="btn-agregar-categoria">
+                <button class="btn-submit btn-submit--admin-add" 
+                id="btn-agregar-categoria">
                     + AGREGAR CATEGORIA
                 </button>
             </div>
