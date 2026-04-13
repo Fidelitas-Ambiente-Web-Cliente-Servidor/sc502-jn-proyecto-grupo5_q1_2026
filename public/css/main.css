@@ -21,9 +21,13 @@ Media queries*/
 @import url("components/table.css");
 @import url("components/productos-destacados.css");
 @import url("components/summary.css");
-@import url("components/filters.css");
+@import url("components/buttons.css");
+@import url("components/section-header.css");
 
 /* Pages */
-@import url("pages/gestion-inventario.css");
 @import url("pages/index.css");
 @import url("pages/auth.css");
+@import url("pages/cart.css");
+@import url("pages/checkout.css");
+@import url("pages/orders.css");
+@import url("pages/gestion-pagos.css");

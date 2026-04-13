@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
-    <meta charset="UTF-8">
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
     <title>Login</title>
-    <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="public/css/main.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 

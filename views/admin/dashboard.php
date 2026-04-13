@@ -1,35 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/main.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-
-    <title>Admin - Dashboard</title>
-</head>
-
+<head> 
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
+    <script type="module" src="public/js/auth/auth.js"></script>
+    <title>Dashboard</title>
+</head> 
 <body class="grid--dos-columnas">
-    <header class="header header--vertical">
-        <h1 class="header__title">ONLY WAY</h1>
-        <nav class="navbar">
-            <ul class="navbar__items">
-                <li class="navbar__item navbar__item--active"><a class="navbar__link" href="#"><i class="bi bi-columns-gap"></i>Dashboard</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="/views/admin/gestion-usuarios.html"><i class="bi bi-people navbar__icon"></i>Gestión de Usuarios</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="/views/admin/gestion-inventarios.html"><i class="bi bi-box-seam navbar__icon"></i>Gestión de Inventarios</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-cart navbar__icon"></i>Gestión de Pedidos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-diagram-2 navbar__icon"></i>Gestión de Categorías</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#"><i class="bi bi-credit-card navbar__icon"></i>Gestión de Pagos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="<?php echo BASE_URL; ?>/controllers/AuthController.php?action=logou"><i class="bi bi-box-arrow-right navbar__icon"></i>Salir</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="dashboard">
-        <header class="dashboard__header">
-            <h2 class="dashboard__title">Dashboard</h2>
-            <p class="dashboard__text">Bienvendio, Administrador</p>
+<?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
+    <main class="main-content">
+        <header class="section-header">
+            <div class="section-header__info">
+                <h2 class="section-header__title">Dashboard</h2>
+                <p class="section-header__text">Bienvenido, Administrador</p>
+            </div>
         </header>
+
         <section class="cards">
             <article class="card">
                 <header class="card__header">
@@ -94,30 +79,30 @@
                 <tr class="content__row">
                     <td class="content__cell">#1234</td>
                     <td class="content__cell">Juan Perez</td>
-                    <td class="content__cell content__cell--fecha">202-02-20</td>
-                    <td class="content__cell">¢45.0000</td>
+                    <td class="content__cell content__cell--fecha">2026-02-20</td>
+                    <td class="content__cell">¢45.000</td>
                     <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
                 </tr>
                 <tr class="content__row">
                     <td class="content__cell">#1235</td>
-                    <td class="content__cell">Maria Garcia</td>
-                    <td class="content__cell content__cell--fecha">202-02-21</td>
-                    <td class="content__cell">¢60.0000</td>
+                    <td class="content__cell">Ana Martinez</td>
+                    <td class="content__cell content__cell--fecha">2026-02-21</td>
+                    <td class="content__cell">¢32.500</td>
                     <td class="content__cell"> <span class="table__estado table__estado--enproceso">En Progreso</span></td>
                 </tr>
                 <tr class="content__row">
                     <td class="content__cell">#1236</td>
-                    <td class="content__cell">Carlos Rodriguez</td>
-                    <td class="content__cell content__cell--fecha">202-02-22</td>
-                    <td class="content__cell">¢75.0000</td>
+                    <td class="content__cell">Maria Rodriguez</td>
+                    <td class="content__cell content__cell--fecha">2026-02-22</td>
+                    <td class="content__cell">¢67.8000</td>
                     <td class="content__cell"><span class="table__estado table__estado--pendiente">Pendiente</span></td>
                 </tr>
                 <tr class="content__row">
                     <td class="content__cell">#1237</td>
-                    <td class="content__cell">Ana Martinez</td>
-                    <td class="content__cell content__cell--fecha">202-02-23</td>
-                    <td class="content__cell">¢90.0000</td>
-                    <td class="content__cell"><span class="table__estado table__estado--enproceso">En Progreso</span></td>
+                    <td class="content__cell">Luis Hernandez</td>
+                    <td class="content__cell content__cell--fecha">2026-02-23</td>
+                    <td class="content__cell">¢24.0000</td>
+                    <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
                 </tr>
             </tbody>
         </table>

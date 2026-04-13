@@ -1,3 +1,12 @@
+.main-content {
+    background-color: var(--color-fondo);
+    width: 100%;
+    padding: 40px 50px;
+}
+
+/* Lo dejo comentado por si acaso, lo de abajo está en section-header ya adaptado, 
+lo hubiera traido acá pero no sé. 
+
 .dashboard, .gestion-usuarios,.gestion-inventarios {
     background-color: var(--color-fondo);
     width: 100%;
@@ -22,3 +31,4 @@
     color:var(--color-textos-secundarios);
     text-align: lef;
 }
+*/
