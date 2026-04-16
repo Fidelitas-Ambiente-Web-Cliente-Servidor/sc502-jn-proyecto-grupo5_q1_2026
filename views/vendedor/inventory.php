@@ -2,46 +2,25 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Only Way — Inventario</title>
-  <link rel="stylesheet" href="/public/css/main.css" />
+  <!--  <?php include BASE_PATH . '/views/includes/head.php' ?>-->
+  <title>Inventario</title>
 </head>
 
+
 <body class="grid--dos-columnas">
-
-  <header class="header header--vertical">
-    <h1 class="header__title">ONLY WAY</h1>
-    <nav class="navbar">
-      <ul class="navbar__items">
-        <li class="navbar__item navbar__item--active">
-          <a class="navbar__link" href="inventory.html">
-            <i class="bi bi-box-seam navbar__icon"></i>Inventario
-          </a>
-        </li>
-        <li class="navbar__item">
-          <a class="navbar__link" href="orders.html">
-            <i class="bi bi-cart navbar__icon"></i>Pedidos
-          </a>
-        </li>
-        <li class="navbar__item">
-          <a class="navbar__link" href="login.html">
-            <i class="bi bi-box-arrow-right navbar__icon"></i>Cerrar Sesión
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="dashboard">
-    <header class="dashboard__header">
-      <h1 class="dashboard__title">Inventario</h1>
-      <p class="dashboard__text">Consulta el estado del inventario</p>
+  <!--<?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>-->
+  <main class="main-content">
+    <header class="section-header ">
+      <h1 class="section-header__title">Inventario</h1>
+      <p class="section-header__text">Consulta el estado del inventario</p>
     </header>
 
-    <div class="filters">
-      <input class="filters__search" id="input-search-inventory" type="text" placeholder="Buscar producto..." />
-      <select class="filters__dropdown" id="input-filter-category">
+    <div class="table__search">
+      <div class="table__search-wrapper">
+        <i class="bi bi-search table__search-icon"></i>
+        <input class="table__search-input" id="input-search-inventory" type="text" placeholder="Buscar producto..." />
+      </div>
+      <select class="table__search-dropdown" id="input-filter-category">
         <option value="all">Todas las categorías</option>
         <option value="HOMBRE">Hombre</option>
         <option value="MUJER">Mujer</option>
@@ -50,10 +29,11 @@
       </select>
     </div>
 
+    <hgroup class="table__titles">
+      <h3 class="table__title">Inventario de Productos</h3>
+    </hgroup>
+
     <table class="table">
-      <hgroup class="table__titles">
-        <h3 class="table__title">Inventario de Productos</h3>
-      </hgroup>
       <thead class="table__header">
         <tr class="header__row">
           <th class="table-header__title">ID</th>
@@ -158,8 +138,6 @@
     </table>
 
   </main>
-
-  <script src="/public/js/inventory.js" defer></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
     gap:35px;
     flex-direction: column;
     padding: 40px var(--padding-laterales) ;
-    width: 15%;
+    width:260px; /*lo cambie para ver como se veia fijo, antes estaba a 15%*/
     border-right: 2px solid rgb(var(--color-terciario-puro),0.1);
 }
 
@@ -18,11 +18,12 @@
     font-size: 16px;
 }
 
+/* duplicado
 .header__title {
     color:var(--color-primario);
     font-family: var(--fuente-titulos-botones);
     font-weight: 900;
-}
+} */
 
 .header__horizontal {
     display: flex;
@@ -38,7 +39,7 @@
     margin: 0;
     color: var(--color-primario);
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 900;
     font-family: var(--fuente-titulos-botones);
     white-space: nowrap; 
 }

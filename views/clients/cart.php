@@ -2,21 +2,33 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php include BASE_PATH . '/views/includes/head.php' ?>
     <title>ONLY WAY - Carrito</title>
-    <link rel="stylesheet" href="/public/css/main.css" />
+    <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 
 <body>
-    <!-- header -->
-    <!-- nav -->
-    <main class="cart-page">
-        <h1 class="cart-page__title">Carrito</h1>
-        <div class="cart-page__content">
+    <?php include BASE_PATH . '/views/includes/header_clients.php' ?>
+    <div class="user-bar">
+        <div class="user-bar__contenedor">
+            <div class="user-bar__categorias">
+                <a href="#" class="user-bar__categoria-link">TODOS</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">HOMBRE</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">MUJER</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">INFANTIL</a>
+                <span class="user-bar__categoria-separador">|</span>
+                <a href="#" class="user-bar__categoria-link">ACCESORIOS</a>
+            </div>
+        </div>
+    </div>
+    <main class="main-content">
+        <h1 class="cart__title">Carrito</h1>
+        <div class="cart__content">
 
-            <section class="cart-page__items">
-                <!-- Reutiliza componente table.css del compañero -->
+            <section class="cart__items">
                 <table class="table">
                     <thead class="table__header">
                         <tr class="header__row">
@@ -48,7 +60,7 @@
                             </td>
                             <td class="content__cell">₡14.000</td>
                             <td class="content__cell">
-                                <button class="cart-table__remove-btn" id="btn-remove-1">
+                                <button class="cart__remove-btn" id="btn-remove-1">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </td>
@@ -56,15 +68,14 @@
                     </tbody>
                 </table>
 
-                <div class="cart-page__actions">
+                <div class="cart__actions">
                     <div class="cart-coupon">
                         <input class="cart-coupon__input" id="input-coupon" type="text" placeholder="Código de cupón" />
                         <button class="cart-coupon__btn" id="btn-apply-coupon">Aplicar Cupón</button>
                     </div>
-                    <button class="cart-page__actions-update-btn" id="btn-update-cart">Actualizar Carrito</button>
                 </div>
             </section>
-            <aside class="cart-page__summary">
+            <aside class="cart__summary">
                 <div class="summary">
                     <h2 class="summary__title">Resumen del carrito <i class="bi bi-bag"></i></h2>
                     <div class="summary__row">
@@ -87,8 +98,7 @@
 
         </div>
     </main>
-    <!-- footer -->
-    <script src="/public/js/cart.js" defer></script>
+    <?php include BASE_PATH . '/views/includes/footer.php' ?>
 </body>
 
 </html>

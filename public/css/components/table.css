@@ -3,12 +3,12 @@
     background-color: var(--color-secundario);
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    padding: 25px;
+    padding: 25px;  
     width: 100%;
     border-collapse: collapse;
     margin-top: 25px;
+     white-space: nowrap; 
 }
-
 
 .table__titles {
     border-bottom: 1px solid rgba(var(--color-textos-secundarios-puro), 0.15);
@@ -106,6 +106,8 @@
     margin-bottom: 25px;
     display: flex;
     align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .table__search-wrapper {
@@ -142,6 +144,30 @@
 
 .table__search-input:focus {
     border-color: var(--color-primario);
+}
+
+.table__search-dropdown {
+    width: 100%;
+    max-width: 240px;
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1.5px solid rgba(var(--color-textos-secundarios-puro), 0.25);
+    border-radius: 10px;
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-terciario);
+    background-color: var(--color-secundario);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.table__search-dropdown:focus {
+    border-color: var(--color-primario);
+}
+
+.table__search-dropdown option {
+    color: var(--color-terciario);
 }
 
 .table__rol {
@@ -198,7 +224,11 @@
 
 .table__action-btn--eliminar {
     color: var(--color-primario);
-}.table {
+}
+
+
+/* Codigo duplicado desde el github
+.table {
     max-width: 1440px;
     background-color: var(--color-secundario);
     border-radius: 20px;
@@ -291,3 +321,4 @@
     background-color: var(--color-primario);
     color: var(--color-secundario);
 }
+*/

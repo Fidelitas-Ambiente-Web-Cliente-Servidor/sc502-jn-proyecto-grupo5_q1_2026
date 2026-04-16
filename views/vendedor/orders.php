@@ -1,47 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-
+  
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Only Way — Pedidos</title>
-  <link rel="stylesheet" href="/public/css/main.css" />
+  <?php include BASE_PATH . '/views/includes/head.php' ?>
+  <title>Pedidos</title>
 </head>
 
+
 <body class="grid--dos-columnas">
-
-  <header class="header header--vertical">
-    <h1 class="header__title">ONLY WAY</h1>
-    <nav class="navbar">
-      <ul class="navbar__items">
-        <li class="navbar__item">
-          <a class="navbar__link" href="inventory.html">
-            <i class="bi bi-box-seam navbar__icon"></i>Inventario
-          </a>
-        </li>
-        <li class="navbar__item navbar__item--active">
-          <a class="navbar__link" href="orders.html">
-            <i class="bi bi-cart navbar__icon"></i>Pedidos
-          </a>
-        </li>
-        <li class="navbar__item">
-          <a class="navbar__link" href="login.html">
-            <i class="bi bi-box-arrow-right navbar__icon"></i>Cerrar Sesión
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="dashboard">
-    <header class="dashboard__header">
-      <h1 class="dashboard__title">Pedidos</h1>
-      <p class="dashboard__text">Consulta y gestiona los pedidos</p>
+  <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
+  <main class="main-content">
+    <header class="section-header">
+      <div class="section-header__info">
+        <h2 class="section-header__title">Gestión de Pedidos</h2>
+        <p class="section-header__text">Consulta y gestiona los pedidos</p>
+      </div>
     </header>
 
-    <div class="filters">
-      <input class="filters__search" id="input-search-orders" type="text" placeholder="Buscar pedido..." />
-      <select class="filters__dropdown" id="input-filter-status">
+    <div class="table__search">
+      <div class="table__search-wrapper">
+        <i class="bi bi-search table__search-icon"></i>
+        <input class="table__search-input" id="input-search-orders" type="text" placeholder="Buscar pedido..." />
+      </div>
+      <select class="table__search-dropdown" id="input-filter-status">
         <option value="all">Todos los estados</option>
         <option value="Completado">Completado</option>
         <option value="Pendiente">Pendiente</option>
@@ -50,9 +31,6 @@
     </div>
 
     <table class="table">
-      <hgroup class="table__titles">
-        <h3 class="table__title">Gestión de Pedidos</h3>
-      </hgroup>
       <thead class="table__header">
         <tr class="header__row">
           <th class="table-header__title">ID Pedido</th>
@@ -69,9 +47,7 @@
           <td class="content__cell">Manuel Quiroz</td>
           <td class="content__cell content__cell--fecha">05-02-2025</td>
           <td class="content__cell">₡45.000</td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Completado</span>
-          </td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -86,9 +62,7 @@
           <td class="content__cell">Lucia Cabrera</td>
           <td class="content__cell content__cell--fecha">07-02-2025</td>
           <td class="content__cell">₡72.000</td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--enproceso">Pendiente</span>
-          </td>
+          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -103,9 +77,7 @@
           <td class="content__cell">Miguel Herrera</td>
           <td class="content__cell content__cell--fecha">12-02-2025</td>
           <td class="content__cell">₡25.000</td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Completado</span>
-          </td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -120,9 +92,7 @@
           <td class="content__cell">Hector Gomez</td>
           <td class="content__cell content__cell--fecha">15-02-2025</td>
           <td class="content__cell">₡10.000</td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--enproceso">Pendiente</span>
-          </td>
+          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -137,9 +107,7 @@
           <td class="content__cell">Fabian Cubero</td>
           <td class="content__cell content__cell--fecha">21-02-2025</td>
           <td class="content__cell">₡23.700</td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--inactivo">Cancelado</span>
-          </td>
+          <td class="content__cell"><span class="table__estado table__estado--inactivo">Cancelado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -151,10 +119,7 @@
         </tr>
       </tbody>
     </table>
-
   </main>
 
-  <script src="/public/js/orders.js" defer></script>
 </body>
-
 </html>
