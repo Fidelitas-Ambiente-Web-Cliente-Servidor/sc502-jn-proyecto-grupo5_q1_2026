@@ -77,7 +77,6 @@ function register() {
             .then(data =>  {
                 console.log(data);
                 if (data.status === "error") return generarMensajeError(DISPLAY_INLINE_BLOCK, data.message);
-                console.log("segi ejecutandome")
                 window.location.href = "index.php?page=login"
         } )
         

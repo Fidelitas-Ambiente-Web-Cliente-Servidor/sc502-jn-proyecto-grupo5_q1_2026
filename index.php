@@ -10,6 +10,6 @@ require match ($page) {
     'home'     => './views/clients/home.php',
     'login'    => './views/auth/login.php',
     'register' => './views/auth/register.php',
-    'productos' => './views/clients/products.php',
+    'products' => './views/clients/products.php',
     default    => './views/404.php',
 };

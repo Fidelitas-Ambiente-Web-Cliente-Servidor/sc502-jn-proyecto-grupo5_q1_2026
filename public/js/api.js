@@ -11,7 +11,7 @@ export function crearCuerpoApi(method, datos) {
             }
             break;
         case ('GET'):
-            cuerpo = {
+            cuerpo = {  
                 method: method,
                 headers: {
                     'content-type': 'application/json'

@@ -5,7 +5,7 @@
     <title>Only Way - Productos</title>
 </head>
 <body>
-    <?php include BASE_PATH . '/views/includes/header_clients.php' ?>
+    <?php include BASE_PATH . '/views/includes/components/header_clients.php' ?>
     
 </body>
 </html>

@@ -38,7 +38,7 @@
     <main>
         <section class="banner">
             <h2 class="banner__titulo">TU TIENDA DE ROPA DEPORTIVA FAVORITA</h2>
-            <button class="banner__boton">VER PRODUCTOS</button>
+            <a href="<?php echo BASE_URL ?>/?page=products" class="banner__boton">VER PRODUCTOS</a>
         </section>
 
         <section class="productos-destacados">
