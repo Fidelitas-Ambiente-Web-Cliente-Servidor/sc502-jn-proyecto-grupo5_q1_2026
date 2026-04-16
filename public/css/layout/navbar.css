@@ -78,8 +78,10 @@
 
 
 .navbar__session {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
 }
 
 .navbar__session-trigger {
@@ -90,7 +92,6 @@
     }
 
 .navbar__session-dropdown {
-    position: absolute;
     background-color: rgba(var(--color-secundario-puro),0.1);
     border: 1px solid rgba(var(--color-terciario-puro), 0.1);
     border-radius: 8px;
@@ -102,10 +103,11 @@
 
 .navbar__session-link {
     min-width: 100px;
-    padding: 10px 10px;
+    padding: 3px 3px;
     text-align: center;
     border-radius: 10px;
     border: none;
+    font-size: 14px;
 }
 
 .navbar__session-link--login {

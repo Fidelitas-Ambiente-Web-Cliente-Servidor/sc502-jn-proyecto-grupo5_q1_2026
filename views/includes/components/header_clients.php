@@ -1,5 +1,7 @@
 <header class=" header header__horizontal">
-    <h1 class="header__title">ONLY WAY</h1>
+    <a href="<?php  echo BASE_URL ?>/index.php">
+        <h1 class="header__title">ONLY WAY</h1>
+    </a>
     <input type="text" id="input-buscar" class="input-buscar" placeholder="¿Qué buscás?">
     <nav class="navbar__vertical">
         <a href="<?php echo BASE_URL ?>/?page=favoritos" class="navbar__link"><span class="navbar__text"><i class="bi bi-heart"></i>Favoritos</span> </a>

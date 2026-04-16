@@ -30,7 +30,7 @@ color VARCHAR (50),
 imagen VARCHAR (255),
 stock_disponible INT,
 estado BOOLEAN DEFAULT FALSE, 
- PRIMARY KEY (id_producto),
+PRIMARY KEY (id_producto),
 FOREIGN KEY (id_categoria) REFERENCES CATEGORIAS(id_categoria))
 ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 

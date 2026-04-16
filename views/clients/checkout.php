@@ -3,141 +3,90 @@
 
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
-    <title>ONLY WAY - Checkout</title>
-    <script type="module" src="public/js/auth/auth.js"></script>
+    <script type="module" src="<?php echo BASE_URL?>/public/js/modules/checkout.js"></script>
+    <title>ONLY WAY - Finalizar Compra</title>
 </head>
 
 <body>
-<?php include BASE_PATH . '/views/includes/header_clients.php' ?>
-    <div class="user-bar">
-        <div class="user-bar__contenedor">
-            <div class="user-bar__categorias">
-                <a href="#" class="user-bar__categoria-link">TODOS</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">HOMBRE</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">MUJER</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">INFANTIL</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">ACCESORIOS</a>
-            </div>
-        </div>
-    </div>
+    <?php include BASE_PATH . '/views/includes/components/header_clients.php' ?>
+
     <main class="main-content">
         <h1 class="checkout-page__title">Finalizar Pago</h1>
 
-        <div class="checkout-banner">
-            <p class="checkout-banner__text">
-                ¿Ya sos cliente?
-                <a class="checkout-banner__link" href="#">Hacé click aquí para cargar tus datos</a>
-            </p>
-        </div>
-
         <div class="checkout-page__content">
-
             <section class="checkout-page__form billing-form">
-                <h2 class="billing-form__title">Detalles de Facturación</h2>
+                <h2 class="billing-form__title">Detalles de Entrega</h2>
 
-                <div class="billing-form__field">
-                    <span class="billing-form__label">¿Requiere Factura Electrónica?</span>
-                    <div class="billing-form__radio-group ">
-                        <label class="billing-form__radio-label">
-                            <input type="radio" name="invoiceRequired" value="si" /> Sí
-                        </label>
-                        <label class="billing-form__radio-label">
-                            <input type="radio" name="invoiceRequired" value="no" checked /> No
-                        </label>
+                <div class="billing-form__row">
+                    <div class="billing-form__field">
+                        <label class="billing-form__label" for="input-name">Nombre completo*</label>
+                        <input class="billing-form__input" type="text" id="input-name"
+                            value="<?php echo $_SESSION['usuario']['nombre'] ?? ''; ?>" required />
                     </div>
                 </div>
 
                 <div class="billing-form__field">
-                    <label class="billing-form__label" for="input-id-type">Tipo de Identificación</label>
-                    <select class="billing-form__select" id="input-id-type" name="idType">
-                        <option value="fisica">Cédula Física</option>
-                        <option value="juridica">Cédula Jurídica</option>
-                        <option value="dimex">DIMEX</option>
-                    </select>
-                </div>
-
-                <div class="billing-form__field">
-                    <label class="billing-form__label" for="input-identification">Identificación*</label>
-                    <input class="billing-form__input" type="text" id="input-identification"
-                        name="identification" />
+                    <label class="billing-form__label" for="input-email">Correo electrónico*</label>
+                    <input class="billing-form__input" type="email" id="input-email"
+                        value="<?php echo $_SESSION['usuario']['email'] ?? ''; ?>" required />
                 </div>
 
                 <div class="billing-form__row">
                     <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-name">Nombre*</label>
-                        <input class="billing-form__input" type="text" id="input-name" name="name" />
-                    </div>
-                    <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-lastname">Apellidos*</label>
-                        <input class="billing-form__input" type="text" id="input-lastname" name="lastname" />
-                    </div>
-                </div>
-
-                <div class="billing-form__row">
-                    <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-phone">Teléfono*</label>
-                        <input class="billing-form__input" type="tel" id="input-phone" name="phone"
-                            placeholder="1234-5678" />
-                    </div>
-                    <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-email">Correo electrónico*</label>
-                        <input class="billing-form__input" type="email" id="input-email" name="email" />
-                    </div>
-                </div>
-
-                <div class="billing-form__row">
-                    <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-province">Provincia*</label>
-                        <select class="billing-form__select" id="input-province" name="province">
-                            <option value="">Seleccionar...</option>
-                            <option value="san-jose">San José</option>
-                            <option value="alajuela">Alajuela</option>
-                            <option value="cartago">Cartago</option>
-                            <option value="heredia">Heredia</option>
-                            <option value="guanacaste">Guanacaste</option>
-                            <option value="puntarenas">Puntarenas</option>
-                            <option value="limon">Limón</option>
-                        </select>
-                    </div>
-                    <div class="billing-form__field">
-                        <label class="billing-form__label" for="input-canton">Cantón*</label>
-                        <input class="billing-form__input" type="text" id="input-canton" name="canton" />
+                        <label class="billing-form__label" for="input-provincia">Provincia*</label>
+                        <input class="billing-form__input" type="text" id="input-provincia" placeholder="Ej: San José" />
                     </div>
                 </div>
 
                 <div class="billing-form__field">
-                    <label class="billing-form__label" for="input-address">Distrito y dirección de la calle*</label>
-                    <textarea class="billing-form__textarea" id="input-address" name="address"
-                        rows="4"></textarea>
+                    <label class="billing-form__label" for="input-address">Dirección exacta y otras señas*</label>
+                    <textarea class="billing-form__textarea" id="input-address" rows="4"
+                        placeholder="Calle, número de casa, puntos de referencia..."></textarea>
                 </div>
             </section>
+
             <aside class="checkout-page__summary">
                 <div class="summary">
                     <h2 class="summary__title">Tu pedido</h2>
 
-                    <div class="summary__row">
-                        <span class="summary__product">Leggings Yoga Fit x 1</span>
-                        <span class="summary__value">₡14.000</span>
+                    <div class="summary__products-list">
+                        <?php
+                        $total_pedido = 0;
+                        if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])):
+                            foreach ($_SESSION['carrito'] as $item):
+                                $subtotal = $item['precio'] * $item['cantidad'];
+                                $total_pedido += $subtotal;
+                        ?>
+                                <div class="summary__row">
+                                    <span class="summary__product"><?php echo $item['nombre']; ?> x <?php echo $item['cantidad']; ?></span>
+                                    <span class="summary__value">₡<?php echo number_format($subtotal, 0, ',', '.'); ?></span>
+                                </div>
+                            <?php
+                            endforeach;
+                        else:
+                            ?>
+                            <p>No hay productos en el pedido.</p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="summary__row summary__row--total">
                         <span class="summary__label">TOTAL:</span>
-                        <span class="summary__value summary__value--total">₡14.000</span>
+                        <span class="summary__value summary__value--total" id="checkout-total">
+                            ₡<?php echo number_format($total_pedido, 0, ',', '.'); ?>
+                        </span>
                     </div>
 
-                    <button class="summary__btn" id="btn-place-order">
+                    <button class="summary__btn" id="btn-place-order" <?php echo empty($_SESSION['carrito']) ? 'disabled' : ''; ?>>
                         Confirmar Pedido <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
             </aside>
-
         </div>
     </main>
-    <?php include BASE_PATH . '/views/includes/footer.php' ?>
+
+    <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
+
+
 </body>
 
 </html>
