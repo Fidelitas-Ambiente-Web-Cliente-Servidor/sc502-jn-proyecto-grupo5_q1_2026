@@ -8,22 +8,7 @@
 </head>
 
 <body>
-    <?php include BASE_PATH . '/views/includes/header_clients.php' ?>
-    <div class="user-bar">
-        <div class="user-bar__contenedor">
-            <div class="user-bar__categorias">
-                <a href="#" class="user-bar__categoria-link">TODOS</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">HOMBRE</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">MUJER</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">INFANTIL</a>
-                <span class="user-bar__categoria-separador">|</span>
-                <a href="#" class="user-bar__categoria-link">ACCESORIOS</a>
-            </div>
-        </div>
-    </div>
+    <?php include BASE_PATH . '/views/includes/components/header_clients.php' ?>
     <main class="main-content">
         <h1 class="cart__title">Carrito</h1>
         <div class="cart__content">
@@ -98,7 +83,7 @@
 
         </div>
     </main>
-    <?php include BASE_PATH . '/views/includes/footer.php' ?>
+    <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
 </body>
 
 </html>
