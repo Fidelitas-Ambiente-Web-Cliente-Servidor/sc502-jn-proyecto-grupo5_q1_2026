@@ -6,13 +6,6 @@
     <title>Dashboard</title>
 </head> 
 <body class="grid--dos-columnas">
-<<<<<<< HEAD
-    
-    <main class="dashboard">
-        <header class="dashboard__header">
-            <h2 class="dashboard__title">Dashboard</h2>
-            <p class="dashboard__text">Bienvendio, Administrador</p>
-=======
 <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
     <main class="main-content">
         <header class="section-header">
@@ -20,7 +13,6 @@
                 <h2 class="section-header__title">Dashboard</h2>
                 <p class="section-header__text">Bienvenido, Administrador</p>
             </div>
->>>>>>> 4f30cdede992767f8cae478212693f7ec7dc79d6
         </header>
 
         <section class="cards">
