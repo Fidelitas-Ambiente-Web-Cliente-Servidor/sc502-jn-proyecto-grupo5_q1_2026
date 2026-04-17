@@ -1,6 +1,6 @@
 
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();
+/* if (session_status() === PHP_SESSION_NONE) session_start(); */
 require_once __DIR__ . '/../../config/config.php';
 require_once BASE_PATH . '/repository/OrderRepository.php';
 require_once BASE_PATH . '/utils/funciones.php';

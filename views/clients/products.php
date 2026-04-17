@@ -3,6 +3,7 @@
 
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
+    <script type="module" src="<?php echo BASE_URL; ?>/public/js/modules/cart.js"></script>
     <title>Only Way - Productos</title>
 </head>
 
@@ -55,8 +56,6 @@
     </main>
 
     <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
-
-    <script type="module" src="<?php echo BASE_URL; ?>/public/js/cart/cart.js"></script>
 </body>
 
 </html>

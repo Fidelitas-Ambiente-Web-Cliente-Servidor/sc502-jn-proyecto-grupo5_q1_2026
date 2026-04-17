@@ -1,5 +1,5 @@
 import { crearCuerpoApi } from '../app.js';
-const API_ORDER = '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026/controllers/OrderController.php';
+const API_ORDER = '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026/controllers/clients/OrderController.php';
 
 $(function () {
     $('#btn-place-order').on('click', function (e) {
