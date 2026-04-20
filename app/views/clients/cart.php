@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php require_once __DIR__ . '/../../../app/config/config.php'; ?>
-
 <head>
     <?php include BASE_PATH . '/app/views/includes/head.php' ?>
     <title>ONLY WAY - Carrito</title>
-    <script type="module" src="public/js/auth/auth.js"></script>
-    <script type="module" src="public/js/modules/cart.js"></script>
 </head>
 
 <body>
-    <?php include BASE_PATH . '/views/includes/components/header_clients.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/components/header_clients.php' ?>
     <main class="main-content">
         <h1 class="cart__title">Carrito</h1>
         <div class="cart__content">
@@ -87,7 +83,7 @@
 
         </div>
     </main>
-    <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/components/footer.php' ?>
 </body>
 
 </html>

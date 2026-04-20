@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-    <?php include BASE_PATH . '/views/includes/head.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/head.php' ?>
     <script type="module" src="<?php echo BASE_URL ?>/public/js/modules/checkout.js"></script>
     <title>Finalizar Compra</title>
 </head>
 
 <body>
-    <?php include BASE_PATH . '/views/includes/components/header_clients.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/components/header_clients.php' ?>
     <main class="main-content">
         <div class="checkout-page">
             <header class="section-header">
@@ -193,7 +193,7 @@
             </div>
         </div>
     </main>
-    <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/components/footer.php' ?>
 </body>
 
 </html>
