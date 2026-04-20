@@ -1,5 +1,5 @@
 .checkout-page {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 32px 24px;
 }
@@ -9,8 +9,7 @@
     gap: 24px;
     padding-top: 16px;
     align-items: flex-start;
-        max-width: 1440px;
-        margin: 0 auto;
+    margin: 0 auto;
 
 }
 

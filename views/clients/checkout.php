@@ -4,7 +4,7 @@
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
     <script type="module" src="<?php echo BASE_URL ?>/public/js/modules/checkout.js"></script>
-    <title>ONLY WAY - Finalizar Compra</title>
+    <title>Finalizar Compra</title>
 </head>
 
 <body>
