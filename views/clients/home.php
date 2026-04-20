@@ -9,7 +9,6 @@ $productos = $productRepo->obtenerProductosDestacados();
 
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
-    <script type="module" src="public/js/auth/auth.js"></script>
     <script type="module" src="public/js/modules/cart.js"></script>
     <title>ONLY WAY - Home</title>
 </head>
