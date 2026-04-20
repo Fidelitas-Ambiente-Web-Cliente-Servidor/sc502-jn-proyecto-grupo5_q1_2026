@@ -2,16 +2,16 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/app/config/config.php';
 
 $page = $_GET['page'] ?? 'home';
 
 require match ($page) {
-    'home'     => './views/clients/home.php',
-    'login'    => './views/auth/login.php',
-    'register' => './views/auth/register.php',
-    'products' => './views/clients/products.php',
-    'carrito' => './views/clients/cart.php',
-    'checkout' => './views/clients/checkout.php',
-    default    => './views/404.php',
+    'home'     => './app/views/clients/home.php',
+    'login'    => './app/views/auth/login.php',
+    'register' => './app/views/auth/register.php',
+    'products' => './app/views/clients/products.php',
+    'carrito' => './app/views/clients/cart.php',
+    'checkout' => './app/views/clients/checkout.php',
+    default    => './app/views/404.php',
 };

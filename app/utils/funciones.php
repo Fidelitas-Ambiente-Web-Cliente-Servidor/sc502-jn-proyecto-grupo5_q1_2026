@@ -17,7 +17,7 @@ function cuerpoResponse($status,$code,$message,$data) {
         "status" => $status,
         "code" => $code,
         "message" => $message,
-        "data" => [$data]
+        "data" => $data
     ];
     return $response;
 }

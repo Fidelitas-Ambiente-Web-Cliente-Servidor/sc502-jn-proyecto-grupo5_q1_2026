@@ -1,5 +1,6 @@
-import { crearCuerpoApi } from '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026/public/js/app.js';
-export const URLBASE = '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026'
+
+import { crearCuerpoApi } from '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026/public/js/utils.js';
+export const URLBASE = "/Proyecto/sc502-jn-proyecto-grupo5_q1_2026";
 export const APICONTROLLER = URLBASE + '/controllers/auth/AuthController.php'
 export const DISPLAY_INLINE_BLOCK = "inline-block";
 export const DISPLAY_NONE = "none";

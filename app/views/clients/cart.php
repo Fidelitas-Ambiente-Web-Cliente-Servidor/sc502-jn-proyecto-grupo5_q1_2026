@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<?php require_once __DIR__ . '/../../../app/config/config.php'; ?>
+
 <head>
-    <?php include BASE_PATH . '/views/includes/head.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/head.php' ?>
     <title>ONLY WAY - Carrito</title>
     <script type="module" src="public/js/auth/auth.js"></script>
     <script type="module" src="public/js/modules/cart.js"></script>

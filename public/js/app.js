@@ -1,30 +1,21 @@
-/* Este lo vamos a usar para cargar los modulos globales e iniciar los objetos comunes que vamos a usar en el sitio */
+import * as UTILS from './utils.js';
+import * as PRODUCTS from './pages/products.js';
 
-export const URLBASE = '/Proyecto/sc502-jn-proyecto-grupo5_q1_2026'
-export const APICONTROLLER = URLBASE + '/controllers/auth/AuthController.php'
-export const DISPLAY_INLINE_BLOCK = "inline-block";
-export const DISPLAY_NONE = "none";
+const ULR_PARAMETROS = new URLSearchParams(window.location.search);
+const PAGINA_ACTUAL = ULR_PARAMETROS.get('page');
 
-export function crearCuerpoApi(method, datos) {
-    let cuerpo;
-    switch (method) {
-        case ('POST'):
-            cuerpo = {
-                method: method,
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(datos)
-            }
-            break;
-        case ('GET'):
-            cuerpo = {  
-                method: method,
-                headers: {
-                    'content-type': 'application/json'
-                }
-            }
-    }
-     
-    return cuerpo;
+switch (PAGINA_ACTUAL) {
+    case 'products':
+        PRODUCTS.getProductAll().then();
+        break;
+
 }
+
+const enlaces = document.querySelector(".user-bar__categorias");
+enlaces.addEventListener('click', (e) => {
+    if (e.target.closest('.user-bar__categoria-link')) return e.preventDefault();
+    
+})
+
+
+

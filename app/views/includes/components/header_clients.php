@@ -14,7 +14,7 @@
                 Carrito
             </span>
         </a>
-        <?php include BASE_PATH . '/views/includes/sessions.php'; ?>
+        <?php include BASE_PATH . '/app/views/includes/sessions.php'; ?>
     </nav>
 </header>
 <div class="user-bar">
