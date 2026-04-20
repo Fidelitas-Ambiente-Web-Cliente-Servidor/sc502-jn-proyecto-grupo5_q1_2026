@@ -4,7 +4,6 @@
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
     <title>Registro</title>
-    <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 
 <body class="auth-page">
@@ -35,6 +34,7 @@
             <button type="submit" id="btn-register" class="btn btn--primary">Registrarse</button>
         </form>
         <p>¿Ya tienes cuenta? <a href="?page=login">Ingresar</a></p>
+        <p><a href="<?php echo BASE_URL ?>/?page=home">Regresar a tienda</a></p>
     </main>
 </body>
 

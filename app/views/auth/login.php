@@ -4,7 +4,6 @@
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
     <title>Login</title>
-    <script type="module" src="public/js/auth/auth.js"></script>
 </head>
 
 <body class="auth-page">
@@ -23,6 +22,7 @@
             <button type="submit" id="btn-login" class="btn btn--primary">Ingresar</button>
         </form>
         <p>¿No tienes cuenta? <a href="<?php echo BASE_URL ?>/?page=register">Regístrate</a></p>
+        <p><a href="<?php echo BASE_URL ?>/?page=home">Regresar a tienda</a></p>
     </main>
 
 </body>

@@ -15,3 +15,16 @@ require match ($page) {
     'checkout' => './app/views/clients/checkout.php',
     default    => './app/views/404.php',
 };
+
+/* 
+    'admin-category'     => './views/admin/category-management.php',
+    'admin-inventory'    => './views/admin/inventory-management.php',    
+    'admin-order'     => './views/admin/order-management.php',
+    'admin-payment'    => './views/admin/payment-management.php',
+    'admin-user'     => './views/admin/user-management.php',
+    'dashboard'    => './views/admin/dashboard.php',
+
+    'seller-inventory'    => './views/vendedor/inventory-seller.php',
+    'seller-order'    => './views/vendedor/order-seller.php',
+
+*/

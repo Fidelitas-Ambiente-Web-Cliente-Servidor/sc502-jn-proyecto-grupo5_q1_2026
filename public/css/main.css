@@ -29,5 +29,5 @@ Media queries*/
 @import url("pages/auth.css");
 @import url("pages/cart.css");
 @import url("pages/checkout.css");
-@import url("pages/orders.css");
-@import url("pages/gestion-pagos.css");
+@import url("pages/order.css");
+@import url("pages/payment-management.css");

@@ -1,50 +1,30 @@
 .checkout-page {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 32px 24px;
 }
 
-.checkout-page__title {
-    font-family: var(--fuente-titulos-botones);
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 24px;
-}
-
-.checkout-banner {
-    padding: 16px;
-    border: 1px solid rgba(var(--color-textos-secundarios-puro), 0.2);
-    border-radius: 6px;
-    margin-bottom: 32px;
-    font-family: var(--fuente-textos);
-    font-size: 14px;
-}
-
-.checkout-banner__link {
-    color: var(--color-primario);
-    font-weight: 600;
-}
-
-.checkout-banner__link:hover {
-    opacity: 0.8;
-}
-
 .checkout-page__content {
     display: flex;
-    gap: 32px;
+    gap: 24px;
+    padding-top: 16px;
     align-items: flex-start;
+    margin: 0 auto;
+
 }
 
 .checkout-page__form {
-    flex: 1;
-    min-width: 0;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .checkout-page__summary {
     width: 320px;
-    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
 }
-
 
 .billing-form__title {
     font-family: var(--fuente-titulos-botones);
@@ -79,7 +59,7 @@
     color: var(--color-terciario);
 }
 
-.billing-form__input, .billing-form__select,.billing-form__textarea {
+.billing-form__input,.billing-form__textarea {
     padding: 8px 16px;
     border: 1px solid rgba(var(--color-textos-secundarios-puro), 0.3);
     border-radius: 6px;
@@ -89,7 +69,7 @@
     color: var(--color-terciario);
 }
 
-.billing-form__input:focus, .billing-form__select:focus, .billing-form__textarea:focus {
+.billing-form__input:focus, .billing-form__textarea:focus {
     outline: none;
     border-color: var(--color-primario);
 }
@@ -98,14 +78,46 @@
     resize: vertical;
 }
 
-.billing-form__radio-group {
+.payment-methods {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.billing-form__radio-label {
+.payment-method__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--fuente-textos);
     font-size: 14px;
-    color: var(--color-textos-secundarios);
+    font-weight: 600;
+    color: var(--color-terciario);
     cursor: pointer;
+}
+
+.payment-method__fields {
+    margin-bottom: 8px;
+}
+
+.payment-method__fields.card {
+    flex: none;
+    margin-left: 24px;
+}
+
+.payment-method__info {
+    background-color: rgba(var(--color-primario-puro), 0.08);
+    border: 1px solid rgba(var(--color-primario-puro), 0.3);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 4px 0 8px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.payment-method__info p {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-terciario);
+    margin: 0;
 }
