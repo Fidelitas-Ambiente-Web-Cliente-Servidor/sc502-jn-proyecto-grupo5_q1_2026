@@ -10,8 +10,19 @@ require match ($page) {
     'home'     => './views/clients/home.php',
     'login'    => './views/auth/login.php',
     'register' => './views/auth/register.php',
-    'products' => './views/clients/products.php',
-    'carrito' => './views/clients/cart.php',
-    'checkout' => './views/clients/checkout.php',
+    'productos' => './views/clients/products.php',
     default    => './views/404.php',
 };
+
+/* 
+    'admin-category'     => './views/admin/category-management.php',
+    'admin-inventory'    => './views/admin/inventory-management.php',    
+    'admin-order'     => './views/admin/order-management.php',
+    'admin-payment'    => './views/admin/payment-management.php',
+    'admin-user'     => './views/admin/user-management.php',
+    'dashboard'    => './views/admin/dashboard.php',
+
+    'seller-inventory'    => './views/vendedor/inventory-seller.php',
+    'seller-order'    => './views/vendedor/order-seller.php',
+
+*/

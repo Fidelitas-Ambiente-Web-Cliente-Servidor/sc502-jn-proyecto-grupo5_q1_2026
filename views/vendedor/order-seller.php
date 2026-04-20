@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-  
+
 <head>
   <?php include BASE_PATH . '/views/includes/head.php' ?>
   <title>Pedidos</title>
 </head>
-
 
 <body class="grid--dos-columnas">
   <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
@@ -43,10 +42,40 @@
       </thead>
       <tbody class="table__content">
         <tr class="content__row">
-          <td class="content__cell">#101</td>
-          <td class="content__cell">Manuel Quiroz</td>
-          <td class="content__cell content__cell--fecha">05-02-2025</td>
-          <td class="content__cell">₡45.000</td>
+          <td class="content__cell">#1234</td>
+          <td class="content__cell">Juan Pérez González</td>
+          <td class="content__cell content__cell--fecha">2026-02-20</td>
+          <td class="content__cell">₡45 000</td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Activo</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#1235</td>
+          <td class="content__cell">Ana Martínez López</td>
+          <td class="content__cell content__cell--fecha">2026-02-21</td>
+          <td class="content__cell">₡32 500</td>
+          <td class="content__cell"><span class="table__estado table__estado--pendiente">Pendiente</span></td>
+          <td class="content__cell">
+            <select class="orders-table__action-dropdown">
+              <option>Cambiar estado</option>
+              <option value="Completado">Completado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="content__row">
+          <td class="content__cell">#1236</td>
+          <td class="content__cell">Maria Rodriguez Castro</td>
+          <td class="content__cell content__cell--fecha">2026-02-22</td>
+          <td class="content__cell">₡67 800</td>
           <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
@@ -58,25 +87,10 @@
           </td>
         </tr>
         <tr class="content__row">
-          <td class="content__cell">#102</td>
-          <td class="content__cell">Lucia Cabrera</td>
-          <td class="content__cell content__cell--fecha">07-02-2025</td>
-          <td class="content__cell">₡72.000</td>
-          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
-          <td class="content__cell">
-            <select class="orders-table__action-dropdown">
-              <option>Cambiar estado</option>
-              <option value="Completado">Completado</option>
-              <option value="Pendiente">Pendiente</option>
-              <option value="Cancelado">Cancelado</option>
-            </select>
-          </td>
-        </tr>
-        <tr class="content__row">
-          <td class="content__cell">#256</td>
-          <td class="content__cell">Miguel Herrera</td>
-          <td class="content__cell content__cell--fecha">12-02-2025</td>
-          <td class="content__cell">₡25.000</td>
+          <td class="content__cell">#1237</td>
+          <td class="content__cell">Carlos Gómez Vargas</td>
+          <td class="content__cell content__cell--fecha">2026-02-23</td>
+          <td class="content__cell">₡24 000</td>
           <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
@@ -88,11 +102,11 @@
           </td>
         </tr>
         <tr class="content__row">
-          <td class="content__cell">#232</td>
-          <td class="content__cell">Hector Gomez</td>
-          <td class="content__cell content__cell--fecha">15-02-2025</td>
-          <td class="content__cell">₡10.000</td>
-          <td class="content__cell"><span class="table__estado table__estado--enproceso">Pendiente</span></td>
+          <td class="content__cell">#1238</td>
+          <td class="content__cell">Luis Hernández Mora</td>
+          <td class="content__cell content__cell--fecha">2026-02-27</td>
+          <td class="content__cell">₡29 800</td>
+          <td class="content__cell"><span class="table__estado table__estado--completado">Completado</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>
@@ -103,11 +117,11 @@
           </td>
         </tr>
         <tr class="content__row">
-          <td class="content__cell">#365</td>
-          <td class="content__cell">Fabian Cubero</td>
-          <td class="content__cell content__cell--fecha">21-02-2025</td>
-          <td class="content__cell">₡23.700</td>
-          <td class="content__cell"><span class="table__estado table__estado--inactivo">Cancelado</span></td>
+          <td class="content__cell">#1239</td>
+          <td class="content__cell">Luis Hernández Mora</td>
+          <td class="content__cell content__cell--fecha">2026-02-27</td>
+          <td class="content__cell">₡10 250</td>
+          <td class="content__cell"><span class="table__estado table__estado--pendiente">Pendiente</span></td>
           <td class="content__cell">
             <select class="orders-table__action-dropdown">
               <option>Cambiar estado</option>

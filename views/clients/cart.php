@@ -3,8 +3,7 @@
 
 <head>
     <?php include BASE_PATH . '/views/includes/head.php' ?>
-    <title>ONLY WAY - Carrito</title>
-    <script type="module" src="public/js/auth/auth.js"></script>
+    <title>Carrito</title>
     <script type="module" src="public/js/modules/cart.js"></script>
 </head>
 

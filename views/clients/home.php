@@ -64,5 +64,5 @@ $productos = $productRepo->obtenerProductosDestacados();
         </section>
     </main>
 </body>
-
+    <?php include BASE_PATH . '/views/includes/components/footer.php' ?>
 </html>

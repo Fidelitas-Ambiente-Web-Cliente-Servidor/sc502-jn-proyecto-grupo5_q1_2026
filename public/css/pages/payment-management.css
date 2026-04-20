@@ -1,4 +1,4 @@
-.payment-methods {
+.payment-admin {
   max-width: 1440px;
   background: var(--color-secundario);
   border: 1px solid rgba(var(--color-textos-secundarios-puro), 0.2);
@@ -7,33 +7,33 @@
   margin-bottom: 20px;
 }
 
-.payment-methods__title {
+.payment-admin__title {
   margin: 0 0 12px 0;
   font-family: var(--fuente-titulos-botones);
   color: var(--color-terciario);
 }
 
-.payment-methods__table {
+.payment-admin__table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.payment-methods__row td {
+.payment-admin__row td {
   padding: 12px 0;
   border-bottom: 1px solid rgba(var(--color-textos-secundarios-puro), 0.18);
   font-family: var(--fuente-textos);
   color: var(--color-terciario);
 }
 
-.payment-methods__row:last-child td {
+.payment-admin__row:last-child td {
   border-bottom: none;
 }
 
-.payment-methods__status {
+.payment-admin__status {
   text-align: right;
 }
 
-.payment-methods__select {
+.payment-admin__select {
   min-width: 170px;
   font-family: var(--fuente-textos);
   color: var(--color-terciario);

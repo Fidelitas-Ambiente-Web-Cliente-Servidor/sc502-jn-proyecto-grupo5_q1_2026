@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-    <?php include BASE_PATH . '/views/includes/head.php' ?>
-    <script type="module" src="public/js/auth/auth.js"></script>
-    <title>Gestión de Usuarios</title>
-</head> 
+<head>
+  <?php include BASE_PATH . '/views/includes/head.php' ?>
+  <title>Gestión de Usuarios</title>
+</head>
 
 <body class="grid--dos-columnas">
   <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>

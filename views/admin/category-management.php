@@ -2,7 +2,6 @@
 <html lang="en">
 <head> 
     <?php include BASE_PATH . '/views/includes/head.php' ?>
-    <script type="module" src="public/js/auth/auth.js"></script>
     <title>Gestión de Categorías</title>
 </head> 
 
