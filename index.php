@@ -11,6 +11,7 @@ require match ($page) {
     'login'    => './app/views/auth/login.php',
     'register' => './app/views/auth/register.php',
     'products' => './app/views/clients/products.php',
+    'product-detail' => './app/views/clients/product-detail.php',
     'carrito' => './app/views/clients/cart.php',
     'checkout' => './app/views/clients/checkout.php',
     default    => './app/views/404.php',

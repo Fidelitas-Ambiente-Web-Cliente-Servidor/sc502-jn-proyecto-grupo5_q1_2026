@@ -1,0 +1,214 @@
+.Negro {
+    background-color: black;
+
+}
+
+.Blanco {
+    background-color: white;
+}
+
+.Rojo {
+    background-color: rgb(240, 30, 30);
+}
+
+.Azul {
+    background-color: blue;
+}
+
+
+.product-detail {
+    display: flex;
+    gap: 60px;
+    padding: 40px 50px;
+    background-color: var(--color-fondo);
+}
+
+.product-detail__imagen-wrapper {
+    width: 50%;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.product-detail__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-detail__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.product-detail__categoria {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background-color: rgb(var(--color-textos-secundarios-puro), 0.12);
+    color: var(--color-textos-secundarios);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    width: fit-content;
+}
+
+.product-detail__nombre {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-terciario);
+    line-height: 1.2;
+}
+
+.product-detail__precio {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--color-primario);
+}
+
+.product-detail__descripcion {
+    font-family: var(--fuente-textos);
+    font-size: 15px;
+    color: var(--color-textos-secundarios);
+    line-height: 1.7;
+}
+
+.product-detail__opciones-label {
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-terciario);
+    margin-bottom: 10px;
+}
+
+.product-detail__tallas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product-detail__talla-btn {
+    padding: 8px 18px;
+    border: 1.5px solid rgb(var(--color-terciario-puro), 0.2);
+    border-radius: 8px;
+    background-color: var(--color-secundario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-terciario);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.product-detail__talla-btn:hover,
+.product-detail__talla-btn--activo {
+    border-color: var(--color-primario);
+    color: var(--color-primario);
+}
+
+.product-detail__colores {
+    display: flex;
+    gap: 12px;
+}
+
+.product-detail__color-btn {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.product-detail__color-btn:hover,
+.product-detail__color-btn--activo {
+    border-color: var(--color-terciario);
+}
+
+.product-detail__cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1.5px solid rgb(var(--color-terciario-puro), 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.product-detail__cantidad-btn {
+    padding: 8px 16px;
+    background-color: var(--color-secundario);
+    border: none;
+    font-family: var(--fuente-titulos-botones);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-terciario);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.product-detail__cantidad-btn:hover {
+    background-color: var(--color-fondo);
+}
+
+.product-detail__cantidad-valor {
+    padding: 8px 20px;
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-terciario);
+    border-left: 1.5px solid rgb(var(--color-terciario-puro), 0.2);
+    border-right: 1.5px solid rgb(var(--color-terciario-puro), 0.2);
+    min-width: 50px;
+    text-align: center;
+}
+
+.product-detail__stock {
+    font-family: var(--fuente-textos);
+    font-size: 14px;
+    color: var(--color-textos-secundarios);
+}
+
+.product-detail__acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.product-detail__btn-favoritos {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    border: 2px solid var(--color-primario);
+    border-radius: 10px;
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos-botones);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.product-detail__btn-favoritos:hover {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+
+.seleccionado {
+    border: 3px solid rgba(0, 0, 0, 0.288);
+    transform: scale(1.2);
+}

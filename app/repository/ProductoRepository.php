@@ -32,6 +32,23 @@ class ProductoRepository
         return  $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getProductID($id) {
+        $sql = 'CALL sp_obtener_producto_id(?)';
+        $statement = $this->conexionBD->prepare($sql);
+        $statement->bind_param('i', $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function getProductDetailID($id) {
+        $sql = 'CALL sp_obtener_Datos_Producto_Id(?)';
+        $statement = $this->conexionBD->prepare($sql);
+        $statement->bind_param('i', $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 
 

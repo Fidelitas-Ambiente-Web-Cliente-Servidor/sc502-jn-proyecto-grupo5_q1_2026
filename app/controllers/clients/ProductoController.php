@@ -22,8 +22,8 @@ require_once BASE_PATH . '/app/services/ProductoService.php';
     }
 
     public function procesarGet() {
-        $datos = (isset($_GET['id'])) ? "En construccion" : $this->productoService->getProductAllDetails();
-        $response = (!empty($datos)) ? cuerpoResponse('success',200,'Datos enviados exitosamente', $datos) : cuerpoResponse('error', 500, 'Error al obtener los productos', null);
+        $datos = (isset($_GET['id'])) ? $this->productoService->getProductIdDetail($_GET['id']): $this->productoService->getProductAllDetails();
+        $response = (!empty($datos)) ? cuerpoResponse('success',200,'Datos enviados exitosamente', $datos) : cuerpoResponse('error', 404, 'ID no existe', null);
         enviarRespuestJson($response);
     } 
 

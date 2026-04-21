@@ -1,4 +1,4 @@
-import { URL_BASE_API, URL_BASE_JS } from "../utils.js";
+import { URL_BASE_API, URL_BASE_JS, formateador} from "../utils.js";
 const URL_API = URL_BASE_API + "/clients/ProductoController.php";
 
 const getProductAll = () => {
@@ -12,11 +12,6 @@ const getProductAll = () => {
     .catch((error) => alert("Error al procesar la consulta" + error));
 };
 
-const formateador = new Intl.NumberFormat("es-CR", {
-  style: "currency",
-  currency: "CRC",
-  minimumFractionDigits: 2,
-});
 
 
 const mostrarTodosProductos = (productosData) => {
@@ -28,7 +23,7 @@ const mostrarTodosProductos = (productosData) => {
   productosData.data.forEach((producto) => {
     const precioFormateado = formateador.format(producto.precio_unitario);
     const card = `
-      <article class="product-card">
+      <article class="product-card" data-id="${producto.id_producto}">
         <div class="product-card__imagen-wrapper">
           <img src="${producto.url_imagen}" alt="${producto.descripcion}" class="product-card__imagen" />
         </div>
@@ -40,11 +35,9 @@ const mostrarTodosProductos = (productosData) => {
             </span>
           </div>
 
-          <button class="product-card__btn" id="btn-agregar-p" data-id="${producto.id_producto}" data-precio="${producto.precio_unitario}">
-            <i class="bi bi-cart product-card__btn-icon"></i> AGREGAR AL CARRITO
-          </button>
+          <a href="${PHP_URL}/?page=product-detail&id=${producto.id_producto}" class="product-card__btn" id="btn-ver-detalle" data-id="${producto.id_producto}">Ver Detalle</a>
         </div>
-      </article>`
+      </article>`;
     contenedorCard.innerHTML += card;
   });
 };
@@ -57,4 +50,6 @@ const cantidadProductosCarrito = () => {
   iconoCarrito.innerHTML = totalItems;
 
 }
+
+
 export { getProductAll };

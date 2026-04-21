@@ -7,12 +7,12 @@ export const DISPLAY_NONE = "none";
 
 
 
-$(function () {
+/* $(function () {
     
     logout();
     login();
     register();
-})
+}) */
 
 
 function login() {

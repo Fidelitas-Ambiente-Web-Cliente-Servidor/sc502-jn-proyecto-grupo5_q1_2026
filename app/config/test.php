@@ -2,15 +2,12 @@
 require_once './config.php';
 require_once BASE_PATH . '/app/controllers/clients/ProductoController.php';
 require_once BASE_PATH . '/app/services/ProductoService.php';
-require_once BASE_PATH . '/app/controllers/clients/ProductoController.php';
+require_once BASE_PATH . '/app/repository/ProductoRepository.php';
 
-$pr = new ProductoService();
-$datos = $pr->getProductAllDetails();
+$p = new ProductoController();
 echo ("<pre>");
-print_r($datos['data']);
 echo ("<hr/>");
-echo ("</pre>");
-echo ("<hr/>");
+echo ("</pre>"); 
 
 
 
