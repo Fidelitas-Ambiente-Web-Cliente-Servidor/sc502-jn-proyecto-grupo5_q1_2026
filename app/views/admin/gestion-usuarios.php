@@ -26,6 +26,7 @@
     <table class="table">
       <thead class="table__header">
         <tr class="header__row">
+          <th class="table-header__title">ID</th>
           <th class="table-header__title">NOMBRE</th>
           <th class="table-header__title">EMAIL</th>
           <th class="table-header__title">ROL</th>
@@ -34,109 +35,10 @@
         </tr>
       </thead>
       <tbody class="table__content">
-        <tr class="content__row">
-          <td class="content__cell">Juan Pérez González</td>
-          <td class="content__cell">carlos.gomez@email.com</td>
-          <td class="content__cell">
-            <span class="table__rol table__rol--cliente">Cliente</span>
-          </td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Activo</span>
-          </td>
-          <td class="content__cell">
-            <div class="table__actions">
-              <button class="table__action-btn table__action-btn--editar">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="table__action-btn table__action-btn--eliminar">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr class="content__row">
-          <td class="content__cell">María Rodríguez Castro</td>
-          <td class="content__cell">maria.rodriguez@email.com</td>
-          <td class="content__cell">
-            <span class="table__rol table__rol--administrador">Administrador</span>
-          </td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Activo</span>
-          </td>
-          <td class="content__cell">
-            <div class="table__actions">
-              <button class="table__action-btn table__action-btn--editar">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="table__action-btn table__action-btn--eliminar">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr class="content__row">
-          <td class="content__cell">Carlos Gómez Vargas</td>
-          <td class="content__cell">carlos.gomez@email.com</td>
-          <td class="content__cell">
-            <span class="table__rol table__rol--vendedor">Vendedor</span>
-          </td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Activo</span>
-          </td>
-          <td class="content__cell">
-            <div class="table__actions">
-              <button class="table__action-btn table__action-btn--editar">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="table__action-btn table__action-btn--eliminar">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr class="content__row">
-          <td class="content__cell">Ana Martínez López</td>
-          <td class="content__cell">ana.martinez@email.com</td>
-          <td class="content__cell">
-            <span class="table__rol table__rol--cliente">Cliente</span>
-          </td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--completado">Activo</span>
-          </td>
-          <td class="content__cell">
-            <div class="table__actions">
-              <button class="table__action-btn table__action-btn--editar">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="table__action-btn table__action-btn--eliminar">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr class="content__row">
-          <td class="content__cell">Luis Hernández Mora</td>
-          <td class="content__cell">luis.hernandez@email.com</td>
-          <td class="content__cell">
-            <span class="table__rol table__rol--cliente">Cliente</span>
-          </td>
-          <td class="content__cell">
-            <span class="table__estado table__estado--inactivo">Inactivo</span>
-          </td>
-          <td class="content__cell">
-            <div class="table__actions">
-              <button class="table__action-btn table__action-btn--editar">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="table__action-btn table__action-btn--eliminar">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
       </tbody>
     </table>
   </main>
+  <script type="module" src="public/js/admin/users.js"></script>
 </body>
 
 </html>
