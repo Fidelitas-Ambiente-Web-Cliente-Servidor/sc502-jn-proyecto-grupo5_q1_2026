@@ -48,16 +48,48 @@ class OrderRepository
 
     public function getAllOrders() {
         $con = $this->db->getConexion();
-        $stmt = $con->prepare('CALL sp_obtener_pedidos_admin()');
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $sql = "SELECT p.id_pedido, CONCAT(u.nombre, ' ', u.apellidos) as cliente, p.fecha, p.total, p.estado 
+                FROM PEDIDOS p 
+                LEFT JOIN USUARIOS u ON p.id_usuario = u.id_usuario 
+                ORDER BY p.fecha DESC";
+        $result = $con->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function updateOrderStatus($idPedido, $estado) {
         $con = $this->db->getConexion();
-        $stmt = $con->prepare('CALL sp_actualizar_estado_pedido(?, ?)');
-        $stmt->bind_param('is', $idPedido, $estado);
+        $sql = "UPDATE PEDIDOS SET estado = ? WHERE id_pedido = ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param('si', $estado, $idPedido);
         return $stmt->execute();
+    }
+
+    public function getTotalVentas() {
+        $con = $this->db->getConexion();
+        $sql = "SELECT SUM(total) as total FROM PEDIDOS WHERE estado != 'cancelado'";
+        $result = $con->query($sql);
+        $row = $result->fetch_assoc();
+        return $row['total'] ?? 0;
+    }
+
+    public function getCountPedidos() {
+        $con = $this->db->getConexion();
+        $sql = "SELECT COUNT(*) as total FROM PEDIDOS";
+        $result = $con->query($sql);
+        $row = $result->fetch_assoc();
+        return $row['total'] ?? 0;
+    }
+
+    public function getRecentOrders($limit = 5) {
+        $con = $this->db->getConexion();
+        $sql = "SELECT p.id_pedido, CONCAT(u.nombre, ' ', u.apellidos) as cliente, p.fecha, p.total, p.estado 
+                FROM PEDIDOS p 
+                LEFT JOIN USUARIOS u ON p.id_usuario = u.id_usuario 
+                ORDER BY p.fecha DESC LIMIT ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("i", $limit);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

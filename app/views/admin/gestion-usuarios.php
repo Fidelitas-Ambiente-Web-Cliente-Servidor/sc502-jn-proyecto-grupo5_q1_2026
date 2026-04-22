@@ -7,7 +7,7 @@
 </head>
 
 <body class="grid--dos-columnas">
-  <?php include BASE_PATH . '/app/views/includes/header_vertical.php'; ?>
+  <?php include BASE_PATH . '/app/views/includes/components/header_vertical.php'; ?>
   <main class="main-content">
     <header class="section-header">
       <div class="section-header__info">
@@ -15,12 +15,14 @@
         <p class="section-header__text">Administración de usuarios del sistema</p>
       </div>
     </header>
-    <div class="table__search">
-      <div class="table__search-wrapper">
-        <i class="bi bi-search table__search-icon"></i>
-        <input class="table__search-input" type="text" placeholder="Buscar usuarios..." />
+
+    <div class="table__search" style="margin-bottom: 20px; padding: 0 10px;">
+      <div class="table__search-wrapper" style="position: relative; display: flex; align-items: center;">
+        <i class="bi bi-search" style="position: absolute; left: 10px; color: #666;"></i>
+        <input id="input-buscar-usuario" class="table__search-input" type="text" placeholder="Buscar usuarios por nombre o email..." style="width: 100%; padding: 10px 10px 10px 35px; border-radius: 8px; border: 1px solid #ddd;" />
       </div>
     </div>
+
     <table class="table">
       <thead class="table__header">
         <tr class="header__row">

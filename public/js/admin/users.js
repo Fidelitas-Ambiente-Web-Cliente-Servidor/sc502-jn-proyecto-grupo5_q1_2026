@@ -3,115 +3,95 @@ const API_USER_ADMIN = URL_BASE_API + '/admin/UserAdminController.php';
 
 document.addEventListener('DOMContentLoaded', () => {
     cargarUsuarios();
-    inicializarBusqueda();
+    inicializarBuscador();
 });
 
 function cargarUsuarios() {
-    const tabla = document.getElementById('tabla-usuarios');
     fetch(API_USER_ADMIN + '?action=getAll')
         .then(res => res.json())
         .then(data => {
-            if (data.status !== 'success') {
-                tabla.innerHTML = '<tr><td colspan="5" style="text-align:center;">Error al cargar usuarios</td></tr>';
-                return;
+            if (data.status === 'success') {
+                llenarTablaUsuarios(data.data);
             }
-            if (data.data.length === 0) {
-                tabla.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay usuarios registrados</td></tr>';
-                return;
-            }
-            tabla.innerHTML = data.data.map(usuario => crearFilaUsuario(usuario)).join('');
-            asignarEventosFilas();
         })
-        .catch(() => {
-            tabla.innerHTML = '<tr><td colspan="5" style="text-align:center;">Error de conexión</td></tr>';
-        });
+        .catch(err => console.error(err));
 }
 
-function crearFilaUsuario(usuario) {
-    const estadoTexto = usuario.estado == 1 ? 'Activo' : 'Inactivo';
-    const estadoClase = usuario.estado == 1 ? 'table__estado--completado' : 'table__estado--inactivo';
-    const rolClase = 'table__rol--' + (usuario.rol || 'cliente').toLowerCase();
+function llenarTablaUsuarios(usuarios) {
+    const tbody = document.querySelector('.table__content');
+    if (!tbody) return;
 
-    return `
-        <tr class="content__row" data-id="${usuario.id_usuario}" data-estado="${usuario.estado}">
-            <td class="content__cell">${usuario.nombre} ${usuario.apellidos}</td>
-            <td class="content__cell">${usuario.email}</td>
-            <td class="content__cell">
-                <select class="select-rol" data-id="${usuario.id_usuario}" style="padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">
-                    <option value="cliente" ${usuario.rol === 'cliente' ? 'selected' : ''}>Cliente</option>
-                    <option value="admin" ${usuario.rol === 'admin' ? 'selected' : ''}>Administrador</option>
-                    <option value="vendedor" ${usuario.rol === 'vendedor' ? 'selected' : ''}>Vendedor</option>
-                </select>
-            </td>
-            <td class="content__cell">
-                <span class="table__estado ${estadoClase}">${estadoTexto}</span>
-            </td>
-            <td class="content__cell">
-                <div class="table__actions">
-                    <button class="table__action-btn table__action-btn--editar btn-toggle-estado"
-                        data-id="${usuario.id_usuario}"
-                        data-estado="${usuario.estado}"
-                        title="${usuario.estado == 1 ? 'Desactivar' : 'Activar'}">
-                        <i class="bi bi-${usuario.estado == 1 ? 'toggle-on' : 'toggle-off'}"></i>
-                    </button>
-                </div>
-            </td>
-        </tr>
-    `;
+    if (!usuarios || usuarios.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No hay usuarios registrados</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = usuarios.map(u => {
+        const id = u.id_usuario || u.ID_USUARIO || u.id || u.ID || 'N/A';
+        const nombre = u.nombre || u.NOMBRE || '';
+        const apellidos = u.apellidos || u.APELLIDOS || '';
+        const email = u.email || u.EMAIL || 'N/A';
+        const rol = u.rol || u.ROL || 'cliente';
+        const estado = (u.estado !== undefined) ? u.estado : (u.ESTADO !== undefined ? u.ESTADO : 1);
+
+        return `
+            <tr class="content__row">
+                <td class="content__cell">${id}</td>
+                <td class="content__cell">${nombre} ${apellidos}</td>
+                <td class="content__cell">${email}</td>
+                <td class="content__cell">
+                    <span style="text-transform: uppercase; font-size: 11px; font-weight: bold; background: #eee; padding: 2px 6px; border-radius: 4px;">
+                        ${rol}
+                    </span>
+                </td>
+                <td class="content__cell">
+                    <span class="table__estado ${estado == 1 ? 'table__estado--completado' : 'table__estado--inactivo'}">
+                        ${estado == 1 ? 'Activo' : 'Inactivo'}
+                    </span>
+                </td>
+                <td class="content__cell">
+                    <div class="table__actions">
+                        <button class="table__action-btn table__action-btn--editar" onclick="editarUsuario(${id})"><i class="bi bi-pencil-square"></i></button>
+                        <button class="table__action-btn table__action-btn--eliminar" onclick="eliminarUsuario(${id})"><i class="bi bi-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }).join('');
 }
 
-function asignarEventosFilas() {
-    document.querySelectorAll('.select-rol').forEach(select => {
-        select.addEventListener('change', function () {
-            const idUsuario = this.dataset.id;
-            const nuevoRol = this.value;
-            fetch(API_USER_ADMIN, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'updateRole', id_usuario: parseInt(idUsuario), rol: nuevoRol })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status !== 'success') alert('Error al actualizar el rol');
-            })
-            .catch(() => alert('Error de conexión'));
-        });
-    });
+function inicializarBuscador() {
+    const input = document.getElementById('input-buscar-usuario');
+    if (!input) return;
 
-    document.querySelectorAll('.btn-toggle-estado').forEach(btn => {
-        btn.addEventListener('click', function () {
-            const idUsuario = this.dataset.id;
-            const estadoActual = parseInt(this.dataset.estado);
-            const nuevoEstado = estadoActual === 1 ? 0 : 1;
+    input.addEventListener('input', () => {
+        const termino = input.value.toLowerCase();
+        const filas = document.querySelectorAll('.table__content .content__row');
 
-            fetch(API_USER_ADMIN, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'updateStatus', id_usuario: parseInt(idUsuario), estado: nuevoEstado })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    cargarUsuarios();
-                } else {
-                    alert('Error al actualizar el estado');
-                }
-            })
-            .catch(() => alert('Error de conexión'));
-        });
-    });
-}
-
-function inicializarBusqueda() {
-    const inputBusqueda = document.querySelector('.table__search-input');
-    if (!inputBusqueda) return;
-
-    inputBusqueda.addEventListener('input', function () {
-        const termino = this.value.toLowerCase();
-        const filas = document.querySelectorAll('#tabla-usuarios .content__row');
         filas.forEach(fila => {
             const texto = fila.textContent.toLowerCase();
             fila.style.display = texto.includes(termino) ? '' : 'none';
         });
     });
+}
+
+window.editarUsuario = (id) => {
+    alert("Funcionalidad de editar usuario " + id + " en desarrollo");
+}
+
+window.eliminarUsuario = (id) => {
+    if (confirm("¿Estás seguro de que deseas desactivar este usuario?")) {
+        fetch(API_USER_ADMIN, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'updateStatus', id_usuario: id, estado: 0 })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert("Usuario desactivado");
+                cargarUsuarios();
+            }
+        });
+    }
 }

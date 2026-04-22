@@ -6,7 +6,6 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/../../config/config.php';
 require_once BASE_PATH . '/app/repository/ProductoRepository.php';
 require_once BASE_PATH . '/app/utils/funciones.php';
-require_once __DIR__ . '/../../utils/subirImagenes.php';
 
 class ProductoAdminController {
     private $productoRepository;
@@ -16,79 +15,123 @@ class ProductoAdminController {
     }
 
     public function procesarPeticion() {
-        if (!isset($_SESSION['rol']) || strtolower($_SESSION['rol']) !== 'admin') {
+        if (ob_get_length()) ob_clean();
+
+        $rolUsuario = strtolower($_SESSION['rol'] ?? '');
+        if ($rolUsuario !== 'admin' && $rolUsuario !== 'administrador') {
             enviarRespuestJson(["status" => "error", "message" => "No autorizado", "code" => 403]);
             exit;
         }
 
-        $accion = $_POST['action'] ?? $_GET['action'] ?? null;
-        if (!$accion && isset($_SERVER['CONTENT_TYPE']) && strpos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) {
-            $jsonDatos = json_decode(file_get_contents('php://input'), true);
-            $accion = $jsonDatos['action'] ?? null;
-            $_POST = array_merge($_POST, $jsonDatos);
-        }
+        $jsonDatos = json_decode(file_get_contents('php://input'), true) ?? [];
+        $accion = $_GET['action'] ?? $jsonDatos['action'] ?? null;
 
         switch ($accion) {
+            case 'list':
+                $this->listarProductos();
+                break;
             case 'add':
                 $this->agregarProducto();
                 break;
+            case 'getFormData':
+                $this->obtenerDatosFormulario();
+                break;
             case 'addVariant':
-                $this->agregarVariante();
+                $this->agregarVariante($jsonDatos);
+                break;
+            case 'getVariants':
+                $this->obtenerVariantes();
                 break;
             default:
-                enviarRespuestJson(["status" => "error", "message" => "Acción no encontrada", "code" => 404]);
+                enviarRespuestJson(["status" => "error", "message" => "Acción no válida", "code" => 404]);
                 break;
         }
     }
 
-    private function agregarVariante() {
-        $idProducto = $_POST['id_producto'] ?? 0;
-        $idColor = $_POST['id_color'] ?? 0;
-        $idTalla = $_POST['id_talla'] ?? 0;
-        $stock = $_POST['stock'] ?? 0;
+    private function listarProductos() {
+        $productos = $this->productoRepository->getAllProducts();
+        enviarRespuestJson([
+            "status" => "success",
+            "code" => 200,
+            "data" => $productos
+        ]);
+    }
 
-        if ($idProducto <= 0 || $idColor <= 0 || $idTalla <= 0 || $stock <= 0) {
-            enviarRespuestJson(["status" => "error", "message" => "Faltan datos obligatorios o el stock es inválido.", "code" => 400]);
+    private function agregarProducto() {
+        $idCategoria = $_POST['id_categoria'] ?? null;
+        $nombre = $_POST['nombre_producto'] ?? null;
+        $descripcion = $_POST['descripcion'] ?? null;
+        $precio = $_POST['precio_unitario'] ?? null;
+        $imagenUrl = '';
+
+        if (isset($_FILES['imagen_producto']) && $_FILES['imagen_producto']['error'] === 0) {
+            $check = getimagesize($_FILES["imagen_producto"]["tmp_name"]);
+            if($check !== false) {
+                $targetDir = BASE_PATH . "/public/assets/img/products/";
+                if (!file_exists($targetDir)) {
+                    mkdir($targetDir, 0777, true);
+                }
+                $fileName = time() . '_' . basename($_FILES["imagen_producto"]["name"]);
+                $targetFile = $targetDir . $fileName;
+                
+                if (move_uploaded_file($_FILES["imagen_producto"]["tmp_name"], $targetFile)) {
+                    $imagenUrl = BASE_URL . "/public/assets/img/products/" . $fileName;
+                }
+            }
+        }
+
+        $isOk = $this->productoRepository->insertProduct($idCategoria, $nombre, $descripcion, $imagenUrl, $precio);
+        
+        if ($isOk) {
+            enviarRespuestJson(["status" => "success", "message" => "Producto creado"]);
+        } else {
+            enviarRespuestJson(["status" => "error", "message" => "Error al guardar el producto"]);
+        }
+    }
+
+    private function obtenerDatosFormulario() {
+        $categorias = $this->productoRepository->getCategorias();
+        $colores = $this->productoRepository->getColores();
+        $tallas = $this->productoRepository->getTallas();
+        $productos = $this->productoRepository->getAllProducts();
+
+        enviarRespuestJson([
+            "status" => "success",
+            "data" => [
+                "categorias" => $categorias,
+                "colores" => $colores,
+                "tallas" => $tallas,
+                "productos" => $productos
+            ]
+        ]);
+    }
+
+    private function agregarVariante($datos) {
+        $idProducto = $datos['id_producto'] ?? null;
+        $idColor = $datos['id_color'] ?? null;
+        $idTalla = $datos['id_talla'] ?? null;
+        $stock = $datos['stock'] ?? 0;
+
+        if (!$idProducto || !$idColor || !$idTalla) {
+            enviarRespuestJson(["status" => "error", "message" => "Faltan datos obligatorios"]);
             exit;
         }
 
         $isOk = $this->productoRepository->insertVariant($idProducto, $idColor, $idTalla, $stock);
-
-        if ($isOk) {
-            enviarRespuestJson(["status" => "success", "message" => "Variante agregada exitosamente", "code" => 200]);
-        } else {
-            enviarRespuestJson(["status" => "error", "message" => "Error al guardar la variante en la base de datos", "code" => 500]);
-        }
+        enviarRespuestJson([
+            "status" => $isOk ? "success" : "error",
+            "message" => $isOk ? "Variante agregada" : "Error al guardar variante"
+        ]);
     }
 
-    private function agregarProducto() {
-        $nombre = $_POST['nombre_producto'] ?? '';
-        $descripcion = $_POST['descripcion'] ?? '';
-        $precio = $_POST['precio_unitario'] ?? 0;
-        $idCategoria = $_POST['id_categoria'] ?? 0;
-
-        if (empty($nombre) || empty($descripcion) || $precio <= 0 || $idCategoria <= 0) {
-            enviarRespuestJson(["status" => "error", "message" => "Faltan datos obligatorios.", "code" => 400]);
+    private function obtenerVariantes() {
+        $idProducto = $_GET['id_producto'] ?? null;
+        if (!$idProducto) {
+            enviarRespuestJson(["status" => "error", "message" => "ID de producto requerido"]);
             exit;
         }
-
-        $urlImagen = "";
-        if (isset($_FILES['imagen_producto']) && $_FILES['imagen_producto']['error'] === UPLOAD_ERR_OK) {
-            $urlImagen = subirACloudinary($_FILES['imagen_producto']['tmp_name']);
-        }
-
-        if (empty($urlImagen)) {
-            enviarRespuestJson(["status" => "error", "message" => "Error al subir la imagen a Cloudinary.", "code" => 500]);
-            exit;
-        }
-
-        $isOk = $this->productoRepository->insertProduct($idCategoria, $nombre, $descripcion, $urlImagen, $precio);
-
-        if ($isOk) {
-            enviarRespuestJson(["status" => "success", "message" => "Producto agregado exitosamente", "code" => 200]);
-        } else {
-            enviarRespuestJson(["status" => "error", "message" => "Error al guardar en la base de datos", "code" => 500]);
-        }
+        $variantes = $this->productoRepository->getVariantsByProductId($idProducto);
+        enviarRespuestJson(["status" => "success", "data" => $variantes]);
     }
 }
 

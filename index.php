@@ -6,6 +6,13 @@ require_once __DIR__ . '/app/config/config.php';
 
 $page = $_GET['page'] ?? 'home';
 
+// Lógica de cierre de sesión
+if ($page === 'logout') {
+    session_destroy();
+    header('Location: ' . BASE_URL . '/?page=home');
+    exit;
+}
+
 // Rutas del cliente
 $clientRoutes = [
     'home'     => './app/views/clients/home.php',
@@ -19,11 +26,11 @@ $clientRoutes = [
 
 // Rutas del admin
 $adminRoutes = [
-    'admin-category'  => './app/views/admin/category-management.php',
-    'admin-inventory' => './app/views/admin/inventory-management.php',    
-    'admin-order'     => './app/views/admin/order-management.php',
-    'admin-payment'   => './app/views/admin/payment-management.php',
-    'admin-user'      => './app/views/admin/user-management.php',
+    'admin-category'  => './app/views/admin/gestion-categorias.php',
+    'admin-inventory' => './app/views/admin/gestion-inventarios.php',    
+    'admin-order'     => './app/views/admin/gestion-pedidos.php',
+    'admin-payment'   => './app/views/admin/gestion-pagos.php',
+    'admin-user'      => './app/views/admin/gestion-usuarios.php',
     'dashboard'       => './app/views/admin/dashboard.php',
 ];
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head> 
     <?php include BASE_PATH . '/app/views/includes/head.php' ?>
-    <script type="module" src="public/js/auth/auth.js"></script>
+    <script type="module" src="public/js/admin/dashboard.js"></script>
     <title>Dashboard</title>
 </head> 
 <body class="grid--dos-columnas">
@@ -22,7 +22,7 @@
                     <i class="bi bi-currency-dollar card__header-icon card__header-icon--activo"></i>
                 </header>
                 <div class="card__content">
-                    <p class="card__text">¢2,450.000</p>
+                    <p class="card__text" id="ventas-total">¢0</p>
                     <span class="card__variation card__variation--activo"><i class="bi bi-graph-up-arrow"></i>
                         +12%</span>
                 </div>
@@ -33,7 +33,7 @@
                     <i class="bi bi-box-seam card__header-icon card__header-icon--enproceso"></i>
                 </header>
                 <div class="card__content">
-                    <p class="card__text">156</p>
+                    <p class="card__text" id="pedidos-total">0</p>
                     <span class="card__variation card__variation--enproceso"><i class="bi bi-graph-up-arrow"></i>
                         +8%</span>
                 </div>
@@ -44,7 +44,7 @@
                     <i class="bi bi-people card__header-icon card__header-icon--morado"></i>
                 </header>
                 <div class="card__content">
-                    <p class="card__text">342</p>
+                    <p class="card__text" id="usuarios-total">0</p>
                     <span class="card__variation card__variation--morado"><i class="bi bi-graph-up-arrow"></i>
                         +15%</span>
                 </div>
@@ -55,7 +55,7 @@
                     <i class="bi bi-box-seam card__header-icon card__header-icon--anaranjado"></i>
                 </header>
                 <div class="card__content">
-                    <p class="card__text">89</p>
+                    <p class="card__text" id="productos-total">0</p>
                     <span class="card__variation card__variation--anaranjado"><i class="bi bi-graph-up-arrow"></i>
                         +5%</span>
                 </div>

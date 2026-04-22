@@ -13,7 +13,10 @@ class ProductoRepository
     }
 
     public function getAllProducts() {
-        $sql = "SELECT * FROM PRODUCTOS";
+        $sql = "SELECT p.*, COALESCE(SUM(v.stock), 0) as cantidad_stock 
+                FROM PRODUCTOS p
+                LEFT JOIN VARIANTES v ON p.id_producto = v.id_producto
+                GROUP BY p.id_producto";
         if(!$this->conexionBD)  return $this->succesConexion = false;
 
         $statement = $this->conexionBD->prepare($sql);
@@ -68,5 +71,43 @@ class ProductoRepository
         }
         $statement->bind_param('iiii', $idProducto, $idColor, $idTalla, $stock);
         return $statement->execute();
+    }
+
+    public function getCountProducts() {
+        $sql = "SELECT COALESCE(SUM(stock), 0) as total FROM VARIANTES";
+        $result = $this->conexionBD->query($sql);
+        $row = $result->fetch_assoc();
+        return $row['total'] ?? 0;
+    }
+
+    public function getCategorias() {
+        $sql = "SELECT * FROM CATEGORIAS";
+        $result = $this->conexionBD->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getColores() {
+        $sql = "SELECT * FROM COLORES";
+        $result = $this->conexionBD->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTallas() {
+        $sql = "SELECT * FROM TALLAS";
+        $result = $this->conexionBD->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getVariantsByProductId($idProducto) {
+        $sql = "SELECT v.*, c.color, t.talla 
+                FROM VARIANTES v
+                JOIN COLORES c ON v.id_color = c.id_color
+                JOIN TALLAS t ON v.id_talla = t.id_talla
+                WHERE v.id_producto = ?";
+        $statement = $this->conexionBD->prepare($sql);
+        $statement->bind_param('i', $idProducto);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

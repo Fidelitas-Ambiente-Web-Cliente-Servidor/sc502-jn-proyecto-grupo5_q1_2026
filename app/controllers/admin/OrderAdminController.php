@@ -15,8 +15,9 @@ class OrderAdminController {
     }
 
     public function procesarPeticion() {
-        if (!isset($_SESSION['rol']) || strtolower($_SESSION['rol']) !== 'admin') {
-            enviarRespuestJson(["status" => "error", "message" => "No autorizado", "code" => 403]);
+        $rolUsuario = strtolower($_SESSION['rol'] ?? '');
+        if ($rolUsuario !== 'admin' && $rolUsuario !== 'administrador') {
+            enviarRespuestJson(["status" => "error", "message" => "No autorizado. Rol: $rolUsuario", "code" => 403]);
             exit;
         }
 

@@ -15,8 +15,6 @@ const obtenerDetalleProducto = (id) => {
 
 const orquestadorEventos = (totalStock, producto) => {
     let contenedorPadre = document.querySelector(".product-detail");
-    let contenedorOpciones = document.querySelector(".product-detail__opciones");
-    console.dir(contenedorOpciones);
     contenedorPadre.addEventListener('click', (evento) => {
         const target = evento.target;
 
@@ -119,7 +117,7 @@ const llenarDatos = (producto) => {
 
         </div>
     `;
-  return contenedorPadre.innerHTML = tarjeta;
+    return contenedorPadre.innerHTML = tarjeta;
 };
 
 const activarFocus = (elemento) => {

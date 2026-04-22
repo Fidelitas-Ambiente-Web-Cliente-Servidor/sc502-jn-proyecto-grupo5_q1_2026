@@ -8,51 +8,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function cargarPedidos() {
     const tabla = document.getElementById('tabla-pedidos');
+    if (!tabla) return;
+
     fetch(API_ORDER_ADMIN + '?action=getAll')
         .then(res => res.json())
         .then(data => {
             if (data.status !== 'success') {
-                tabla.innerHTML = '<tr><td colspan="6" style="text-align:center;">Error al cargar pedidos</td></tr>';
+                tabla.innerHTML = '<tr><td colspan="6" style="text-align:center;">Error al cargar pedidos: ' + data.message + '</td></tr>';
                 return;
             }
-            if (data.data.length === 0) {
+            if (!data.data || data.data.length === 0) {
                 tabla.innerHTML = '<tr><td colspan="6" style="text-align:center;">No hay pedidos registrados</td></tr>';
                 return;
             }
             tabla.innerHTML = data.data.map(pedido => crearFilaPedido(pedido)).join('');
             asignarEventosFilas();
         })
-        .catch(() => {
+        .catch(err => {
+            console.error(err);
             tabla.innerHTML = '<tr><td colspan="6" style="text-align:center;">Error de conexión</td></tr>';
         });
 }
 
-function crearFilaPedido(pedido) {
+function crearFilaPedido(p) {
+    const id = p.id_pedido || p.ID_PEDIDO || 'N/A';
+    const cliente = p.cliente || p.CLIENTE || 'Sin nombre';
+    const fechaCompleta = p.fecha || p.FECHA || '';
+    const fecha = fechaCompleta.split(' ')[0] || 'N/A';
+    const total = p.total || p.TOTAL || 0;
+    const estado = (p.estado || p.ESTADO || 'pendiente').toLowerCase();
+
     const estadoClaseMap = {
         'pendiente': 'table__estado--pendiente',
         'enproceso': 'table__estado--enproceso',
         'completado': 'table__estado--completado',
         'cancelado': 'table__estado--inactivo'
     };
-    const estadoClase = estadoClaseMap[pedido.estado] || 'table__estado--pendiente';
-    const fecha = pedido.fecha ? pedido.fecha.split(' ')[0] : 'N/A';
-    const totalFormateado = formateador.format(pedido.total);
+    const estadoClase = estadoClaseMap[estado] || 'table__estado--pendiente';
+    const totalFormateado = formateador.format(total);
 
     return `
-        <tr class="content__row" data-id="${pedido.id_pedido}" data-estado="${pedido.estado}">
-            <td class="content__cell">#${pedido.id_pedido}</td>
-            <td class="content__cell">${pedido.cliente || 'Sin nombre'}</td>
+        <tr class="content__row" data-id="${id}" data-estado="${estado}">
+            <td class="content__cell">#${id}</td>
+            <td class="content__cell">${cliente}</td>
             <td class="content__cell">${fecha}</td>
             <td class="content__cell">${totalFormateado}</td>
             <td class="content__cell">
-                <span class="table__estado ${estadoClase}">${pedido.estado}</span>
+                <span class="table__estado ${estadoClase}">${estado}</span>
             </td>
             <td class="content__cell">
-                <select class="select-estado-pedido" data-id="${pedido.id_pedido}" style="padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">
-                    <option value="pendiente" ${pedido.estado === 'pendiente' ? 'selected' : ''}>Pendiente</option>
-                    <option value="enproceso" ${pedido.estado === 'enproceso' ? 'selected' : ''}>En proceso</option>
-                    <option value="completado" ${pedido.estado === 'completado' ? 'selected' : ''}>Completado</option>
-                    <option value="cancelado" ${pedido.estado === 'cancelado' ? 'selected' : ''}>Cancelado</option>
+                <select class="select-estado-pedido" data-id="${id}" style="padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">
+                    <option value="pendiente" ${estado === 'pendiente' ? 'selected' : ''}>Pendiente</option>
+                    <option value="enproceso" ${estado === 'enproceso' ? 'selected' : ''}>En proceso</option>
+                    <option value="completado" ${estado === 'completado' ? 'selected' : ''}>Completado</option>
+                    <option value="cancelado" ${estado === 'cancelado' ? 'selected' : ''}>Cancelado</option>
                 </select>
             </td>
         </tr>
@@ -75,7 +84,7 @@ function asignarEventosFilas() {
                 if (data.status === 'success') {
                     cargarPedidos();
                 } else {
-                    alert('Error al actualizar el estado del pedido');
+                    alert('Error: ' + data.message);
                 }
             })
             .catch(() => alert('Error de conexión'));

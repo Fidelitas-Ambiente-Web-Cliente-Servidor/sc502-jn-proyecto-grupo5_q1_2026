@@ -8,7 +8,7 @@
 </head> 
 
 <body class="grid--dos-columnas">
-    <?php include BASE_PATH . '/app/views/includes/header_vertical.php';?>
+    <?php include BASE_PATH . '/app/views/includes/components/header_vertical.php'; ?>
 
     <main class="main-content">
         <header class="section-header">
@@ -18,55 +18,55 @@
             </div>
         </header>
 
-        <section class="payment-methods">
-            <h3 class="payment-methods__title">Métodos de Pago Disponibles</h3>
+        <section class="payment-admin">
+            <h3 class="payment-admin__title">Métodos de Pago Disponibles</h3>
 
-            <table class="payment-methods__table">
+            <table class="payment-admin__table">
                 <tbody>
-                    <tr class="payment-methods__row">
-                        <td class="payment-methods__name">Tarjeta de Crédito/Débito</td>
-                        <td class="payment-methods__status">
-                            <select id="input-payment-method-card" class="payment-methods__select">
+                    <tr class="payment-admin__row">
+                        <td class="payment-admin__name">Tarjeta de Crédito/Débito</td>
+                        <td class="payment-admin__status">
+                            <select id="input-payment-method-card" class="payment-admin__select">
                                 <option value="enabled" selected>Habilitado</option>
                                 <option value="disabled">Deshabilitado</option>
                             </select>
                         </td>
                     </tr>
 
-                    <tr class="payment-methods__row">
-                        <td class="payment-methods__name">Transferencia Bancaria</td>
-                        <td class="payment-methods__status">
-                            <select id="input-payment-method-bank-transfer" class="payment-methods__select">
+                    <tr class="payment-admin__row">
+                        <td class="payment-admin__name">Transferencia Bancaria</td>
+                        <td class="payment-admin__status">
+                            <select id="input-payment-method-bank-transfer" class="payment-admin__select">
                                 <option value="enabled" selected>Habilitado</option>
                                 <option value="disabled">Deshabilitado</option>
                             </select>
                         </td>
                     </tr>
 
-                    <tr class="payment-methods__row">
-                        <td class="payment-methods__name">SINPE Móvil</td>
-                        <td class="payment-methods__status">
-                            <select id="input-payment-method-sinpe" class="payment-methods__select">
+                    <tr class="payment-admin__row">
+                        <td class="payment-admin__name">SINPE Móvil</td>
+                        <td class="payment-admin__status">
+                            <select id="input-payment-method-sinpe" class="payment-admin__select">
                                 <option value="enabled" selected>Habilitado</option>
                                 <option value="disabled">Deshabilitado</option>
                             </select>
                         </td>
                     </tr>
 
-                    <tr class="payment-methods__row">
-                        <td class="payment-methods__name">PayPal</td>
-                        <td class="payment-methods__status">
-                            <select id="input-payment-method-paypal" class="payment-methods__select">
-                                <option value="enabled">Habilitado</option>
-                                <option value="disabled" selected>Deshabilitado</option>
+                    <tr class="payment-admin__row">
+                        <td class="payment-admin__name">PayPal</td>
+                        <td class="payment-admin__status">
+                            <select id="input-payment-method-paypal" class="payment-admin__select">
+                                <option value="enabled" selected>Habilitado</option>
+                                <option value="disabled">Deshabilitado</option>
                             </select>
                         </td>
                     </tr>
 
-                    <tr class="payment-methods__row">
-                        <td class="payment-methods__name">Contra Entrega</td>
-                        <td class="payment-methods__status">
-                            <select id="input-payment-method-cash-on-delivery" class="payment-methods__select">
+                    <tr class="payment-admin__row">
+                        <td class="payment-admin__name">Contra Entrega</td>
+                        <td class="payment-admin__status">
+                            <select id="input-payment-method-cash-on-delivery" class="payment-admin__select">
                                 <option value="enabled" selected>Habilitado</option>
                                 <option value="disabled">Deshabilitado</option>
                             </select>

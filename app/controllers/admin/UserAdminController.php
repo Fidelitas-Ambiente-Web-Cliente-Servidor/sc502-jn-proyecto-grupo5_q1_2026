@@ -15,8 +15,11 @@ class UserAdminController {
     }
 
     public function procesarPeticion() {
-        if (!isset($_SESSION['rol']) || strtolower($_SESSION['rol']) !== 'admin') {
-            enviarRespuestJson(["status" => "error", "message" => "No autorizado", "code" => 403]);
+        if (ob_get_length()) ob_clean();
+
+        $rolUsuario = strtolower($_SESSION['rol'] ?? '');
+        if ($rolUsuario !== 'admin' && $rolUsuario !== 'administrador') {
+            enviarRespuestJson(["status" => "error", "message" => "No autorizado. Rol: $rolUsuario", "code" => 403]);
             exit;
         }
 
@@ -41,6 +44,7 @@ class UserAdminController {
 
     private function obtenerTodos() {
         $usuarios = $this->authRepository->getAllUsers();
+        header('Content-Type: application/json');
         enviarRespuestJson([
             "status" => "success",
             "code" => 200,
