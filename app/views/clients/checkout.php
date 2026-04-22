@@ -164,7 +164,8 @@
                             <div class="summary__row">
                                 <span class="summary__product">
                                     <?php echo $item['nombre']; ?> x
-                                    <?php echo $item['cantidad']; ?>
+                                    <?php echo $item['cantidad']; ?><br>
+                                    <small style="color: #666; font-size: 0.85em; font-weight: normal;">T: <?php echo $item['talla'] ?? 'N/A'; ?> | C: <?php echo $item['color'] ?? 'N/A'; ?></small>
                                 </span>
                                 <span class="summary__value">₡
                                     <?php echo number_format($subtotal, 0, ',', '.'); ?>

@@ -50,13 +50,15 @@ export function agregarAlCarrito(producto, detalles) {
     
     let productoAñadido = {
       'id_producto': producto.id_producto,
-      'url_imagen': producto.url_imagen,
+      'nombre': producto.nombre_producto,
+      'imagen': producto.url_imagen,
       'precio': producto.precio_unitario,
       'talla': detalles.talla,
       'color': detalles.color,
       'cantidad': cantidadNumerica
     };
 
+    // Verificar si el producto exacto (mismo ID, talla y color) ya está en el carrito
     const index = carrito.findIndex(item => 
         item.id_producto === productoAñadido.id_producto && 
         item.talla === productoAñadido.talla && 
@@ -71,12 +73,34 @@ export function agregarAlCarrito(producto, detalles) {
 
     localStorage.setItem('carrito', JSON.stringify(carrito));
     
-
     const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     localStorage.setItem('total_productos', totalItems);
 
     actualizarIconoCarrito();
-    alert("¡Producto agregado al carrito con éxito!");
+    sincronizarCarritoConServidor(carrito);
+}
+
+export function sincronizarCarritoConServidor(carrito) {
+    const url = URL_BASE_API + "/clients/CartController.php";
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            action: "sync",
+            carrito: carrito
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("¡Producto agregado al carrito con éxito!");
+        } else {
+            console.error("Error al sincronizar el carrito:", data.message);
+        }
+    })
+    .catch(error => console.error("Error de conexión:", error));
 }
 
 export function actualizarIconoCarrito() {
@@ -98,4 +122,22 @@ export function actualizarIconoCarrito() {
             cartCount.style.display = 'none';
         }
     }
+}
+
+export function verificarSesionActiva() {
+    const url = URL_BASE_API + "/auth/AuthController.php?action=checkSession";
+    return fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        return data.status === "success";
+    })
+    .catch(error => {
+        console.error("Error al verificar sesión:", error);
+        return false;
+    });
 }

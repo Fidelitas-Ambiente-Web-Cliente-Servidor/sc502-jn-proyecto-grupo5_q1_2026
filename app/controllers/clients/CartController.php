@@ -3,8 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once __DIR__ . '/../../config/config.php';
-require_once BASE_PATH . '/repository/ProductoRepository.php';
-require_once BASE_PATH . '/utils/funciones.php';
+require_once BASE_PATH . '/app/repository/ProductoRepository.php';
+require_once BASE_PATH . '/app/utils/funciones.php';
 
 class CartController
 {
@@ -13,7 +13,7 @@ class CartController
 
     public function __construct()
     {
-        $this->productRepo = new ProductRepository();
+        $this->productRepo = new ProductoRepository();
         $this->datosEnviados = obtenerJsonDeJs();
     }
 
@@ -23,6 +23,9 @@ class CartController
         switch ($accion) {
             case 'add':
                 $this->agregarAlCarrito();
+                break;
+            case 'sync':
+                $this->syncCart();
                 break;
             case 'getCount':
                 $this->obtenerConteo();
@@ -65,7 +68,7 @@ class CartController
             return;
         }
 
-        $productoDB = $this->productRepo->obtenerProductoPorId($id);
+        $productoDB = $this->productRepo->getProductID($id);
 
         if ($productoDB) {
             if (!isset($_SESSION['carrito'])) {
@@ -103,6 +106,27 @@ class CartController
             }
         }
         enviarRespuestJson(["status" => "success", "count" => $totalProductos]);
+    }
+
+    private function syncCart()
+    {
+        $carritoJs = $this->datosEnviados['carrito'] ?? [];
+        $_SESSION['carrito'] = [];
+
+        foreach ($carritoJs as $item) {
+            $idUnico = $item['id_producto'] . '_' . $item['talla'] . '_' . $item['color'];
+            $_SESSION['carrito'][$idUnico] = [
+                "id" => $item['id_producto'],
+                "nombre" => $item['nombre'],
+                "precio" => $item['precio'],
+                "imagen" => $item['imagen'],
+                "cantidad" => $item['cantidad'],
+                "talla" => $item['talla'],
+                "color" => $item['color']
+            ];
+        }
+
+        enviarRespuestJson(["status" => "success", "message" => "Carrito sincronizado con el servidor"]);
     }
 }
 

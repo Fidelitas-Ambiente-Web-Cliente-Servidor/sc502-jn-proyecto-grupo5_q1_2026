@@ -40,4 +40,25 @@ class AuthRepository  {
         }     
     }
     
-}   
+    public function getAllUsers() {
+        $sql = 'SELECT id_usuario, nombre, apellidos, email, rol, estado FROM USUARIOS';
+        $statement = $this->conexionBD->getConexion()->prepare($sql);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function updateUserRole($id_usuario, $rol) {
+        $sql = 'UPDATE USUARIOS SET rol = ? WHERE id_usuario = ?';
+        $statement = $this->conexionBD->getConexion()->prepare($sql);
+        $statement->bind_param('si', $rol, $id_usuario);
+        return $statement->execute();
+    }
+
+    public function updateUserStatus($id_usuario, $estado) {
+        $sql = 'UPDATE USUARIOS SET estado = ? WHERE id_usuario = ?';
+        $statement = $this->conexionBD->getConexion()->prepare($sql);
+        $statement->bind_param('si', $estado, $id_usuario);
+        return $statement->execute();
+    }
+}

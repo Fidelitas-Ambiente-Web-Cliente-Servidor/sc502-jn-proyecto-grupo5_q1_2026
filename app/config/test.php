@@ -1,18 +1,7 @@
 <?php
-require_once './config.php';
-require_once BASE_PATH . '/app/controllers/clients/ProductoController.php';
-require_once BASE_PATH . '/app/services/ProductoService.php';
-require_once BASE_PATH . '/app/repository/ProductoRepository.php';
 
-$p = new ProductoController();
-echo ("<pre>");
-echo ("<hr/>");
-echo ("</pre>"); 
+$contrasemn = 'Prueba123';
+$contrasemnHash = password_hash($contrasemn, PASSWORD_BCRYPT);
 
+echo($contrasemnHash);
 
-
-
-
-/* echo ("<pre>");
-echo ("<hr/>");
-echo ("</pre>"); */

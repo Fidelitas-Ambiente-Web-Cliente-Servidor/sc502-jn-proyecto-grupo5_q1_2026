@@ -35,7 +35,46 @@ CREATE TABLE VARIANTES(
     FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto) ON DELETE CASCADE,
     FOREIGN KEY (id_color) REFERENCES COLORES(id_color) ON DELETE CASCADE,
     FOREIGN KEY (id_talla) REFERENCES TALLAS(id_talla) ON DELETE CASCADE
-)
+);
 
+CREATE TABLE USUARIOS (
+    id_usuario int primary key auto_increment,
+    nombre varchar(100),
+    apellidos varchar(100),
+    email varchar(150) unique,
+    password varchar(255),
+    rol varchar(50) default 'cliente',
+    estado boolean default true
+);
 
+CREATE TABLE PEDIDOS (
+    id_pedido int primary key auto_increment,
+    id_usuario int,
+    total decimal(10,2),
+    direccion varchar(255),
+    estado varchar(50) default 'pendiente',
+    metodo_pago varchar(50),
+    fecha datetime default NOW(),
+    FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario) ON DELETE SET NULL
+);
 
+CREATE TABLE DETALLES_PEDIDO (
+    id_detalle int primary key auto_increment,
+    id_pedido int,
+    id_producto int,
+    cantidad int,
+    precio_unitario decimal(10,2),
+    FOREIGN KEY (id_pedido) REFERENCES PEDIDOS(id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto) ON DELETE SET NULL
+);
+
+CREATE TABLE FACTURACION (
+    id_facturacion int primary key auto_increment,
+    id_pedido int,
+    nombre_completo varchar(200),
+    email varchar(150),
+    provincia varchar(100),
+    direccion_exacta varchar(255),
+    detalles_pago text,
+    FOREIGN KEY (id_pedido) REFERENCES PEDIDOS(id_pedido) ON DELETE CASCADE
+);

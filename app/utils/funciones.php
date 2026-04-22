@@ -7,6 +7,7 @@ return $datos;
 }
 
 function enviarRespuestJson($datosResponse) {
+    if (ob_get_length()) ob_clean();
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode($datosResponse);
     exit;

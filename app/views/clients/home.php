@@ -13,11 +13,6 @@
             <h2 class="banner__titulo">TU TIENDA DE ROPA DEPORTIVA FAVORITA</h2>
             <a href="<?php echo BASE_URL ?>/?page=products" class="banner__boton">VER PRODUCTOS</a>
         </section>
-
-        <section class="productos-destacados">
-            <h2 class="productos-destacados__titulo">Productos Destacados</h2>
-
-        </section>
     </main>
     <?php include BASE_PATH . '/app/views/includes/components/footer.php' ?>
 </body>

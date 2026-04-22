@@ -3,9 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once __DIR__ . '/../../config/config.php';
-require_once  BASE_PATH . '/repository/AuthRepository.php';
-require_once BASE_PATH . '/controllers/api.php';
-require_once BASE_PATH . '/utils/funciones.php';
+require_once  BASE_PATH . '/app/repository/AuthRepository.php';
+require_once BASE_PATH . '/app/controllers/api.php';
+require_once BASE_PATH . '/app/utils/funciones.php';
 
 class AuthController {
     private $authRepository;
@@ -37,9 +37,34 @@ class AuthController {
             case 'register':
                 $this->register();
                 break;
+            case 'checkSession':
+                $this->checkSession();
+                break;
             default:
             $this->datosEnviados['message'] = 'Accion no encontrada';
             break;
+        }
+    }
+
+    public function checkSession() {
+        if (isset($_SESSION['id_usuario'])) {
+            enviarRespuestJson([
+                "status" => "success",
+                "code" => 200,
+                "message" => "Sesión activa",
+                "data" => [
+                    "id_usuario" => $_SESSION['id_usuario'],
+                    "nombre" => $_SESSION['nombre'],
+                    "rol" => $_SESSION['rol']
+                ]
+            ]);
+        } else {
+            enviarRespuestJson([
+                "status" => "error",
+                "code" => 401,
+                "message" => "No hay sesión activa",
+                "data" => null
+            ]);
         }
     }
 

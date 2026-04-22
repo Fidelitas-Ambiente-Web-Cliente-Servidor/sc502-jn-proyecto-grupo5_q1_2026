@@ -36,7 +36,10 @@
                                         <div class="cart-product">
                                             <img class="cart-product__image" src="<?php echo BASE_URL . $item['imagen']; ?>" alt="<?php echo $item['nombre']; ?>" />
                                             <div class="cart-product__info">
-                                                <span class="cart-product__name"><?php echo $item['nombre']; ?></span>
+                                                <span class="cart-product__name">
+                                                    <?php echo $item['nombre']; ?><br>
+                                                    <small style="color: #666; font-size: 0.85em;">Talla: <?php echo $item['talla'] ?? 'N/A'; ?> | Color: <?php echo $item['color'] ?? 'N/A'; ?></small>
+                                                </span>
                                             </div>
                                         </div>
                                     </td>

@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <?php include BASE_PATH . '/views/includes/head.php' ?>
+  <?php include BASE_PATH . '/app/views/includes/head.php' ?>
   <title>Gestión de Usuarios</title>
 </head>
 
 <body class="grid--dos-columnas">
-  <?php include BASE_PATH . '/views/includes/header_vertical.php'; ?>
+  <?php include BASE_PATH . '/app/views/includes/header_vertical.php'; ?>
   <main class="main-content">
     <header class="section-header">
       <div class="section-header__info">

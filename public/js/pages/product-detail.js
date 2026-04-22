@@ -38,14 +38,22 @@ const orquestadorEventos = (totalStock, producto) => {
                     return alert("Debes seleccionar una talla y un color antes de agregar al carrito.");
                 }
 
-                const detallesSeleccionados = {
-                    'talla': tallaSeleccionada,
-                    'color': colorSeleccionado,
-                    'cantidad': document.querySelector('#cantidad-valor').textContent
-                };
+                UTILS.verificarSesionActiva().then(sesionActiva => {
+                    if (!sesionActiva) {
+                        alert("Debes iniciar sesión para añadir productos al carrito.");
+                        window.location.href = "?page=login";
+                        return;
+                    }
 
-                document.querySelectorAll('.seleccionado').forEach(el => el.classList.remove('seleccionado'));
-                UTILS.agregarAlCarrito(producto, detallesSeleccionados);
+                    const detallesSeleccionados = {
+                        'talla': tallaSeleccionada,
+                        'color': colorSeleccionado,
+                        'cantidad': document.querySelector('#cantidad-valor').textContent
+                    };
+
+                    document.querySelectorAll('.seleccionado').forEach(el => el.classList.remove('seleccionado'));
+                    UTILS.agregarAlCarrito(producto, detallesSeleccionados);
+                });
                 break;
         }
     });

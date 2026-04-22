@@ -2,7 +2,7 @@
 <html lang="es">
  
 <head>
-    <?php include BASE_PATH . '/views/includes/head.php' ?>
+    <?php include BASE_PATH . '/app/views/includes/head.php' ?>
     <title>Login</title>
 </head>
 
