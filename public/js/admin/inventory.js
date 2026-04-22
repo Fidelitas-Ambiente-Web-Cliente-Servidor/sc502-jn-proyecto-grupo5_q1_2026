@@ -3,9 +3,9 @@ const API_PRODUCT_ADMIN = URL_BASE_API + '/admin/ProductoAdminController.php';
 
 let categoriasGlobal = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    cargarProductos();
-    cargarDatosFormulario();
+document.addEventListener('DOMContentLoaded', async () => {
+    // Cargamos todo en paralelo y esperamos a que ambos terminen
+    await Promise.all([cargarDatosFormulario(), cargarProductos()]);
 
     const btnAgregar = document.getElementById('btn-agregar-producto');
     const modal = document.getElementById('modal-producto');
@@ -139,7 +139,7 @@ window.verVariantes = (idProducto) => {
 }
 
 function cargarDatosFormulario() {
-    fetch(API_PRODUCT_ADMIN + '?action=getFormData')
+    return fetch(API_PRODUCT_ADMIN + '?action=getFormData')
         .then(res => res.json())
         .then(data => {
             if (data.status === 'success') {
@@ -168,7 +168,7 @@ function rellenarSelect(idSelect, datos, valKey, textKey) {
 }
 
 function cargarProductos() {
-    fetch(API_PRODUCT_ADMIN + '?action=list')
+    return fetch(API_PRODUCT_ADMIN + '?action=list')
         .then(res => res.json())
         .then(data => {
             if (data.status === 'success') {
@@ -187,8 +187,7 @@ function llenarTabla(productos) {
         const stock = prod.cantidad_stock || prod.CANTIDAD_STOCK || 0;
         const estado = prod.estado !== undefined ? prod.estado : prod.ESTADO;
 
-        const cat = categoriasGlobal.find(c => (c.id_categoria || c.ID_CATEGORIA) == idCat);
-        const nombreCat = cat ? (cat.nombre || cat.NOMBRE) : 'N/A';
+        const nombreCat = prod.nombre_categoria || prod.NOMBRE_CATEGORIA || 'N/A';
         
         return `
             <tr class="content__row">

@@ -13,10 +13,11 @@ class ProductoRepository
     }
 
     public function getAllProducts() {
-        $sql = "SELECT p.*, COALESCE(SUM(v.stock), 0) as cantidad_stock 
+        $sql = "SELECT p.*, c.nombre as nombre_categoria, COALESCE(SUM(v.stock), 0) as cantidad_stock 
                 FROM PRODUCTOS p
+                LEFT JOIN CATEGORIAS c ON p.id_categoria = c.id_categoria
                 LEFT JOIN VARIANTES v ON p.id_producto = v.id_producto
-                GROUP BY p.id_producto";
+                GROUP BY p.id_producto, c.nombre";
         if(!$this->conexionBD)  return $this->succesConexion = false;
 
         $statement = $this->conexionBD->prepare($sql);
