@@ -32,7 +32,7 @@ function llenarTablaUsuarios(usuarios) {
         const apellidos = u.apellidos || u.APELLIDOS || '';
         const email = u.email || u.EMAIL || 'N/A';
         const rol = u.rol || u.ROL || 'cliente';
-        const estado = (u.estado !== undefined) ? u.estado : (u.ESTADO !== undefined ? u.ESTADO : 1);
+        const estado = u.estado_usuario !== undefined ? u.estado_usuario : (u.ESTADO_USUARIO !== undefined ? u.ESTADO_USUARIO : 1);
 
         return `
             <tr class="content__row">

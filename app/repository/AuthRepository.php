@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../config/conexion.php';
 
 class AuthRepository
@@ -13,12 +12,11 @@ class AuthRepository
 
     public function shareUserForEmail($email)
     {
-        $sql = 'SELECT * FROM USUARIOS WHERE EMAIL = ?';
+        $sql = 'SELECT * FROM USUARIOS WHERE email = ?';
         $statement = $this->conexionBD->getConexion()->prepare($sql);
         $statement->bind_param('s', $email);
         $statement->execute();
         $result = $statement->get_result();
-
         return $result->fetch_assoc();
     }
 
@@ -31,13 +29,7 @@ class AuthRepository
             $statement = $this->conexionBD->getConexion()->prepare($sql);
             $statement->bind_param(...$typeBindParam);
             $statement->execute();
-            $result = $statement->affected_rows;
-            return $result;
-
-            //Para que lo tomen en cuenta
-            // return 1 -> exito
-            // return -2 -> correo duplicado
-            // return -1 -> otro error no tratado
+            return $statement->affected_rows;
         } catch (mysqli_sql_exception $e) {
             if ($e->getCode() === 1062) return -2;
             return -1;
@@ -63,7 +55,7 @@ class AuthRepository
 
     public function updateUserStatus($id_usuario, $estado)
     {
-        $sql = 'UPDATE USUARIOS SET estado = ? WHERE id_usuario = ?';
+        $sql = 'UPDATE USUARIOS SET estado_usuario = ? WHERE id_usuario = ?';
         $statement = $this->conexionBD->getConexion()->prepare($sql);
         $statement->bind_param('si', $estado, $id_usuario);
         return $statement->execute();
@@ -72,7 +64,7 @@ class AuthRepository
     public function getCountUsers()
     {
         $con = $this->conexionBD->getConexion();
-        $sql = "SELECT COUNT(*) as total FROM USUARIOS WHERE rol != 'admin'";
+        $sql = "SELECT COUNT(*) as total FROM USUARIOS WHERE rol != 'ADMINISTRADOR'";
         $result = $con->query($sql);
         $row = $result->fetch_assoc();
         return $row['total'] ?? 0;
