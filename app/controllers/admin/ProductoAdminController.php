@@ -24,7 +24,7 @@ class ProductoAdminController {
         }
 
         $jsonDatos = json_decode(file_get_contents('php://input'), true) ?? [];
-        $accion = $_GET['action'] ?? $jsonDatos['action'] ?? null;
+        $accion = $_GET['action'] ?? $_POST['action'] ?? $jsonDatos['action'] ?? null;
 
         switch ($accion) {
             case 'list':
