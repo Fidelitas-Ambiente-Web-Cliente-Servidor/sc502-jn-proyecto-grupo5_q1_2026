@@ -3,110 +3,109 @@ const API_PRODUCT_ADMIN = URL_BASE_API + '/admin/ProductoAdminController.php';
 
 let categoriasGlobal = [];
 
-document.addEventListener('DOMContentLoaded', async () => {
-    // Cargamos todo en paralelo y esperamos a que ambos terminen
-    await Promise.all([cargarDatosFormulario(), cargarProductos()]);
+document.addEventListener('DOMContentLoaded', () => {
+    Promise.all([cargarDatosFormulario(), cargarProductos()]).then(() => {
+        const btnAgregar = document.getElementById('btn-agregar-producto');
+        const modal = document.getElementById('modal-producto');
+        const btnClose = document.getElementById('close-modal');
+        const formProducto = document.getElementById('form-producto');
+        const msjModal = document.getElementById('mensaje-modal');
 
-    const btnAgregar = document.getElementById('btn-agregar-producto');
-    const modal = document.getElementById('modal-producto');
-    const btnClose = document.getElementById('close-modal');
-    const formProducto = document.getElementById('form-producto');
-    const msjModal = document.getElementById('mensaje-modal');
+        if (btnAgregar) btnAgregar.onclick = () => modal.style.display = 'block';
+        if (btnClose) btnClose.onclick = () => modal.style.display = 'none';
 
-    if (btnAgregar) btnAgregar.onclick = () => modal.style.display = 'block';
-    if (btnClose) btnClose.onclick = () => modal.style.display = 'none';
+        const btnAgregarVar = document.getElementById('btn-agregar-variante');
+        const modalVar = document.getElementById('modal-variante');
+        const btnCloseVar = document.getElementById('close-modal-variante');
+        const formVariante = document.getElementById('form-variante');
+        const msjModalVar = document.getElementById('mensaje-modal-variante');
 
-    const btnAgregarVar = document.getElementById('btn-agregar-variante');
-    const modalVar = document.getElementById('modal-variante');
-    const btnCloseVar = document.getElementById('close-modal-variante');
-    const formVariante = document.getElementById('form-variante');
-    const msjModalVar = document.getElementById('mensaje-modal-variante');
+        if (btnAgregarVar) btnAgregarVar.onclick = () => modalVar.style.display = 'block';
+        if (btnCloseVar) btnCloseVar.onclick = () => modalVar.style.display = 'none';
 
-    if (btnAgregarVar) btnAgregarVar.onclick = () => modalVar.style.display = 'block';
-    if (btnCloseVar) btnCloseVar.onclick = () => modalVar.style.display = 'none';
+        const modalVer = document.getElementById('modal-ver-variantes');
+        const btnCloseVer = document.getElementById('close-modal-ver');
+        if (btnCloseVer) btnCloseVer.onclick = () => modalVer.style.display = 'none';
 
-    const modalVer = document.getElementById('modal-ver-variantes');
-    const btnCloseVer = document.getElementById('close-modal-ver');
-    if (btnCloseVer) btnCloseVer.onclick = () => modalVer.style.display = 'none';
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+            if (e.target === modalVar) modalVar.style.display = 'none';
+            if (e.target === modalVer) modalVer.style.display = 'none';
+        };
 
-    window.onclick = (e) => {
-        if (e.target === modal) modal.style.display = 'none';
-        if (e.target === modalVar) modalVar.style.display = 'none';
-        if (e.target === modalVer) modalVer.style.display = 'none';
-    };
+        if (formProducto) {
+            formProducto.onsubmit = (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btn-guardar-producto');
+                btn.disabled = true;
+                btn.textContent = "Guardando...";
 
-    if (formProducto) {
-        formProducto.onsubmit = (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('btn-guardar-producto');
-            btn.disabled = true;
-            btn.textContent = "Guardando...";
+                const formData = new FormData(formProducto);
+                formData.append('action', 'add');
 
-            const formData = new FormData(formProducto);
-            formData.append('action', 'add');
+                fetch(API_PRODUCT_ADMIN, { method: 'POST', body: formData })
+                    .then(res => res.json())
+                    .then(data => {
+                        btn.disabled = false;
+                        btn.textContent = "Guardar Producto";
+                        if (data.status === 'success') {
+                            alert("Producto creado con éxito");
+                            modal.style.display = 'none';
+                            formProducto.reset();
+                            cargarProductos();
+                            cargarDatosFormulario();
+                        } else {
+                            msjModal.textContent = data.message;
+                            msjModal.style.display = 'block';
+                        }
+                    })
+                    .catch(err => {
+                        btn.disabled = false;
+                        btn.textContent = "Guardar Producto";
+                        alert("Error en el servidor");
+                    });
+            };
+        }
 
-            fetch(API_PRODUCT_ADMIN, { method: 'POST', body: formData })
+        if (formVariante) {
+            formVariante.onsubmit = (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btn-guardar-variante');
+                btn.disabled = true;
+
+                const formData = new FormData(formVariante);
+                const dataObj = {
+                    action: 'addVariant',
+                    id_producto: parseInt(formData.get('id_producto')),
+                    id_color: parseInt(formData.get('id_color')),
+                    id_talla: parseInt(formData.get('id_talla')),
+                    stock: parseInt(formData.get('stock'))
+                };
+
+                fetch(API_PRODUCT_ADMIN, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dataObj)
+                })
                 .then(res => res.json())
                 .then(data => {
                     btn.disabled = false;
-                    btn.textContent = "Guardar Producto";
                     if (data.status === 'success') {
-                        alert("Producto creado con éxito");
-                        modal.style.display = 'none';
-                        formProducto.reset();
+                        alert("Variante agregada");
+                        modalVar.style.display = 'none';
+                        formVariante.reset();
                         cargarProductos();
-                        cargarDatosFormulario();
                     } else {
-                        msjModal.textContent = data.message;
-                        msjModal.style.display = 'block';
+                        alert("Error: " + data.message);
                     }
                 })
                 .catch(err => {
                     btn.disabled = false;
-                    btn.textContent = "Guardar Producto";
-                    alert("Error en el servidor");
+                    alert("Error de conexión al guardar variante");
                 });
-        };
-    }
-
-    if (formVariante) {
-        formVariante.onsubmit = (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('btn-guardar-variante');
-            btn.disabled = true;
-
-            const formData = new FormData(formVariante);
-            const dataObj = {
-                action: 'addVariant',
-                id_producto: parseInt(formData.get('id_producto')),
-                id_color: parseInt(formData.get('id_color')),
-                id_talla: parseInt(formData.get('id_talla')),
-                stock: parseInt(formData.get('stock'))
             };
-
-            fetch(API_PRODUCT_ADMIN, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(dataObj)
-            })
-            .then(res => res.json())
-            .then(data => {
-                btn.disabled = false;
-                if (data.status === 'success') {
-                    alert("Variante agregada");
-                    modalVar.style.display = 'none';
-                    formVariante.reset();
-                    cargarProductos();
-                } else {
-                    alert("Error: " + data.message);
-                }
-            })
-            .catch(err => {
-                btn.disabled = false;
-                alert("Error de conexión al guardar variante");
-            });
-        };
-    }
+        }
+    });
 });
 
 window.verVariantes = (idProducto) => {

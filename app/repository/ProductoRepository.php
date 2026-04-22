@@ -111,4 +111,11 @@ class ProductoRepository
         $result = $statement->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function insertCategoria($nombre, $descripcion) {
+        $sql = "CALL sp_insertar_categoria(?, ?)";
+        $stmt = $this->conexionBD->prepare($sql);
+        $stmt->bind_param("ss", $nombre, $descripcion);
+        return $stmt->execute();
+    }
 }

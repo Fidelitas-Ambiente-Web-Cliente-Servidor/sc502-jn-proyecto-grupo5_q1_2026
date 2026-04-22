@@ -115,3 +115,14 @@ BEGIN
 END //
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS sp_insertar_categoria;
+DELIMITER //
+CREATE PROCEDURE sp_insertar_categoria(
+    IN p_nombre VARCHAR(100),
+    IN p_descripcion VARCHAR(255)
+)
+BEGIN
+    INSERT INTO CATEGORIAS (nombre, descripcion, estado)
+    VALUES (p_nombre, p_descripcion, 1);
+END //
+DELIMITER ;

@@ -31,82 +31,32 @@
                 </tr>
             </thead>
 
-            <tbody class="table__content">
-                <tr class="content__row">
-                    <td class="content__cell">C001</td>
-                    <td class="content__cell">HOMBRE</td>
-                    <td class="content__cell">Ropa y equipamiento deportivo para hombres</td>
-                    <td class="content__cell">
-                        <span class="table__estado table__estado--completado">Activo</span>
-                    </td>
-                    <td class="content__cell">
-                        <div class="table__actions">
-                            <button class="table__action-btn table__action-btn--editar">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="table__action-btn table__action-btn--eliminar">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="content__row">
-                    <td class="content__cell">C002</td>
-                    <td class="content__cell">MUJER</td>
-                    <td class="content__cell">Ropa y equipamiento deportivo para mujeres</td>
-                    <td class="content__cell">
-                        <span class="table__estado table__estado--completado">Activo</span>
-                    </td>
-                    <td class="content__cell">
-                        <div class="table__actions">
-                            <button class="table__action-btn table__action-btn--editar">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="table__action-btn table__action-btn--eliminar">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="content__row">
-                    <td class="content__cell">C003</td>
-                    <td class="content__cell">INFANTIL</td>
-                    <td class="content__cell">Ropa y equipamiento deportivo para niños</td>
-                    <td class="content__cell">
-                        <span class="table__estado table__estado--completado">Activo</span>
-                    </td>
-                    <td class="content__cell">
-                        <div class="table__actions">
-                            <button class="table__action-btn table__action-btn--editar">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="table__action-btn table__action-btn--eliminar">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="content__row">
-                    <td class="content__cell">C004</td>
-                    <td class="content__cell">ACCESORIOS</td>
-                    <td class="content__cell">Accesorios deportivos</td>
-                    <td class="content__cell">
-                        <span class="table__estado table__estado--completado">Activo</span>
-                    </td>
-                    <td class="content__cell">
-                        <div class="table__actions">
-                            <button class="table__action-btn table__action-btn--editar">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="table__action-btn table__action-btn--eliminar">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tbody class="table__content" id="tabla-categorias">
+                <!-- Se llena dinámicamente desde categories.js -->
             </tbody>
         </table>
     </main>
+
+    <div class="modal" id="modal-categoria" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 40%; border-radius: 8px;">
+            <span class="close-modal" id="close-modal" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2>Agregar Categoría</h2>
+            <form id="form-categoria" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <div>
+                    <label for="nombre">Nombre de la Categoría:</label>
+                    <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                </div>
+                <div>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="3" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea>
+                </div>
+                <div id="mensaje-modal" style="display: none; color: red; font-weight: bold;"></div>
+                <button type="submit" class="btn-submit" id="btn-guardar-categoria">Guardar Categoría</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="public/js/admin/categories.js"></script>
 </body>
 
 </html>
