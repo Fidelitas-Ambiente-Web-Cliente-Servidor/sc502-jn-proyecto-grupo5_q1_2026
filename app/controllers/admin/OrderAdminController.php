@@ -31,10 +31,23 @@ class OrderAdminController {
             case 'updateStatus':
                 $this->actualizarEstado($jsonDatos);
                 break;
+            case 'getSummary':
+                $this->obtenerResumenPagos();
+                break;
             default:
                 enviarRespuestJson(["status" => "error", "message" => "Acción no encontrada", "code" => 404]);
                 break;
         }
+    }
+
+    private function obtenerResumenPagos() {
+        $resumen = $this->orderRepository->getResumenPagos();
+        enviarRespuestJson([
+            "status" => "success",
+            "code" => 200,
+            "message" => "Resumen de pagos obtenido",
+            "data" => $resumen
+        ]);
     }
 
     private function obtenerTodos() {

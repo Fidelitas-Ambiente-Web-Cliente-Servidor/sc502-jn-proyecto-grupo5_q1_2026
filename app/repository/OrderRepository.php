@@ -46,7 +46,8 @@ class OrderRepository
         }
     }
 
-    public function getAllOrders() {
+    public function getAllOrders()
+    {
         $con = $this->db->getConexion();
         $sql = "SELECT p.id_pedido, CONCAT(u.nombre, ' ', u.apellidos) as cliente, p.fecha, p.total, p.estado 
                 FROM PEDIDOS p 
@@ -56,7 +57,8 @@ class OrderRepository
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function updateOrderStatus($idPedido, $estado) {
+    public function updateOrderStatus($idPedido, $estado)
+    {
         $con = $this->db->getConexion();
         $sql = "UPDATE PEDIDOS SET estado = ? WHERE id_pedido = ?";
         $stmt = $con->prepare($sql);
@@ -64,7 +66,8 @@ class OrderRepository
         return $stmt->execute();
     }
 
-    public function getTotalVentas() {
+    public function getTotalVentas()
+    {
         $con = $this->db->getConexion();
         $sql = "SELECT SUM(total) as total FROM PEDIDOS WHERE estado != 'cancelado'";
         $result = $con->query($sql);
@@ -72,7 +75,8 @@ class OrderRepository
         return $row['total'] ?? 0;
     }
 
-    public function getCountPedidos() {
+    public function getCountPedidos()
+    {
         $con = $this->db->getConexion();
         $sql = "SELECT COUNT(*) as total FROM PEDIDOS";
         $result = $con->query($sql);
@@ -80,7 +84,8 @@ class OrderRepository
         return $row['total'] ?? 0;
     }
 
-    public function getRecentOrders($limit = 5) {
+    public function getRecentOrders($limit = 5)
+    {
         $con = $this->db->getConexion();
         $sql = "SELECT p.id_pedido, CONCAT(u.nombre, ' ', u.apellidos) as cliente, p.fecha, p.total, p.estado 
                 FROM PEDIDOS p 
@@ -90,6 +95,16 @@ class OrderRepository
         $stmt->bind_param("i", $limit);
         $stmt->execute();
         $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getResumenPagos() {
+        $con = $this->db->getConexion();
+        $sql = "SELECT p.id_pedido, CONCAT(u.nombre, ' ', u.apellidos) as cliente, p.fecha, p.total, p.metodo_pago, p.estado 
+                FROM PEDIDOS p 
+                LEFT JOIN USUARIOS u ON p.id_usuario = u.id_usuario 
+                ORDER BY p.fecha DESC";
+        $result = $con->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

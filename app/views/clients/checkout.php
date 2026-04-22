@@ -155,27 +155,27 @@
                         <h2 class="summary__title">Tu pedido</h2>
                         <div class="summary__products-list">
                             <?php
-                        $total_pedido = 0;
-                        if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])):
-                            foreach ($_SESSION['carrito'] as $item):
-                                $subtotal = $item['precio'] * $item['cantidad'];
-                                $total_pedido += $subtotal;
-                        ?>
-                            <div class="summary__row">
-                                <span class="summary__product">
-                                    <?php echo $item['nombre']; ?> x
-                                    <?php echo $item['cantidad']; ?><br>
-                                    <small style="color: #666; font-size: 0.85em; font-weight: normal;">T: <?php echo $item['talla'] ?? 'N/A'; ?> | C: <?php echo $item['color'] ?? 'N/A'; ?></small>
-                                </span>
-                                <span class="summary__value">₡
-                                    <?php echo number_format($subtotal, 0, ',', '.'); ?>
-                                </span>
-                            </div>
-                            <?php
-                            endforeach;
-                        else:
-                        ?>
-                            <p>No hay productos en el pedido.</p>
+                            $total_pedido = 0;
+                            if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])):
+                                foreach ($_SESSION['carrito'] as $item):
+                                    $subtotal = $item['precio'] * $item['cantidad'];
+                                    $total_pedido += $subtotal;
+                            ?>
+                                    <div class="summary__row">
+                                        <span class="summary__product">
+                                            <?php echo $item['nombre']; ?> x
+                                            <?php echo $item['cantidad']; ?><br>
+                                            <small style="color: #666; font-size: 0.85em; font-weight: normal;">T: <?php echo $item['talla'] ?? 'N/A'; ?> | C: <?php echo $item['color'] ?? 'N/A'; ?></small>
+                                        </span>
+                                        <span class="summary__value">₡
+                                            <?php echo number_format($subtotal, 0, ',', '.'); ?>
+                                        </span>
+                                    </div>
+                                <?php
+                                endforeach;
+                            else:
+                                ?>
+                                <p>No hay productos en el pedido.</p>
                             <?php endif; ?>
                         </div>
                         <div class="summary__row summary__row--total">
@@ -186,7 +186,7 @@
                             </span>
                         </div>
                         <button class="summary__btn" id="btn-place-order" <?php echo empty($_SESSION['carrito'])
-                            ? 'disabled' : '' ; ?>>
+                                                                                ? 'disabled' : ''; ?>>
                             Confirmar Pedido <i class="bi bi-arrow-right"></i>
                         </button>
                     </div>
