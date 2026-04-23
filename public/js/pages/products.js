@@ -23,8 +23,12 @@ const mostrarTodosProductos = (productosData) => {
 
   productosData.data.forEach((producto) => {
     const precioFormateado = formateador.format(producto.precio_unitario);
+    const esAgotado = producto.cantidad_stock <= 0;
+    const agotadoClass = esAgotado ? "product-card--agotado" : "";
+    const textoBoton = esAgotado ? "Agotado" : "Ver Detalle";
+
     const card = `
-      <article class="product-card" data-id="${producto.id_producto}">
+      <article class="product-card ${agotadoClass}" data-id="${producto.id_producto}">
         <a href="index.php?page=product-detail&id=${producto.id_producto}" class="product-card__imagen-link">
             <div class="product-card__imagen-wrapper">
                 <img src="${producto.url_imagen}" alt="${producto.descripcion}" class="product-card__imagen" />
@@ -38,7 +42,7 @@ const mostrarTodosProductos = (productosData) => {
             </span>
           </div>
 
-          <a href="index.php?page=product-detail&id=${producto.id_producto}" class="product-card__btn" id="btn-ver-detalle" data-id="${producto.id_producto}">Ver Detalle</a>
+          <a href="index.php?page=product-detail&id=${producto.id_producto}" class="product-card__btn" id="btn-ver-detalle" data-id="${producto.id_producto}">${textoBoton}</a>
         </div>
       </article>`;
     contenedorCard.innerHTML += card;

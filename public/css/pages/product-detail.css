@@ -231,3 +231,15 @@
     border: 3px solid rgba(0, 0, 0, 0.288);
     transform: scale(1.2);
 }
+
+/* Estado Agotado */
+.product-detail__btn-carrito--agotado {
+    background-color: var(--color-textos-secundarios) !important;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.product-detail--agotado .product-detail__imagen {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}

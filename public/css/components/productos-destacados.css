@@ -149,3 +149,17 @@
     color: var(--color-textos-secundarios);
     font-size: 18px;
 }
+
+/* =========================================
+   ESTADO AGOTADO
+   ========================================= */
+
+.product-card--agotado .product-card__imagen-wrapper {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.product-card--agotado .product-card__btn {
+    background-color: var(--color-textos-secundarios) !important;
+    cursor: not-allowed;
+}

@@ -72,6 +72,14 @@ const orquestadorEventos = (totalStock, producto) => {
 const llenarDatos = (producto) => {
     let contenedorPadre = document.querySelector(".product-detail");
     contenedorPadre.dataset.id = producto.id_producto;
+    
+    const esAgotado = producto.cantidad_stock <= 0;
+    const agotadoClassContenedor = esAgotado ? "product-detail--agotado" : "";
+    const agotadoClassBtn = esAgotado ? "product-detail__btn-carrito--agotado" : "";
+    const textoBoton = esAgotado ? "AGOTADO" : "AGREGAR AL CARRITO";
+
+    contenedorPadre.className = `product-detail ${agotadoClassContenedor}`;
+
     const htmlTallas = producto.tallasDisponibles.map(talla =>
         `<span class="product-detail__talla-btn" data-talla="${talla}">${talla}</span>`
     ).join('');
@@ -119,8 +127,8 @@ const llenarDatos = (producto) => {
             <p class="product-detail__stock">Unidades disponibles: ${producto.cantidad_stock}</p>
 
             <div class="product-detail__acciones">
-                <button type="button" class="btn-submit product-detail__btn-carrito">
-                    <i class="bi bi-cart2"></i> AGREGAR AL CARRITO
+                <button type="button" class="btn-submit product-detail__btn-carrito ${agotadoClassBtn}" ${esAgotado ? 'disabled' : ''}>
+                    <i class="bi ${esAgotado ? 'bi-slash-circle' : 'bi-cart2'}"></i> ${textoBoton}
                 </button>
                 <button type="button" class="product-detail__btn-favoritos">
                     <i class="bi bi-heart"></i> AGREGAR A FAVORITOS
