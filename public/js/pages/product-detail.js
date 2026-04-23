@@ -36,6 +36,18 @@ const orquestadorEventos = (totalStock, producto) => {
                     return alert("Debes seleccionar una talla y un color antes de agregar al carrito.");
                 }
 
+                const varianteEncontrada = producto.variantes.find(v => v.talla === tallaSeleccionada && v.color === colorSeleccionado);
+
+                if (!varianteEncontrada) {
+                    return alert("La combinación de talla y color seleccionada no está disponible.");
+                }
+
+                const cantidadPedida = Number(document.querySelector('#cantidad-valor').textContent);
+                
+                if (cantidadPedida > varianteEncontrada.stock) {
+                    return alert("No hay suficiente stock para esta combinación. Quedan " + varianteEncontrada.stock + " disponibles.");
+                }
+
                 UTILS.verificarSesionActiva().then(sesionActiva => {
                     if (!sesionActiva) {
                         alert("Debes iniciar sesión para añadir productos al carrito.");

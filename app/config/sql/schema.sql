@@ -64,6 +64,8 @@ CREATE TABLE DETALLES_PEDIDO (
     id_producto int,
     cantidad int,
     precio_unitario decimal(10,2),
+    talla varchar(50),
+    color varchar(50),
     FOREIGN KEY (id_pedido) REFERENCES PEDIDOS(id_pedido) ON DELETE CASCADE,
     FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto) ON DELETE SET NULL
 );
@@ -75,6 +77,6 @@ CREATE TABLE FACTURACION (
     email varchar(150),
     provincia varchar(100),
     direccion_exacta varchar(255),
-    detalles_pago text,
     FOREIGN KEY (id_pedido) REFERENCES PEDIDOS(id_pedido) ON DELETE CASCADE
 );
+

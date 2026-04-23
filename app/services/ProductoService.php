@@ -62,6 +62,12 @@ class ProductoService
                 if (!in_array($detalles['color'], $objetoProducto->coloresDisponibles)) $objetoProducto->coloresDisponibles[] = $detalles['color'];
 
                 if (!in_array($detalles['talla'], $objetoProducto->tallasDisponibles)) $objetoProducto->tallasDisponibles[] = $detalles['talla'];
+
+                $objetoProducto->variantes[] = [
+                    'color' => $detalles['color'],
+                    'talla' => $detalles['talla'],
+                    'stock' => $detalles['stock']
+                ];
             }
 
             $listaProductos[] = $objetoProducto;
@@ -91,6 +97,12 @@ class ProductoService
             if (!in_array($detalles['color'], $objetoProducto->coloresDisponibles)) $objetoProducto->coloresDisponibles[] = $detalles['color'];
 
             if (!in_array($detalles['talla'], $objetoProducto->tallasDisponibles)) $objetoProducto->tallasDisponibles[] = $detalles['talla'];
+
+            $objetoProducto->variantes[] = [
+                'color' => $detalles['color'],
+                'talla' => $detalles['talla'],
+                'stock' => $detalles['stock']
+            ];
         }
 
         return $objetoProducto;

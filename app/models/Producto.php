@@ -10,6 +10,7 @@ class Producto {
     public $url_imagen;
     public $tallasDisponibles;
     public $coloresDisponibles;
+    public $variantes;
 
     public function __construct($id_producto, $nombre_categoria, $nombre_producto, $descripcion, $precio_unitario, $url_imagen) {
         $this->id_producto = $id_producto;
@@ -21,6 +22,7 @@ class Producto {
         $this->cantidad_stock = 0;
         $this->tallasDisponibles = [];
         $this->coloresDisponibles = [];
+        $this->variantes = [];
     }
 
 }

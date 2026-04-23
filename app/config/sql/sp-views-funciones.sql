@@ -57,7 +57,8 @@ CREATE PROCEDURE sp_insertar_variante(
 )
 BEGIN
     INSERT INTO VARIANTES (id_producto, id_color, id_talla, stock)
-    VALUES (p_id_producto, p_id_color, p_id_talla, p_stock);
+    VALUES (p_id_producto, p_id_color, p_id_talla, p_stock)
+    ON DUPLICATE KEY UPDATE stock = stock + p_stock;
 END //
 DELIMITER ;
 
@@ -124,5 +125,26 @@ CREATE PROCEDURE sp_insertar_categoria(
 BEGIN
     INSERT INTO CATEGORIAS (nombre, descripcion, estado)
     VALUES (p_nombre, p_descripcion, 1);
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE TRIGGER trigger_update_stock_variantes
+AFTER INSERT ON DETALLES_PEDIDO
+FOR EACH ROW
+BEGIN
+    DECLARE v_id_color INT;
+    DECLARE v_id_talla INT;
+
+    SELECT id_color INTO v_id_color FROM COLORES WHERE color = NEW.color LIMIT 1;
+    
+    SELECT id_talla INTO v_id_talla FROM TALLAS WHERE talla = NEW.talla LIMIT 1;
+
+    IF v_id_color IS NOT NULL AND v_id_talla IS NOT NULL THEN
+        UPDATE VARIANTES 
+        SET stock = stock - NEW.cantidad 
+        WHERE id_producto = NEW.id_producto AND id_color = v_id_color AND id_talla = v_id_talla;
+    END IF;
 END //
 DELIMITER ;

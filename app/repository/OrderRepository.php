@@ -27,14 +27,16 @@ class OrderRepository
             $stmtFact->bind_param("isssss", $idPedido, $datosFacturacion['nombre'], $datosFacturacion['email'], $datosFacturacion['provincia'], $datosFacturacion['direccion_exacta'], $datosFacturacion['detalles_pago']);
             $stmtFact->execute();
 
-            $sqlDetalle = "INSERT INTO DETALLES_PEDIDO (id_pedido, id_producto, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
+            $sqlDetalle = "INSERT INTO DETALLES_PEDIDO (id_pedido, id_producto, cantidad, precio_unitario, talla, color) VALUES (?, ?, ?, ?, ?, ?)";
             $stmtDetalle = $con->prepare($sqlDetalle);
 
             foreach ($items as $item) {
-                $id_p = $item['id_producto'];
+                $id_p = isset($item['id_producto']) ? $item['id_producto'] : $item['id'];
                 $cant = $item['cantidad'];
                 $prec = $item['precio'];
-                $stmtDetalle->bind_param("iiid", $idPedido, $id_p, $cant, $prec);
+                $talla = isset($item['talla']) ? $item['talla'] : null;
+                $color = isset($item['color']) ? $item['color'] : null;
+                $stmtDetalle->bind_param("iiidss", $idPedido, $id_p, $cant, $prec, $talla, $color);
                 $stmtDetalle->execute();
             }
 
