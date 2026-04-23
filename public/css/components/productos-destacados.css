@@ -134,3 +134,12 @@
 .product-card__btn-icon {
     font-size: 16px;
 }
+
+.no-products {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0;
+    font-family: var(--fuente-textos);
+    color: var(--color-textos-secundarios);
+    font-size: 18px;
+}

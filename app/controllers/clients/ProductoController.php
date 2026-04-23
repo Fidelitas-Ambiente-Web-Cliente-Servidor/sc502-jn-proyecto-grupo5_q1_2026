@@ -26,8 +26,17 @@ class ProductoController
 
     public function procesarGet()
     {
-        $datos = (isset($_GET['id'])) ? $this->productoService->getProductIdDetail($_GET['id']) : $this->productoService->getProductAllDetails();
-        $response = (!empty($datos)) ? cuerpoResponse('success', 200, 'Datos enviados exitosamente', $datos) : cuerpoResponse('error', 404, 'ID no existe', null);
+        if (isset($_GET['id'])) {
+            $datos = $this->productoService->getProductIdDetail($_GET['id']);
+        } else if (isset($_GET['category'])) {
+            $datos = $this->productoService->getProductsByCategoryDetails($_GET['category']);
+        } else if (isset($_GET['search'])) {
+            $datos = $this->productoService->getProductsBySearchDetails($_GET['search']);
+        } else {
+            $datos = $this->productoService->getProductAllDetails();
+        }
+
+        $response = cuerpoResponse('success', 200, 'Datos enviados exitosamente', $datos ?? []);
         enviarRespuestJson($response);
     }
 }

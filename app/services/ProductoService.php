@@ -13,7 +13,29 @@ class ProductoService
 
     public function getProductAllDetails()
     {
-        $products = $this->productoRepository->getAllProducts();
+        return $this->getProductsDetailsByQuery(null, null);
+    }
+
+    public function getProductsByCategoryDetails($idCategoria)
+    {
+        return $this->getProductsDetailsByQuery($idCategoria, null);
+    }
+
+    public function getProductsBySearchDetails($query)
+    {
+        return $this->getProductsDetailsByQuery(null, $query);
+    }
+
+    private function getProductsDetailsByQuery($idCategoria = null, $searchQuery = null)
+    {
+        if ($idCategoria) {
+            $products = $this->productoRepository->getProductsByCategory($idCategoria);
+        } else if ($searchQuery) {
+            $products = $this->productoRepository->searchProducts($searchQuery);
+        } else {
+            $products = $this->productoRepository->getAllProducts();
+        }
+
         $detailsProducts = $this->productoRepository->getAllProductsDetails();
         $listaProductos = [];
 

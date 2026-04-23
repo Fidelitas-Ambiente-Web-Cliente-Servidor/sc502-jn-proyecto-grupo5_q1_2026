@@ -20,9 +20,44 @@ class ProductoRepository
                 LEFT JOIN CATEGORIAS c ON p.id_categoria = c.id_categoria
                 LEFT JOIN VARIANTES v ON p.id_producto = v.id_producto
                 GROUP BY p.id_producto, c.nombre";
-        if (!$this->conexionBD)  return $this->succesConexion = false;
+        if (!$this->conexionBD)  return false;
 
         $statement = $this->conexionBD->prepare($sql);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProductsByCategory($idCategoria)
+    {
+        $sql = "SELECT p.*, c.nombre as nombre_categoria, COALESCE(SUM(v.stock), 0) as cantidad_stock 
+                FROM PRODUCTOS p
+                LEFT JOIN CATEGORIAS c ON p.id_categoria = c.id_categoria
+                LEFT JOIN VARIANTES v ON p.id_producto = v.id_producto
+                WHERE p.id_categoria = ?
+                GROUP BY p.id_producto, c.nombre";
+        if (!$this->conexionBD) return false;
+
+        $statement = $this->conexionBD->prepare($sql);
+        $statement->bind_param("i", $idCategoria);
+        $statement->execute();
+        $result = $statement->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function searchProducts($query)
+    {
+        $searchTerm = "%$query%";
+        $sql = "SELECT p.*, c.nombre as nombre_categoria, COALESCE(SUM(v.stock), 0) as cantidad_stock 
+                FROM PRODUCTOS p
+                LEFT JOIN CATEGORIAS c ON p.id_categoria = c.id_categoria
+                LEFT JOIN VARIANTES v ON p.id_producto = v.id_producto
+                WHERE p.nombre_producto LIKE ? OR p.descripcion LIKE ?
+                GROUP BY p.id_producto, c.nombre";
+        if (!$this->conexionBD) return false;
+
+        $statement = $this->conexionBD->prepare($sql);
+        $statement->bind_param("ss", $searchTerm, $searchTerm);
         $statement->execute();
         $result = $statement->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
