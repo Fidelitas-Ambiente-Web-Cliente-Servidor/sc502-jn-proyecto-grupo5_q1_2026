@@ -108,7 +108,8 @@
     font-weight: 600;
 }
 
-.user-bar__categoria-link:hover {
+.user-bar__categoria-link:hover,
+.user-bar__categoria-link--active {
     text-decoration: underline;
 }
 

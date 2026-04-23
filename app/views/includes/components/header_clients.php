@@ -1,5 +1,5 @@
 <header class=" header header__horizontal">
-    <a href="<?php  echo BASE_URL ?>/index.php">
+    <a href="<?php echo BASE_URL ?>/index.php">
         <h1 class="header__title">ONLY WAY</h1>
     </a>
     <input type="text" id="input-buscar" class="input-buscar" placeholder="¿Qué buscás?">

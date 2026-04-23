@@ -1,10 +1,10 @@
-import { URL_BASE_API, URL_BASE_JS, formateador} from "../utils.js";
+import { URL_BASE_API, URL_BASE_JS, formateador } from "../utils.js";
 const URL_API = URL_BASE_API + "/clients/ProductoController.php";
 
 const getProductAll = () => {
   return fetch(URL_API)
     .then((response) => response.json())
-    .then(data => {
+    .then((data) => {
       mostrarTodosProductos(data);
       cantidadProductosCarrito();
       return data;
@@ -12,12 +12,8 @@ const getProductAll = () => {
     .catch((error) => alert("Error al procesar la consulta" + error));
 };
 
-
-
 const mostrarTodosProductos = (productosData) => {
-  const contenedorCard = document.querySelector(
-    ".productos-destacados__grid",
-  );
+  const contenedorCard = document.querySelector(".productos-destacados__grid");
   contenedorCard.innerHTML = "";
 
   productosData.data.forEach((producto) => {
@@ -43,13 +39,11 @@ const mostrarTodosProductos = (productosData) => {
 };
 
 const cantidadProductosCarrito = () => {
-  let totalItems = parseInt(localStorage.getItem('total_items')) || 0;
+  let totalItems = parseInt(localStorage.getItem("total_items")) || 0;
   let iconoCarrito = document.querySelector("#cart-count");
 
-  if (totalItems === 0) return iconoCarrito.innerHTML = '';
+  if (totalItems === 0) return (iconoCarrito.innerHTML = "");
   iconoCarrito.innerHTML = totalItems;
-
-}
-
+};
 
 export { getProductAll };
