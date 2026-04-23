@@ -106,3 +106,13 @@ Objetivo: evitar scripts gigantes
 + facilitar mantenimiento del sistema.
 
 
+
+Producto 1:
+Titulo: Conjunto Denim Urbano
+Descripción: Set de top y pantalón de mezclilla azul con corte entallado
+Precio: 27000
+
+Producto 2:
+Titulo: Zapatillas Retro Mike
+Descripción:Calzado deportivo de caña alta con eslogan mike
+Precio: 52000
