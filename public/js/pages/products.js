@@ -36,7 +36,7 @@ const mostrarTodosProductos = (productosData) => {
             </span>
           </div>
 
-          <a href="${PHP_URL}/?page=product-detail&id=${producto.id_producto}" class="product-card__btn" id="btn-ver-detalle" data-id="${producto.id_producto}">Ver Detalle</a>
+          <a href="index.php?page=product-detail&id=${producto.id_producto}" class="product-card__btn" id="btn-ver-detalle" data-id="${producto.id_producto}">Ver Detalle</a>
         </div>
       </article>`;
     contenedorCard.innerHTML += card;
