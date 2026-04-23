@@ -194,9 +194,11 @@ const actualizarDisponibilidad = (producto) => {
 };
 
 const activarFocus = (elemento) => {
-    desactivarFocus(elemento)
-    elemento.classList.add('seleccionado');
-
+    const estaSeleccionado = elemento.classList.contains('seleccionado');
+    desactivarFocus(elemento);
+    if (!estaSeleccionado) {
+        elemento.classList.add('seleccionado');
+    }
 }
 
 const desactivarFocus = (elemento) => {
