@@ -21,7 +21,9 @@ const orquestadorEventos = (totalStock, producto) => {
         switch (true) {
             case target.classList.contains('product-detail__talla-btn'):
             case target.classList.contains('product-detail__color-btn'):
+                if (target.classList.contains('desactivado')) return;
                 activarFocus(target);
+                actualizarDisponibilidad(producto);
                 break;
             
             case target.classList.contains('product-detail__cantidad-btn'):
@@ -137,7 +139,58 @@ const llenarDatos = (producto) => {
 
         </div>
     `;
-    return contenedorPadre.innerHTML = tarjeta;
+    contenedorPadre.innerHTML = tarjeta;
+    actualizarDisponibilidad(producto);
+    return;
+};
+
+const actualizarDisponibilidad = (producto) => {
+    const tallaSeleccionada = document.querySelector('.product-detail__talla-btn.seleccionado')?.dataset.talla;
+    const colorSeleccionado = document.querySelector('.product-detail__color-btn.seleccionado')?.dataset.color;
+
+    // Actualizar tallas basadas en el color seleccionado
+    const tallasBtns = document.querySelectorAll('.product-detail__talla-btn');
+    if (colorSeleccionado) {
+        const tallasDisponiblesParaColor = producto.variantes
+            .filter(v => v.color === colorSeleccionado && v.stock > 0)
+            .map(v => v.talla);
+        
+        tallasBtns.forEach(btn => {
+            if (tallasDisponiblesParaColor.includes(btn.dataset.talla)) {
+                btn.classList.remove('desactivado');
+            } else {
+                btn.classList.add('desactivado');
+                btn.classList.remove('seleccionado');
+            }
+        });
+    } else {
+        const tallasConStockGlobal = [...new Set(producto.variantes.filter(v => v.stock > 0).map(v => v.talla))];
+        tallasBtns.forEach(btn => {
+            btn.classList.toggle('desactivado', !tallasConStockGlobal.includes(btn.dataset.talla));
+        });
+    }
+
+    // Actualizar colores basados en la talla seleccionada
+    const coloresBtns = document.querySelectorAll('.product-detail__color-btn');
+    if (tallaSeleccionada) {
+        const coloresDisponiblesParaTalla = producto.variantes
+            .filter(v => v.talla === tallaSeleccionada && v.stock > 0)
+            .map(v => v.color);
+        
+        coloresBtns.forEach(btn => {
+            if (coloresDisponiblesParaTalla.includes(btn.dataset.color)) {
+                btn.classList.remove('desactivado');
+            } else {
+                btn.classList.add('desactivado');
+                btn.classList.remove('seleccionado');
+            }
+        });
+    } else {
+        const coloresConStockGlobal = [...new Set(producto.variantes.filter(v => v.stock > 0).map(v => v.color))];
+        coloresBtns.forEach(btn => {
+            btn.classList.toggle('desactivado', !coloresConStockGlobal.includes(btn.dataset.color));
+        });
+    }
 };
 
 const activarFocus = (elemento) => {

@@ -242,4 +242,12 @@
 .product-detail--agotado .product-detail__imagen {
     filter: grayscale(100%);
     opacity: 0.6;
-}
+}
+
+.desactivado {
+    opacity: 0.3;
+    pointer-events: none;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
