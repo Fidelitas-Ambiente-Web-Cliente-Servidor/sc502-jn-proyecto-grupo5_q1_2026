@@ -17,21 +17,7 @@
             <div class="productos-destacados__contenedor">
                 <h2 class="productos-destacados__titulo">Todos los Productos</h2>
                 <div class="productos-destacados__grid">
-                    <article class="product-card">
-                        <div class="product-card__imagen-wrapper">
-                            <img class="product-card__imagen" />
-                        </div>
-                        <div class="product-card__info">
-                            <h3 class="product-card__nombre"></h3>
-                            <div class="product-card__precios">
-                                <span class="product-card__precio-actual"></span>
-                            </div>
-
-                            <a href="/?page=product-detail&id=" class="product-card__btn" id="btn-ver-detalle">
-                                <i class="bi bi-cart product-card__btn-icon"></i> Ver Detalle
-                            </a>
-                        </div>
-                    </article>
+                    <!-- Se llena dinámicamente desde products.js -->
                 </div>
             </div>
         </section>
