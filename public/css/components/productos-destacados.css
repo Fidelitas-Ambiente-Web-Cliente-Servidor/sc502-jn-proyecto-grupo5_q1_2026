@@ -40,6 +40,12 @@
     flex-direction: column;
 }
 
+.product-card__imagen-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Contenedor imagen */
 .product-card__imagen-wrapper {
     position: relative;

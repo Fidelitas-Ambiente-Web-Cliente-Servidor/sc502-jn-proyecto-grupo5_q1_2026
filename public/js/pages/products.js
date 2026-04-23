@@ -25,9 +25,11 @@ const mostrarTodosProductos = (productosData) => {
     const precioFormateado = formateador.format(producto.precio_unitario);
     const card = `
       <article class="product-card" data-id="${producto.id_producto}">
-        <div class="product-card__imagen-wrapper">
-          <img src="${producto.url_imagen}" alt="${producto.descripcion}" class="product-card__imagen" />
-        </div>
+        <a href="index.php?page=product-detail&id=${producto.id_producto}" class="product-card__imagen-link">
+            <div class="product-card__imagen-wrapper">
+                <img src="${producto.url_imagen}" alt="${producto.descripcion}" class="product-card__imagen" />
+            </div>
+        </a>
         <div class="product-card__info">
           <h3 class="product-card__nombre">${producto.nombre_producto}</h3>
           <div class="product-card__precios">
